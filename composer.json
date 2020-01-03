@@ -1,0 +1,12 @@
+{
+    "name": "aoyun/yu",
+    "authors": [
+        {
+            "name": "yu",
+            "email": "1846721817@qq.com"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "^8.5"
+    }
+}
