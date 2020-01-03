@@ -1,12 +1,18 @@
 https://www.jianshu.com/p/280acb6b0b22
 
 packagist.org 找到submit;
- 自动更新 => https://packagist.org/about#how-to-update-packages
+ (x)自动更新 => https://packagist.org/about#how-to-update-packages
+ (v)新版本自动更新
 
 github.com
  打标签 => draft a new release => this is a pre-release =>
 
 
-
  Q: There is no license information available for the latest version (v0.1) of this package.
  A: composer.json中添加："license": "MIT",
+
+ TAG
+ git tag [tag]
+ git push origin [tag]
+ git tag -d [tag]
+ git push origin :[tag]
