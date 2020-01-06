@@ -24,7 +24,7 @@
                 setTimeout(() => {
                     ws.send("新发送数据");
                     alert("新发送数据...");
-                    ws.close();
+                    //ws.close();
                 },3000)
 
             };
@@ -41,8 +41,6 @@
                 alert("连接已关闭...");
                 console.log('websocket 断开: ' + e.code + ' ' + e.reason + ' ' + e.wasClean)
                 console.log(e)
-                // 关闭 websocket
-                alert("连接已关闭...");
             };
         } else {
             // 浏览器不支持 WebSocket

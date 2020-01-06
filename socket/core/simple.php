@@ -1,8 +1,6 @@
 <?php
 /**
- * link: http://www.zjhejiang.com/
- * copyright: Copyright (c) 2020 浙江禾匠信息科技有限公司
- * author: xay
+ * https://github.com/13966349186/HappyChat.git
  */
 
 class simple
@@ -18,6 +16,7 @@ class simple
     {
         $this->port = 8082;
     }
+
 
     public function index()
     {
