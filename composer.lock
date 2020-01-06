@@ -4,8 +4,47 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "00d11160ecac25d1a4ba1d5076a6461b",
+    "content-hash": "df76e6d44b2a7f8646913883861b503e",
     "packages": [
+        {
+            "name": "ckg/new",
+            "version": "v3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/13966349186/test.git",
+                "reference": "40a1ab0ca4bca2affcac24de50fc277edf8ddc1d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/13966349186/test/zipball/40a1ab0ca4bca2affcac24de50fc277edf8ddc1d",
+                "reference": "40a1ab0ca4bca2affcac24de50fc277edf8ddc1d",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "src\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "yu",
+                    "email": "1846721817@qq.com"
+                }
+            ],
+            "description": "描述1",
+            "time": "2020-01-06T06:31:18+00:00"
+        },
         {
             "name": "doctrine/instantiator",
             "version": "1.3.0",
