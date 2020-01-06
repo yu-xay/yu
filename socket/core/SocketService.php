@@ -16,7 +16,7 @@ class SocketService
     private static $chatUser = [];  //参与聊天的用户
 
     //验证socket
-    function calcKey( $key )
+    function calcKey($key)
     {
         //基于websocket version 13
         $accept = base64_encode(sha1($key . '258EAFA5-E914-47DA-95CA-C5AB0DC85B11', true));
@@ -44,14 +44,6 @@ class SocketService
         socket_write($socket, $upgrade, strlen($upgrade));
         $this->handShake = true;
         return true;
-    }
-
-    //客户端链接处理函数
-    function connect( $socket )
-    {
-        array_push( self::$connectPool, $socket );
-//        $this->runLog("\n" . $socket . " CONNECTED!");
-//        $this->runLog(date("Y-n-d H:i:s"));
     }
 
     //解码 解析数据帧
@@ -83,13 +75,10 @@ class SocketService
     {
         $len = strlen($buffer);
         if ($len <= 125) {
-
             return "\x81" . chr($len) . $buffer;
         } else if ($len <= 65535) {
-
             return "\x81" . chr(126) . pack("n", $len) . $buffer;
         } else {
-
             return "\x81" . char(127) . pack("xxxxN", $len) . $buffer;
         }
     }
@@ -98,59 +87,52 @@ class SocketService
     {
         echo 'start' . PHP_EOL;
         $this->master = socket_create_listen($this->port);
-
         self::$connectPool[] = $this->master;
 
-        while( true ){
-            echo json_encode(self::$connectPool);
+        while (true) {
             $readFds = self::$connectPool;
             //阻塞接收客户端链接
-            @socket_select( $readFds, $writeFds, $e = null, $this->timeout );
-
-            foreach( $readFds as $socket ){
+            @socket_select($readFds, $writeFds, $e = null, $this->timeout);
+            foreach ($readFds as $socket) {
                 //当前链接 是主进程
-                if( $this->master == $socket ){
+                if ($this->master == $socket) {
+                    echo '接收新的链接' . PHP_EOL;
+                    $client = socket_accept($this->master);  //接收新的链接
+                    $this->handShake = false;
 
-                    $client = socket_accept( $this->master );  //接收新的链接
-                    $this->handShake = False;
-
-                    if ($client < 0){
-                        $this->log('clinet connect false!');
+                    if ($client < 0) {
+                        echo '客户端连接失败' . PHP_EOL;
                         continue;
-                    } else{
+                    } else {
                         //超过最大连接数
-                        if( count( self::$connectPool ) > self::$maxConnectNum )
+                        if (count(self::$connectPool) > self::$maxConnectNum)
                             continue;
-
-                        //加入连接池
-                        $this->connect( $client );
+                        array_push(self::$connectPool, $client);
+                        echo '加入连接池' . PHP_EOL;
                     }
-
                 }else{
                     //不是主进程,开始接收数据
                     $bytes = @socket_recv($socket, $buffer, 2048, 0);
                     //未读取到数据
-                    if( $bytes == 0 ){
-                       // $this->disConnect( $socket );
-                    }else{
+                    if ($bytes == 0) {
+                        socket_close($socket);
+                    } else {
                         //未握手 先握手
-                        if( !$this->handShake ){
-
-                            $this->doHandShake( $socket, $buffer );
-                        }else{
+                        if (!$this->handShake) {
+                            $this->doHandShake($socket, $buffer);
+                            echo '握手' . PHP_EOL;
+                        } else {
                             //如果是已经握完手的数据，广播其发送的消息
-                            $buffer = $this->decode( $buffer );
+                            $buffer = $this->decode($buffer);
                             echo $buffer;
+                            //
                             $msg = [1231];
-                            $msg = $this->frame( json_encode( $msg ) );
-                            socket_write( $client, $msg, strlen($msg) );
+                            $msg = $this->frame(json_encode($msg));
+                            socket_write($client, $msg, strlen($msg));
                         }
                     }
-
                 }
             }
-
         }
     }
-    //解析发送的数据
 }
