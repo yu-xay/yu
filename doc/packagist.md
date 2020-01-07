@@ -1,5 +1,6 @@
 ##packagist
-https://www.jianshu.com/p/280acb6b0b22
+* [如何建立自己的composer包](https://www.jianshu.com/p/280acb6b0b22)
+* [开发 Composer 包详细步骤](https://segmentfault.com/a/1190000013947602?utm_source=tag-newest "composer init 命令")
 
 > packagist.org 找到submit;
  >> - (x)自动更新 => https://packagist.org/about#how-to-update-packages
