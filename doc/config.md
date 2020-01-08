@@ -9,13 +9,13 @@
 - [GIT](https://git-scm.com/book/zh/v2)
 
 
-
 ### 工具 ###
 - [图片压缩](https://tinypng.com/ "TinyPNG – Compress PNG images while preserving transparency")
+- [WAMPSERVER3.17](https://blog.csdn.net/baidu_35297131/article/details/89738236 "https://545c.com/file/4763073-370442267")
+- [WAMPSERVER3.2.0](http://caiyun.feixin.10086.cn/dl/175Ckd86giUa1 "HOQW")
 - [PHPSTORM](http://pblog.rzepx.cn/27.html "ECHO源码社区-站群里一颗闪亮的星！")
 - [PHPSTORM汉化包](https://github.com/pingfangx/TranslatorX, "https://github.com/13966349186/TranslatorX")
 - [PHPSTORM配置](https://pan.baidu.com/s/13hPe3ny_MiyiG2DjcDRYMg, "提取码: e7me")
-- [WAMPSERVER3.17](https://blog.csdn.net/baidu_35297131/article/details/89738236 "https://545c.com/file/4763073-370442267")
 - [GIT软件](https://gitforwindows.org/ "Git for Windows")
 - [科学上网](https://laod.cn/ "基本失效")
 - [PHP文档](https://www.php.net/download-docs.php "PHP: Download documentation")
@@ -24,7 +24,6 @@
 - [MYSQL官网](https://dev.mysql.com/downloads/windows/installer/5.7.html)
 - [ngrok](http://caiyun.feixin.10086.cn/dl/175CjfA6OiR9L "Y58R")
 
-http://caiyun.feixin.10086.cn/dl/175CkJ7rfP1mc  提取密码:Lkr7
 ### 其他 ###
 
 
