@@ -7,7 +7,7 @@
 ### 网址 ###
 - [赵克立博客_技术栈 ](https://www.zhaokeli.com/)
 - [GIT](https://git-scm.com/book/zh/v2)
-
+- [50道SQL练习题及答案与详细分析](https://www.jianshu.com/p/476b52ee4f1b "https://www.jianshu.com/p/fdb6115d927e")
 
 ### 工具 ###
 - [图片压缩](https://tinypng.com/ "TinyPNG – Compress PNG images while preserving transparency")
