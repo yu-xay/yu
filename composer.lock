@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "df76e6d44b2a7f8646913883861b503e",
+    "content-hash": "89ed3a35123b1808a769ee8f3d2f6608",
     "packages": [
         {
             "name": "ckg/new",
-            "version": "v3.1",
+            "version": "v3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/13966349186/test.git",
-                "reference": "40a1ab0ca4bca2affcac24de50fc277edf8ddc1d"
+                "reference": "dcd1aaf3cc61ea10c45217de90a729c21df1e353"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/13966349186/test/zipball/40a1ab0ca4bca2affcac24de50fc277edf8ddc1d",
-                "reference": "40a1ab0ca4bca2affcac24de50fc277edf8ddc1d",
+                "url": "https://api.github.com/repos/13966349186/test/zipball/dcd1aaf3cc61ea10c45217de90a729c21df1e353",
+                "reference": "dcd1aaf3cc61ea10c45217de90a729c21df1e353",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -29,7 +29,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "src\\": "src/"
+                    "ckg\\src\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -43,7 +43,7 @@
                 }
             ],
             "description": "描述1",
-            "time": "2020-01-06T06:31:18+00:00"
+            "time": "2020-01-09T01:53:40+00:00"
         },
         {
             "name": "doctrine/instantiator",

@@ -7,13 +7,14 @@
 require_once '../vendor/autoload.php';
 
 use PHPUnit\Framework\TestCase;
-use src\Tools;
+use ckg\src\Tools;
 
 class StackTest extends TestCase
 {
     public function testPushAndPop()
     {
         $a = new Tools();
+        $this->expectOutputString('Hello World');
         $a::Hello();
     }
 }
