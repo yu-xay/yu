@@ -1,3 +1,4 @@
 .idea
 /vendor/
 /.idea/
+/npm/node_modules/
