@@ -1,6 +1,6 @@
 <?php
 
-namespace tree;
+namespace yu\tree;
 
 class DistrictArr
 {

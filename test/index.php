@@ -1,26 +1,22 @@
 <?php
-/**
- * link: http://www.zjhejiang.com/
- * copyright: Copyright (c) 2020 浙江禾匠信息科技有限公司
- * author: xay
- */
 require_once '../vendor/autoload.php';
 
+use EasyWeChat\Factory;
 use PHPUnit\Framework\TestCase;
-use ckg\src\Tools;
-
 class StackTest extends TestCase
 {
     public function testPushAndPop()
     {
-        $a = new Tools();
-        $this->expectOutputString('Hello World');
-        $a::Hello();
+        $config = [
+            'app_id' => 'wx3cf0f39249eb0exx',
+            'secret' => 'f1c242f4f28f735d4687abb469072axx',
+            // 指定 API 调用返回结果的类型：array(default)/collection/object/raw/自定义类名
+            'response_type' => 'array',
+        ];
+
+        $app = Factory::officialAccount($config,123);
+        var_dump($app);
+        exit;
     }
 }
-
-$a = new StackTest();
-$a->testPushAndPop();
-
-
 ?>
