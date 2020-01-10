@@ -1,6 +1,6 @@
 <?php
 
-namespace BitwiseOperators;
+namespace yu\bitwiseOperators;
 
 use PHPUnit\Framework\TestCase;
 
