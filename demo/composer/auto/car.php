@@ -8,4 +8,8 @@ class car
     {
         return 'CREATE';
     }
+    public static function setWheel()
+    {
+        return 'wheel';
+    }
 }

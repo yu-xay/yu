@@ -6,6 +6,24 @@ use ckg\src\Tools;
 use PHPUnit\Framework\TestCase;
 use yu\composer\auto\car;
 
+class customize
+{
+    public function __construct()
+    {
+        require_once '../../vendor/autoload.php';
+        include __DIR__ . '/autoload.php';
+    }
+
+    public function test()
+    {
+        car::setWheel();
+    }
+}
+
+$a = new customize();
+$a->test();
+
+
 class demo extends TestCase
 {
     public function __construct()
@@ -29,6 +47,8 @@ class demo extends TestCase
     public function testAutoload()
     {
         $auto = new car();
+        //dcd() 不会触发 spl_autoload_register phpunit问题 ↑
+        $this->assertSame('wheel', car::setWheel());
         $this->assertSame('CREATE', $auto->create());
     }
 

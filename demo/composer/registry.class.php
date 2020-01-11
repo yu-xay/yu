@@ -12,12 +12,14 @@ class registry
 {
     public static function autoload($class)
     {
-        #file_put_contents('log.txt', date('Y-m-d H:i:s') . $class . PHP_EOL, FILE_APPEND);
+        echo 123;exit;
         $class = substr($class, strripos($class, '\\') + 1);
         $classFile = './auto/' . $class . '.php';
 
         if (is_file($classFile)) {
             include $classFile;
+        } else {
+            file_put_contents('autoload.txt', date('Y-m-d H:i:s') . $class . PHP_EOL, FILE_APPEND);
         }
     }
 
