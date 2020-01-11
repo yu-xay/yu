@@ -2,3 +2,6 @@
 2020-01-11 03:26:37ERROR用户自定义 notice error
 2020-01-11 03:27:21ERROR抛出错误
 2020-01-11 03:31:21ERROR抛出错误
+2020-01-11 03:41:43ERRORUse of undefined constant car - assumed 'car' (this will throw an Error in a future version of PHP)
+2020-01-11 03:41:52ERRORUse of undefined constant car - assumed 'car' (this will throw an Error in a future version of PHP)
+2020-01-11 03:42:02ERRORUse of undefined constant car - assumed 'car' (this will throw an Error in a future version of PHP)
