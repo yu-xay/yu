@@ -4,10 +4,9 @@ namespace yu\composer;
 
 use ckg\src\Tools;
 use PHPUnit\Framework\TestCase;
-use yu\composer\auto\tt;
+use yu\composer\auto\car;
 
-
-class StackTest extends TestCase
+class demo extends TestCase
 {
     public function __construct()
     {
@@ -17,6 +16,7 @@ class StackTest extends TestCase
     protected function setUp(): void
     {
         require_once '../../vendor/autoload.php';
+        include __DIR__ . '/autoload.php';
     }
 
     public function testPushAndPop()
@@ -26,19 +26,25 @@ class StackTest extends TestCase
         $a::Hello();
     }
 
-    public function testTt()
+    public function testAutoload()
     {
-//        spl_autoload_register(['Yii', 'autoload'], true, true);
-//        Yii::$classMap = require __DIR__ . '/classes.php';
-//        Yii::$container = new yii\di\Container();
-        include './One.php';
-        spl_autoload_register(['One', 'autoload']);
-//        spl_autoload_register(function ($class) {
-//            include './auto/tt.php';
-//        });
-        $this->assertSame('1', '1');
-        $a = new tt();
-        echo $a->index();
+        $auto = new car();
+        $this->assertSame('CREATE', $auto->create());
+    }
+
+    public function testError()
+    {
+        trigger_error('抛出错误', E_USER_ERROR);
+        die('错误处理');
+    }
+
+    /**
+     * todo phpunit 与之冲突
+     */
+    public function testException()
+    {
+        throw new Exception('hello world!');
+        die('异常处理');
     }
 }
 
