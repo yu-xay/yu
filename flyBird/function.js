@@ -17,22 +17,25 @@ function clearCanvas() {
 }
 
 function init() {
+    document.getElementById('cvs').style.display = "block";
     document.getElementById('start-img').style.display = "none";
     start();
 }
 
 function reload(e) {
     window.location.href = "index.html?id=111";
-};
+}
 
 //绘制背景
 function start() {
     loadImage({
         "bird": "./images/bird.png",
         "land": "./images/land.png",
+        "landc": "./images/land-2.png",
         "pipeDown": "./images/pipeDown.png",
         "pipeUp": "./images/pipeUp.png",
-        "sky": "./images/sky.png"
+        "sky": "./images/dd.png",
+        'cc': './images/13.png'
     }, function (imgobj) {
         cvs.width = imgobj.sky.width;
         cvs.height = imgobj.sky.height;
@@ -44,18 +47,20 @@ function start() {
 
         //创建地面实例
         var Land1 = new Land(ctx, imgobj.land, 2);
-        var Land2 = new Land(ctx, imgobj.land, 2);
+        var Land2 = new Land(ctx, imgobj.landc, 2);
         var Land3 = new Land(ctx, imgobj.land, 2);
-        var Land4 = new Land(ctx, imgobj.land, 2);
+        var Land4 = new Land(ctx, imgobj.landc, 2);
 
         //创建小鸟
-        var bird = new Bird(ctx, imgobj.bird, 3, 1, 10, 15,15);
-        var pipe1 = new Pipe(ctx, imgobj.pipeDown, imgobj.pipeUp, 800, imgobj.land.height,0,15);
-        var pipe2 = new Pipe(ctx, imgobj.pipeDown, imgobj.pipeUp, 150, imgobj.land.height,0,10);
-        var pipe3 = new Pipe(ctx, imgobj.pipeDown, imgobj.pipeUp, 150, imgobj.land.height,0,10);
-        var pipe4 = new Pipe(ctx, imgobj.pipeDown, imgobj.pipeUp, 150, imgobj.land.height);
-        var pipe5 = new Pipe(ctx, imgobj.pipeDown, imgobj.pipeUp, 150, imgobj.land.height);
-        var pipe6 = new Pipe(ctx, imgobj.pipeDown, imgobj.pipeUp, 150, imgobj.land.height);
+        var bird = new Bird(ctx, imgobj.bird, 3, 1, 100, 50);
+        var pipe1 = new Pipe(ctx, imgobj.cc, imgobj.cc, 150, imgobj.land.height, 0, 5);
+        var pipe2 = new Pipe(ctx, imgobj.cc, imgobj.cc, 150, imgobj.land.height, 0, 5);
+        var pipe3 = new Pipe(ctx, imgobj.cc, imgobj.cc, 150, imgobj.land.height, 0, 5);
+        var pipe4 = new Pipe(ctx, imgobj.cc, imgobj.cc, 150, imgobj.land.height, 0, 5);
+        var pipe5 = new Pipe(ctx, imgobj.cc, imgobj.cc, 150, imgobj.land.height, 0, 5);
+        var pipe6 = new Pipe(ctx, imgobj.cc, imgobj.cc, 150, imgobj.land.height, 0, 5);
+        var pipe7 = new Pipe(ctx, imgobj.cc, imgobj.cc, 150, imgobj.land.height, 0, 5);
+
         var timer = setInterval(function () {
             var birdCenterX = bird.x + bird.width / 2;
             var birdCenterY = bird.y + bird.height / 2;
@@ -84,6 +89,8 @@ function start() {
             pipe5.updata();
             pipe6.draw();
             pipe6.updata();
+            pipe7.draw();
+            pipe7.updata();
 
             Land1.draw();
             Land1.updata();
