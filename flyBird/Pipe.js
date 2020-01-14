@@ -37,6 +37,6 @@ function Pipe(ctx,pipeDown,pipeUp,space,landHeight,minHeight,speed){
 		_drawPath: function(){
 			this.ctx.rect(this.x,this.downY,this.width,this.height);
 			this.ctx.rect(this.x,this.upY,this.width,this.height);
-			this.ctx.stroke();
+			//this.ctx.stroke();
 		}
 	})
