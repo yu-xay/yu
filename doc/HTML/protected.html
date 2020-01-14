@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS原型链</title>
+</head>
+<body>
+<a href="https://www.jianshu.com/p/08c07a953fa0">js 原型链</a>
+<a href="https://www.jianshu.com/p/be7c95714586">当前平台</a>
+</body>
+<script>
+    "use strict";
+
+    function Person() {
+    }
+
+    {
+        //每个原型都有一个 constructor 属性指向关联的构造函数 实例原型指向构造函数
+        console.log(Person === Person.prototype.constructor); // true
+    }
+    {
+        // __proto__ //
+        //每一个JavaScript对象(除了 null )都具有的一个属性，叫proto，这个属性会指向该对象的原型
+        let person = new Person();
+        console.log(person.__proto__ === Person.prototype);
+    }
+
+    {
+        //每个函数都有一个 prototype 属性
+        //每一个JavaScript对象(null除外)在创建的时候就会与之关联另一个对象，这个对象就是我们所说的原型，每一个对象都会从原型"继承"属性。
+        console.log(Person.prototype);
+        Person.prototype = {
+            name: 'Kevin'
+        };
+        console.log(Person.prototype);
+        let person = new Person();
+        //建立关联 非复制
+        Person.prototype.name = 'ttt';
+        console.log(person.name)
+    }
+
+</script>
+</html>
