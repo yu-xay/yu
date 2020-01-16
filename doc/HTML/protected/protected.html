@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS原型链</title>
+</head>
+<body>
+
+</body>
+<script>
+    "use strict";
+
+    //函数皆对象
+    function Person() {
+    }
+
+    {
+        //每个函数都有一个 prototype 属性
+        //每个原型都有一个 constructor 属性指向关联的构造函数 实例原型指向构造函数
+        console.log('函数初始化原型 =>', Person.prototype);
+        Person.prototype = {
+            constructor: Person,
+            newProperty: 'data',
+            __proto__: Person.prototype,//可为空
+        };
+        console.log('函数更新后原型 =>', Person.prototype);
+        //指向关联 非复制
+        setTimeout(() => {
+            //每一个JavaScript对象(null除外)在创建的时候就会与之 [关联] 另一个对象，这个对象就是我们所说的原型，每一个对象都会从原型 [继承]属性。
+            //每一个JavaScript对象(除了 null )都具有的一个属性，叫__proto__，这个属性会指向该对象的原型
+            let person = new Person();
+            console.log('对象初始化 =>', person);
+            //Person.prototype.newProperty = 'after';
+            //person.__proto__.newProperty = 'after';//有兼容性问题
+            Object.getPrototypeOf(person).newProperty = 'after';
+            delete person.newProperty;
+            console.log('对象更新后=>', person)
+        }, 2000)
+    }
+</script>
+</html>
