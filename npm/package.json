@@ -4,11 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^0.19.1",
+    "vue": "^2.6.11",
+    "vue-axios": "^2.1.5",
+    "webpack": "^4.41.5"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "vue": "^2.6.11"
-  }
+  "devDependencies": {}
 }
