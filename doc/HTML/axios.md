@@ -1,0 +1,6 @@
+* [axios](https://www.jianshu.com/p/df464b26ae58 "https://ykloveyxk.github.io/2017/02/25/axios%E5%85%A8%E6%94%BB%E7%95%A5/index.html")
+* [echartsjs](https://www.echartsjs.com/zh/feature.html "https://www.cnblogs.com/wisewrong/p/6558001.html")
+* [bootstrap-vue](https://bootstrap-vue.js.org/)
+* [CSS3动画库](https://tool.zhaokeli.com/animate.html)
+* [vue2-highcharts](https://www.npmjs.com/package/vue2-highcharts)
+* [图表](https://www.highcharts.com/maps/demo)
