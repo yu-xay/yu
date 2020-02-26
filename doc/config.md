@@ -14,7 +14,7 @@
 - [阿里云](https://mirrors.aliyun.com/composer/)
 - [WAMPSERVER-3.17](https://blog.csdn.net/baidu_35297131/article/details/89738236 "https://545c.com/file/4763073-370442267")
 - [PHPSTORM-软件包](https://www.jetbrains.com/phpstorm/download/other.html "ECHO源码社区-站群里一颗闪亮的星！")
-- [PHPSTORM-激活码-禁网](http://pblog.rzepx.cn/27.html "ECHO源码社区-站群里一颗闪亮的星！")
+- [PHPSTORM-激活码-禁网](http://medeming.com/ "http://pblog.rzepx.cn/27.htmlECHO源码社区-站群里一颗闪亮的星！")
 - [PHPSTORM-汉化包](https://github.com/pingfangx/TranslatorX, "https://github.com/13966349186/TranslatorX")
 - [GIT软件](https://gitforwindows.org/ "Git for Windows")
 - [beyond compare文件比对工具](# "电脑管家")
