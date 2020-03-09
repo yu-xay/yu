@@ -12,4 +12,15 @@ function test1()
     }
 }
 
-test1();
+function test2()
+{
+    ob_end_clean();
+    //header() 和setcookie() 必须在脚本产生任意输出之前发送 否则会报错
+    setcookie('test', true);
+    header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+    header("Cache-Control: no-cache");
+    header("Pragma: cache");
+    echo true;
+}
+
+test2();
