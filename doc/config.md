@@ -15,12 +15,12 @@
 - [WAMPSERVER-3.17](https://blog.csdn.net/baidu_35297131/article/details/89738236 "https://545c.com/file/4763073-370442267")
 - [PHPSTORM-软件包](https://www.jetbrains.com/phpstorm/download/other.html "ECHO源码社区-站群里一颗闪亮的星！")
 - [PHPSTORM-激活码-禁网](http://medeming.com/ "http://pblog.rzepx.cn/27.htmlECHO源码社区-站群里一颗闪亮的星！")
-- [PHPSTORM-汉化包](https://github.com/pingfangx/TranslatorX, "https://github.com/13966349186/TranslatorX")
+- [PHPSTORM-汉化包](https://github.com/pingfangx/TranslatorX "https://github.com/13966349186/TranslatorX")
 - [GIT软件](https://gitforwindows.org/ "Git for Windows")
 - [beyond compare文件比对工具](# "电脑管家")
 - [MYSQL官网下载](https://dev.mysql.com/downloads/windows/installer/5.7.html)
 - [PHP文档下载](https://www.php.net/download-docs.php "PHP: Download documentation")
-- [资源应用库](http://caiyun.feixin.10086.cn/dl/175CkwzXXWNU2, "BScn") ngrok PHPSTORM-配置 WAMPSERVER-3.2.0 fidder汉化
+- [资源应用库](http://caiyun.feixin.10086.cn/dl/175CkwzXXWNU2 "BScn") ngrok PHPSTORM-配置 WAMPSERVER-3.2.0 fidder汉化
 
 ### 其他 ###
 - [前端兼容性](https://caniuse.com/# "Can I use... Support tables for HTML5, CSS3, etc")
