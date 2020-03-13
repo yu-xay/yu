@@ -1,45 +1,32 @@
 <?php declare(strict_types=1);
+namespace DesignMode\Behavioral\Singleton;
 
-namespace yu\Tests;
-
+/**
+ * 在应用程序调用的时候，只能获得一个对象实例。
+ */
 final class Singleton
 {
-    /**
-     * @var Singleton
-     */
-    private static $instance;
+    private static $model;
 
-    /**
-     * gets the instance via lazy initialization (created on first usage)
-     */
-    public static function getInstance(): Singleton
+    public static function getModel()
     {
-        if (static::$instance === null) {
-            static::$instance = new static();
+        if (empty(self::$model)) {
+            self::$model = new static();
         }
-
-        return static::$instance;
+        return self::$model;
     }
 
-    /**
-    *不允许从外部调用，以防止创建多个实例，
-     *要使用单例，您必须从Singleton :: getInstance（）获取实例
-     */
-    private function __construct()
+    private function __wakeup()
     {
+        // TODO: Implement __wakeup() method.
     }
 
-    /**
-     * prevent the instance from being cloned (which would create a second instance of it)
-     */
     private function __clone()
     {
+        // TODO: Implement __clone() method.
     }
 
-    /**
-     * prevent from being unserialized (which would create a second instance of it)
-     */
-    private function __wakeup()
+    private function __construct()
     {
     }
 }

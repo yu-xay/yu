@@ -2,6 +2,7 @@
 namespace DesignMode\Behavioral\StaticFactory;
 
 /**
+ * 使用一个静态方法来创建所有类型对象
  * Note1: Remember, static means global state which is evil because it can't be mocked for tests
  * Note2: Cannot be subclassed or mock-upped or have multiple different instances.
  */
