@@ -12,6 +12,9 @@
         "ckg/new": "^3.2.1"
     },
     "autoload": {
+        "psr-4": {
+            "DesignMode\\": "demo/designMode"
+        }
     },
     "license": "MIT"
 }

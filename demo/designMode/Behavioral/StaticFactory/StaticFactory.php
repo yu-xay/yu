@@ -1,20 +1,24 @@
 <?php
-namespace designMode\Bahavioral\StaticFactory;
-/**
- * link: http://www.zjhejiang.com/
- * copyright: Copyright (c) 2020 浙江禾匠信息科技有限公司
- * author: xay
- */
+namespace DesignMode\Behavioral\StaticFactory;
 
-class StaticFactory
+/**
+ * Note1: Remember, static means global state which is evil because it can't be mocked for tests
+ * Note2: Cannot be subclassed or mock-upped or have multiple different instances.
+ */
+final class StaticFactory
 {
+    /**
+     * @param string $type
+     *
+     * @return FormatterInterface
+     */
     public static function factory(string $type): FormatterInterface
     {
-        if ($type == 'iphone') {
-            return new Iphone();
+        if ($type == 'number') {
+            return new FormatNumber();
+        } elseif ($type == 'string') {
+            return new FormatString();
         }
-        if ($type == 'tel') {
-            return new Tel();
-        }
+        throw new \InvalidArgumentException('Unknown format given');
     }
 }
