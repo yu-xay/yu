@@ -8,7 +8,7 @@
 namespace DesignMode\Behavioral\FactoryMethod;
 
 
-class FactoryMethod
+interface Logger
 {
-
+    public function log(string $message);
 }
