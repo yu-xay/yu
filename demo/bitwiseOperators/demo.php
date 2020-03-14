@@ -45,6 +45,7 @@ class index extends TestCase
     {
         function swap(int $a, $b): array
         {
+            //注意 $a 和 $b 不能指向同一个地址；否则为空
             $a ^= $b;
             $b ^= $a;
             $a ^= $b;
