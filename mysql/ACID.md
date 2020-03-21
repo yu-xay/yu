@@ -24,10 +24,10 @@
 
 ### 锁 ###
 - 乐观锁：
-  update table table_name
-  set column_name = value, version=version+1
+  update {table_name}
+  set {column_name} = {value}, version=version+1
   and
   where version = version;
-- 悲观锁：update table table_name set column_name = value for update;
+- 悲观锁：update {table_name} set {column_name} = {value} for update;
 - 共享锁：x锁
 引擎
