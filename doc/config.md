@@ -18,6 +18,7 @@
 - [beyond compare文件比对工具](# "电脑管家")
 - [MYSQL官网下载](https://dev.mysql.com/downloads/windows/installer/5.7.html)
 - [PHP文档下载](https://www.php.net/download-docs.php "PHP: Download documentation")
+- [windows php插件](http://pecl.php.net/package-stats.php "http://windows.php.net/")
 - [资源应用库](http://caiyun.feixin.10086.cn/dl/175Cjf9LVi9ol "lpuT") ngrok PHPSTORM WAMPSERVER
 
 ### 其他 ###
@@ -30,7 +31,8 @@
 - [代码脚本SHOP](https://themeforest.net/item/devinvue-admin-vue-2-and-element-vue-webpack-cli-kit/20833913?__cf_chl_captcha_tk__=a986b2d7f0bae1666802c6b1294b3fc9cbe88d37-1579226495-0-AUPt6JUrMvJ_0tREdmsffKQd-arMVO_KZTzOekVaRhQvy4PxTF6hlMeDvJnm-7ZYnJkf1LkaqwKZBfjipi2c71oRxupUrfg9V1_ny8sTPWPFdykGBL30VEagpa-uXnKLxxs1Pom4vW11S7l46z1gLl8jutU9tw6FZ_kZrM0sA12y1GoWN3sgFg1IwF9fl7SO5Sqo81KBuLPLPiVDMsyzadH3QjPXLAD1fsR0245erpCWQuWEO1EUK5yDF6y1wTKyujhfSlEutIiFuhqBpy0vfk6aQe1yFpydGdq_8079lxQuzxDcS13ieUBA4k5-4S8eD_4E8nmfHVMPzongzSEnjDIoMfYtoc1r4OMUo6RUGVrGFg2Rl_xd7wzbUIXwPiP-N7j991_ThH8q328FcuMn5pZr2ez4SuzX3d3eoQFVN02fduj964RQx6lyLxEj7O3FlrdcYpKXIUzFGPMdgl7fX0E "PHP Scripts from CodeCanyon")
 
 ### 插件 ###
-[tampermonkey](http://www.tampermonkey.net/)
+- [tampermonkey](http://www.tampermonkey.net/)
+
 
 *标量 *映射 *序列
 scalar
