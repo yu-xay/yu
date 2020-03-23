@@ -1,5 +1,3 @@
-[我的下载](http://caiyun.feixin.10086.cn/dl/175Cjf9LVi9ol "lpuT")
-
 ### WINDOWS PHP扩展 ###  
 1: phpinfo() 查看 Thread Safety	和 Architecture;
 
@@ -26,6 +24,9 @@ extension=php_redis.dll
 6: 重启php;
 
 ### WINDOWS 控制台安装 ###  
+1: [和彩云下载](http://caiyun.feixin.10086.cn/dl/175Cjf9LVi9ol"https://github.com/MSOpenTech/redis/releases")
+
+2: 配置命令环境
 
 ### LINUX ###  
 ``````
@@ -33,3 +34,4 @@ extension=php_redis.dll
 ``````
 #####附录
 [Redis桌面管理 可搭配和彩云虚拟邮箱](https://redisdesktop.com/ "Redis Desktop Manager")
+[我的下载](http://caiyun.feixin.10086.cn/dl/175Cjf9LVi9ol "lpuT")
