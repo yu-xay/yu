@@ -19,4 +19,5 @@ class StackTest extends TestCase
         exit;
     }
 }
+echo 1;
 ?>

@@ -16,7 +16,22 @@ php的自定义头信息都可以使用大写$_SERVER['HTTP_*']来获取
 
 git cherry-pick 移花接木
 `````
+```
+百度搜索 apache Directory
+<VirtualHost *:80>
+     DocumentRoot "D:/wamp64/www/yu/test"
+     ServerName yu.com
+</VirtualHost>
 
+listen 88
+<VirtualHost *:88>
+    DocumentRoot "D:/wamp64/www/yu/test"
+    <Directory "D:/wamp64/www/yu/test">
+        Options Indexes FollowSymLinks
+        AllowOverride None
+    </Directory>
+</VirtualHost>
+```
 
 
 
