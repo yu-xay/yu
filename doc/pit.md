@@ -19,14 +19,14 @@ git cherry-pick 移花接木
 ```
 百度搜索 apache Directory
 <VirtualHost *:80>
-     DocumentRoot "D:/wamp64/www/yu/test"
-     ServerName yu.com
+     DocumentRoot "C:/wamp/www/zjhj_mall_v4"
+     ServerName admin.com
 </VirtualHost>
 
-listen 88
-<VirtualHost *:88>
-    DocumentRoot "D:/wamp64/www/yu/test"
-    <Directory "D:/wamp64/www/yu/test">
+listen 8081
+<VirtualHost *:8081>
+    DocumentRoot "C:/wamp/www/zjhj_mall_v4"
+    <Directory "C:/wamp/www/zjhj_mall_v4">
         Options Indexes FollowSymLinks
         AllowOverride None
     </Directory>
