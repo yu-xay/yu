@@ -51,37 +51,6 @@ client(或server)    -------------> server(或client)
                     <-------------
 ```
 
-## HTTP 报文
-
-HTTP 报文由三部分组成:
-- Start Line
-- Headers
-- Entity Body
-
-HTTP 报文分为两类:
-- 请求报文
-- 响应报文
-
-### 请求报文Start Line
-
-语法 : <方法> <请求URL> <版本>
-
-#### HTTP Method
-
-+ get: 获取资源，不携带http body,支持查询参数，大小2KB
-+ post: 传输资源，http body, 大小默认8M，1000个input variable
-+ put: 传输资源，http body，资源更新
-+ delete: 删除资源,不携带http body
-+ patch: 传输资源，http body，存在的资源局部更新
-+ head: 获取http header,不携带http body
-+ options: 获取支持的method,不携带http body
-+ trace: 追踪，返回请求回环信息,不携带http body
-+ connect: 建立隧道通信
-
-### 响应报文Start Line
-
-语法 : <方法> <状态码> <原因短语>
-
 #### HTTP Status Code
 
 + 200: ok
@@ -193,21 +162,3 @@ client(内置证书机构证书) <---------------------------   证书机构
 + 必须https://
 + 头部压缩
 + 二进制传输
-
-# 一次网络请求过程
-
-```
-domain
-|
-dns -> ip
-|
-http  -> http(headers[common{request url/request method/status code/remote address}/request{accetp/accept-encoding/accept-language/connection/cookie/host/pragma/user-agent/referer}/response{cache-control/expires/content-type/connection/keep-alive/server}]/body[]) -> headers\r\n隔开、headers和body\r\n\r\n隔开 -> 所以实现http协议\r\n\r\n分割可以得到headers和body，headers\r\分割可以得到头的各个信息
-|
-tcp -> 建立连接(三次握手[syn/syn&ack/ack]) -> 断开链接(四次握手[fin/ack/fin/ack])
-|
-ip -> 找到远程机器
-|
-内网
-|
-ARP -> mac地址
-```
