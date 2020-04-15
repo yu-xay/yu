@@ -16,23 +16,6 @@ php的自定义头信息都可以使用大写$_SERVER['HTTP_*']来获取
 
 git cherry-pick 移花接木
 `````
-```
-百度搜索 apache Directory
-<VirtualHost *:80>
-     DocumentRoot "C:/wamp/www/zjhj_mall_v4"
-     ServerName admin.com
-</VirtualHost>
-
-listen 8081
-<VirtualHost *:8081>
-    DocumentRoot "C:/wamp/www/zjhj_mall_v4"
-    <Directory "C:/wamp/www/zjhj_mall_v4">
-        Options Indexes FollowSymLinks
-        AllowOverride None
-    </Directory>
-</VirtualHost>
-```
-
 
 
 
