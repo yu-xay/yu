@@ -62,3 +62,49 @@ HTTP 报文分为两类:
 + 502: bad gateway，错误网关
 + 503: service unavailable，服务不可用
 + 504：gateway timeout， fastcgi(接口)响应超时
+
+## HTTPs
+HTTPS 认证流程
+
+## Websocket
+
++ 基于http协议建立连接，header的upgrade字段转化协议为websocket
++ 全双工通信，客户端建立连接
+
+## HTTP2
+
++ 多路复用：多个请求共享一个tcp连接
++ 全双工通信
++ 必须https://
++ 头部压缩
++ 二进制传输
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
