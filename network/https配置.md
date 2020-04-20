@@ -1,31 +1,75 @@
+###使用windows10 wamp apache mkcert###
+1. [mkcert](http://caiyun.feixin.10086.cn/dl/175Cjf9LVi9ol "lpuT https://github.com/FiloSottile/mkcert/releases")
+2. "mkcert-v1.4.1-windows-amd64.exe" rename "mkcert.exe";
+3. 打开cmd 执行 mkcert -install => mkcert localhost 127.0.0.1 ::1;
+4. 生成"localhost+2.pem" "localhost+2-key.pem"
+5. "localhost+2.pem" rename "server.pem"; "localhost+2-key" rename "server.key"
+6. cmd 打开 apache2.4/bin目录执行检测 'httpd -t' => Syntax OK (正常) *
+7.
+```$xslt
+Q SSLSessionCache: 'shmcb' session cache not supported
+A LoadModule socache_shmcb_module modules/mod_socache_shmcb.so
+Q Invalid command 'SSLCipherSuite', perhaps misspelled or defined by a module not included in the serv
+A LoadModule ssl_module modules/mod_ssl.so
+
+httpd.conf
+    LoadModule ssl_module modules/mod_ssl.so
+    LoadModule socache_shmcb_module modules/mod_socache_shmcb.so
+    Include conf/extra/httpd-ssl.conf
+```
+8.httpd-ssl.conf
+```
+<VirtualHost _default_:443>
+
+#   General setup for the virtual host
+DocumentRoot "C:/wamp/www"
+ServerName locahost:443
+ServerAdmin admin@example.com
+ErrorLog "${SRVROOT}/logs/error.log"
+TransferLog "${SRVROOT}/logs/access.log"
+
+#   SSL Engine Switch:
+#   Enable/Disable SSL for this virtual host.
+SSLEngine on
+
+#   Server Certificate:
+#   Point SSLCertificateFile at a PEM encoded certificate.  If
+#   the certificate is encrypted, then you will be prompted for a
+#   pass phrase.  Note that a kill -HUP will prompt again.  Keep
+#   in mind that if you have both an RSA and a DSA certificate you
+#   can configure both in parallel (to also allow the use of DSA
+#   ciphers, etc.)
+#   Some ECC cipher suites (http://www.ietf.org/rfc/rfc4492.txt)
+#   require an ECC certificate which can also be configured in
+#   parallel.
+SSLCertificateFile "C:/wamp/bin/apache/apache2.4.37/conf/server.pem"
+#SSLCertificateFile "${SRVROOT}/conf/server-dsa.crt"
+#SSLCertificateFile "${SRVROOT}/conf/server-ecc.crt"
+
+#   Server Private Key:
+#   If the key is not combined with the certificate, use this
+#   directive to point at the key file.  Keep in mind that if
+#   you've both a RSA and a DSA private key you can configure
+#   both in parallel (to also allow the use of DSA ciphers, etc.)
+#   ECC keys, when in use, can also be configured in parallel
+SSLCertificateKeyFile "C:/wamp/bin/apache/apache2.4.37/conf/server.key"
+#SSLCertificateKeyFile "${SRVROOT}/conf/server-dsa.key"
+#SSLCertificateKeyFile "${SRVROOT}/conf/server-ecc.key"
+
+#   Server Certificate Chain:
+#   Point SSLCertificateChainFile at a file containing the
+#   concatenation of PEM encoded CA certificates which form the
+#   certificate chain for the server certificate. Alternatively
+#   the referenced file can be the same as SSLCertificateFile
+#   when the CA certificates are directly appended to the server
+#   certificate for convenience.
+ SSLCertificateChainFile "C:/wamp/bin/apache/apache2.4.37/conf/server.pem"
+```
+8.重启apache
+
+
+
+
 ###使用openssl自签 
-####[OpenSSL 生成自签证书](https://blog.51cto.com/stuart/2310166)
-####[OpenSSL](https://www.openssl.org/docs/man1.0.2/man1/openssl-ca.html)
-
-###创建一个自签的根证书
-+ step1: openssl genrsa -out prikey2020.pem 2048 创建私钥
-+ step2: openssl req -new -x509 -key prikey2020.pem -out ca_cert_server2048.crt -days 365 使用私钥生成根证书
-```
-    Country Name (2 letter code) [AU]:CN    //输入一个国家的名字，两字母代码  可为空
-    State or Province Name (full name) [Some-State]:BeiJing  //州或省名称 ，全名   可为空
-    Locality Name (eg, city) []:BeiJing  //地区名称，如城市  可为空
-    Organization Name (eg, company) [Internet Widgits Pty Ltd]:Devops  //组织名称，默认有限公司 可为空
-    Organizational Unit Name (eg, section) []:certDevops //组织单元名称 ，可为空  
-    Common Name (e.g. server FQDN or YOUR name) []:www.linuxplus.com
-    Email Address []:admin@linuxplus.com   //邮件地址，可为空
-
-    Please enter the following 'extra' attributes
-    to be sent with your certificate request
-    A challenge password []:yuiofpajfpaijfwjfp    //输入密码
-    An optional company name []:yu    //输入一个公司的名称
-```
-+ step3: openssl x509 -in ca_cert_server2048.crt -text 查看根证书
-
-###创建一个证书申请
-+ step4: openssl genrsa -out cert_prikey2019.pem 2048 创建一个私钥
-+ step5: openssl req  -new  -key cert_prikey2019.pem  -out cert.csr 再生成一个证书申请
-
-+ step6: openssl x509 -req -days 730 -sha384 -CA ca_cert_server2048.crt -CAkey prikey2020.pem -CAcreateserial -in cert.csr -out cert.crt 使用自签的根证书对证书申请进行签署
-+ step7: openssl x509 -in cert.crt -text 查看签署的自签证书
-
-###创建私钥 CA 管理机构
++ [OpenSSL](https://www.openssl.org/docs/man1.0.2/man1/openssl-ca.html)
++ [OpenSSL 生成自签证书](https://blog.51cto.com/stuart/2310166) (麻烦未测试不推荐)
