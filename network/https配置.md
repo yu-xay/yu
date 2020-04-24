@@ -3,7 +3,7 @@
 2. "mkcert-v1.4.1-windows-amd64.exe" rename "mkcert.exe";
 3. 打开cmd 执行 mkcert -install => mkcert localhost 127.0.0.1 ::1;
 4. 生成"localhost+2.pem" "localhost+2-key.pem"
-5. "localhost+2.pem" rename "server.pem"; "localhost+2-key" rename "server.key"
+5. "localhost+2.pem" rename "server.crt"; "localhost+2-key" rename "server.key"
 6. cmd 打开 apache2.4/bin目录执行检测 'httpd -t' => Syntax OK (正常) *
 7.
 ```$xslt
@@ -42,7 +42,7 @@ SSLEngine on
 #   Some ECC cipher suites (http://www.ietf.org/rfc/rfc4492.txt)
 #   require an ECC certificate which can also be configured in
 #   parallel.
-SSLCertificateFile "C:/wamp/bin/apache/apache2.4.37/conf/server.pem"
+SSLCertificateFile "${SRVROOT}/conf/server.crt"
 #SSLCertificateFile "${SRVROOT}/conf/server-dsa.crt"
 #SSLCertificateFile "${SRVROOT}/conf/server-ecc.crt"
 
@@ -52,7 +52,7 @@ SSLCertificateFile "C:/wamp/bin/apache/apache2.4.37/conf/server.pem"
 #   you've both a RSA and a DSA private key you can configure
 #   both in parallel (to also allow the use of DSA ciphers, etc.)
 #   ECC keys, when in use, can also be configured in parallel
-SSLCertificateKeyFile "C:/wamp/bin/apache/apache2.4.37/conf/server.key"
+SSLCertificateKeyFile "${SRVROOT}/conf/server.key"
 #SSLCertificateKeyFile "${SRVROOT}/conf/server-dsa.key"
 #SSLCertificateKeyFile "${SRVROOT}/conf/server-ecc.key"
 
@@ -63,7 +63,7 @@ SSLCertificateKeyFile "C:/wamp/bin/apache/apache2.4.37/conf/server.key"
 #   the referenced file can be the same as SSLCertificateFile
 #   when the CA certificates are directly appended to the server
 #   certificate for convenience.
- SSLCertificateChainFile "C:/wamp/bin/apache/apache2.4.37/conf/server.pem"
+SSLCertificateChainFile "${SRVROOT}/conf/server.crt"
 ```
 8.重启apache
 
