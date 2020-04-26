@@ -34,5 +34,3 @@ D:\phpStudy\php\php-7.0.12-nts\phpcs.bat
 、Setting->Editor->Inspections->PHP Code Sniffer validation 勾选上，然后在右边的 Coding standard 按下刷新按钮，成功的话点击下拉按钮就会有可供选择的标准
 ```
 
-11. 通常关闭设置 重新打开即可
-
