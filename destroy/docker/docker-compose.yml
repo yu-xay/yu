@@ -1,0 +1,56 @@
+###############################################################################
+#                          Generated on phpdocker.io                          #
+###############################################################################
+version: "3.1"
+services:
+
+    memcached:
+      image: memcached:alpine
+      container_name: yu-docker-memcached
+
+    mailhog:
+      image: mailhog/mailhog:latest
+      container_name: yu-docker-mailhog
+      ports:
+        - "1026:8025"
+
+    redis:
+      image: redis:alpine
+      container_name: yu-docker-redis
+
+    mysql:
+      image: mysql:5.7
+      container_name: yu-docker-mysql
+      working_dir: /application
+      volumes:
+        - .:/application
+      environment:
+        - MYSQL_ROOT_PASSWORD=127.0.0.1
+        - MYSQL_DATABASE=product
+        - MYSQL_USER=yu
+        - MYSQL_PASSWORD=1
+      ports:
+        - "1027:3306"
+
+    elasticsearch:
+      image: elasticsearch:6.5.4
+      container_name: yu-docker-elasticsearch
+
+    webserver:
+      image: nginx:alpine
+      container_name: yu-docker-webserver
+      working_dir: /application
+      volumes:
+          - .:/application
+          - ./phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      ports:
+       - "1025:80"
+
+    php-fpm:
+      build: phpdocker/php-fpm
+      container_name: yu-docker-php-fpm
+      working_dir: /application
+      volumes:
+        - .:/application
+        - ./phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/7.4/fpm/conf.d/99-overrides.ini
+
