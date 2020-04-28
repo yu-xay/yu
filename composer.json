@@ -12,6 +12,9 @@
         "ckg/new": "^3.2.1"
     },
     "autoload": {
+        "files": [
+            "test/functions.php"
+        ],
         "psr-4": {
             "DesignMode\\": "demo/designMode"
         }
