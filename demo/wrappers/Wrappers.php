@@ -28,7 +28,7 @@ class Wrappers extends TestCase
         {
             goto a;
             $handle = fopen($path, 'rb');
-            //可以过滤器列表 => https://www.php.net/manual/zh/filters.php 通常没用
+            //可以过滤器列表 => stream_get_filters() https://www.php.net/manual/zh/filters.php 通常没用
             stream_filter_append($handle, 'string.toupper');
             a:
         }
