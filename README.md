@@ -4,6 +4,7 @@
 2. PHP流
 ### heredoc语法
 ### 魔术常量
+### php cgi https://www.cnblogs.com/mzhaox/p/11230923.html
 
 wechat pay
 
