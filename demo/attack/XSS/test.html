@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+
+    function ttt() {
+        let text = document.getElementById('ttttt').value;
+        console.log(text);
+        document.getElementById("divv").innerHTML = text;
+
+        //http://xss.fbisb.com/xCsg
+        // const name = "<img src='http://xss.fbisb.com/xCsg' onerror='alert(1)'>";
+        // document.getElementById("divv").innerHTML = name; // shows the alert
+    };
+
+
+
+
+</script>
+<body>
+<div>
+    <div id="divv"></div>
+    <input id="ttttt" onchange="ttt()" type="text">
+</div>
+
+</body>
+</html>
