@@ -1,8 +1,9 @@
+[中文文档](https://www.docs4dev.com/docs/zh/mysql/5.7/reference/mysql-indexes.html)
 ### 单列索引
 + PRIMARY KEY 主键适应
 + UNIQUE 唯一索引
 + NORMAL 普通索引
-+ SPATIAL 空间索引
++ SPATIAL 空间索引 =>  R-trees
 + FULLTEX 全文索引
 ###
 联合索引：实际建立了(a)、(a,b)、(a,b,c) 三个索引;
@@ -10,6 +11,8 @@
 1:顺序可以任意的 a=1 and b=2 和 b=2 and a=1;
 
 覆盖索引：一条索引包含(或覆盖)所有查询字段的值，即只需扫描索引而无需会表； explain => using index
+
+索引前缀： 创建仅使用列的前N个字符的索引，可以使索引文件更小；
 
 ##### 依据是否聚簇区分
 
