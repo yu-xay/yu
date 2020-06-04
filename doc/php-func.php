@@ -22,11 +22,9 @@ usort($array,($current,$next) => {$current <=> $next})  数组自定义排序 (�
 
 array_multisort()
 
+substr(string, int start)                               返回字符串的子串
 
-
-
-
-
+str_replace(search replace subject count)               子字符串替换
 
 
 
