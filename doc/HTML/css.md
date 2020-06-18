@@ -1,3 +1,5 @@
++ [参考手册](https://www.runoob.com/cssref/css-reference.html#background)
+
 css 背景属性
 background-attachment: [scroll | fixed | inherit] 设置固定的背景图像
 background-color: [COLOR | transparent | inherit] 设置元素背景颜色
