@@ -18,7 +18,7 @@ httpd.conf
     Include conf/extra/httpd-ssl.conf
 ```
 8.httpd-ssl.conf
-```
+```apacheconfig
 <VirtualHost _default_:443>
 
 #   General setup for the virtual host
