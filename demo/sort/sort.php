@@ -55,6 +55,41 @@ class sort extends TestCase
      */
     public function testShell()
     {
+<<<EOL
+        //Java 代码实现
+public class ShellSort implements IArraySort {
+
+
+  public int[] sort(int[] sourceArray) throws Exception {
+        // 对 arr 进行拷贝，不改变参数内容
+        int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
+
+     int gap = 1;
+     while (gap < arr.length) {
+            gap = gap * 3 + 1;
+        }
+
+      while (gap > 0) {
+        for (int i = gap; i < arr.length; i++) {
+              int tmp = arr[i];
+              int j = i - gap;
+             while (j >= 0 && arr[j] > tmp) {
+               arr[j + gap] = arr[j];
+                 j -= gap;
+               }
+              arr[j + gap] = tmp;
+          }
+          gap = (int) Math.floor(gap / 3);
+       }
+
+      return arr;
+   }
+}
+EOL;
+
+
+
+
         $this->assertSame(self::END, $this->start);
     }
 
@@ -64,7 +99,33 @@ class sort extends TestCase
      */
     public function testMerge()
     {
+        function merge($arrA, $arrB)
+        {
+            /********灵魂所在*******/
+            $arrC = array();
+            while (count($arrA) && count($arrB)) {
+                $arrC[] = $arrA[0] < $arrB[0] ? array_shift($arrA) : array_shift($arrB);
+            }
+            return array_merge($arrC, $arrA, $arrB);
+        }
 
+        function mergeSort($arr)
+        {
+            $len = count($arr);
+            if ($len <= 1) {
+                return $arr;
+            }
+
+            $mid = intval($len / 2);
+            $left = array_slice($arr, 0, $mid);
+            $right = array_slice($arr, $mid);
+            $left = mergeSort($left);
+            $right = mergeSort($right);
+            $arr = merge($left, $right);
+            return $arr;
+        }
+
+        $this->assertSame(self::END, mergeSort($this->start));
     }
 
     /**
