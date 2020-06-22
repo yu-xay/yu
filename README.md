@@ -11,7 +11,8 @@
 ORM 对象关系映射工具
 ### heredoc语法
 ### 魔术常量
-### php cgi https://www.cnblogs.com/mzhaox/p/11230923.html
+### ftp 和 sftp
+### [mysql优化章](https://www.docs4dev.com/docs/zh/mysql/5.7/reference/optimize-overview.html#%E4%BC%98%E5%8C%96%E6%A6%82%E8%BF%B0)
 
 wechat pay
 
