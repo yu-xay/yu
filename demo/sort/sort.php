@@ -9,12 +9,12 @@ use PHPUnit\Framework\TestCase;
  */
 class sort extends TestCase
 {
-    private const END = [0, 1, 2, 2, 3, 5, 6, 6, 8];
+    private const END = [0, 1, 2, 2, 3, 5, 6, 6, 8, 13, 14, 25, 45, 183, 256];
 
-    public $start = [5, 8, 2, 2, 6, 6, 0, 1, 3];
+    public $start = [5, 8, 2, 2, 6, 6, 0, 1, 3, 13, 45, 14, 256, 183, 25];
 
     /**
-     * Bucket 排序
+     * Bucket 桶排序
      * https://images2017.cnblogs.com/blog/849589/201710/849589-20171015232107090-1920702011.png
      */
     public function testBucket()
@@ -28,6 +28,24 @@ class sort extends TestCase
      */
     public function testCounting()
     {
+        //implode 需要使用定长数组 * php数组是hash表的实现 ↓↓
+        $bucket = new \SplFixedArray(max($this->start) + 1);
+        for ($i = 0; $i < count($this->start); $i++) {
+            if (empty($bucket[$this->start[$i]])) {
+                $bucket[$this->start[$i]] = 0;
+            }
+            $bucket[$this->start[$i]] += 1;
+        }
+
+        $this->start = [];
+        for ($j = 0; $j < count($bucket); $j++) {
+            $v = current($bucket);
+            while ($v > 0) {
+                $this->start[] = key($bucket);
+                $v--;
+            }
+            next($bucket);
+        }
         $this->assertSame(self::END, $this->start);
     }
 
@@ -37,6 +55,37 @@ class sort extends TestCase
      */
     public function testRadix()
     {
+        $maxDigit = 0;
+        for ($a = 0; $a < count($this->start); $a++) {
+            $maxDigit = strlen($this->start[$a]) > $maxDigit ? strlen($this->start[$a]) : $maxDigit;
+        }
+
+        for ($i = 1; $i <= $maxDigit; $i++) {
+            $radix = array_fill(0, 10, []);
+            for ($j = 0; $j < count($this->start); $j++) {
+                //可使用mod
+                if (strlen($this->start[$j]) < $i) {
+                    $index = 0;
+                } else {
+                    $index = substr($this->start[$j], -1 * $i, 1);
+                }
+                $radix[$index][] = $this->start[$j];
+            }
+
+            $this->start = [];
+            for ($k = 0; $k < count($radix); $k++) {
+                while (count($radix[$k]) > 0) {
+                    $key = null;
+                    for ($l = 0; $l < count($radix[$k]); $l++) {
+                        if (is_null($key) || $radix[$k][$key] > $radix[$k][$l]) {
+                            $key = $l;
+                        }
+                    }
+                    $merge = array_splice($radix[$k], $key, 1);
+                    $this->start = array_merge($this->start, $merge);
+                }
+            }
+        }
         $this->assertSame(self::END, $this->start);
     }
 
@@ -55,42 +104,33 @@ class sort extends TestCase
      */
     public function testShell()
     {
-<<<EOL
-        //Java 代码实现
-public class ShellSort implements IArraySort {
-
-
-  public int[] sort(int[] sourceArray) throws Exception {
-        // 对 arr 进行拷贝，不改变参数内容
-        int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
-
-     int gap = 1;
-     while (gap < arr.length) {
-            gap = gap * 3 + 1;
+        function swap(array &$arr, int $a, int $b)
+        {
+            $arr[$b] ^= $arr[$a];
+            $arr[$a] ^= $arr[$b];
+            $arr[$b] ^= $arr[$a];
         }
 
-      while (gap > 0) {
-        for (int i = gap; i < arr.length; i++) {
-              int tmp = arr[i];
-              int j = i - gap;
-             while (j >= 0 && arr[j] > tmp) {
-               arr[j + gap] = arr[j];
-                 j -= gap;
-               }
-              arr[j + gap] = tmp;
-          }
-          gap = (int) Math.floor(gap / 3);
-       }
-
-      return arr;
-   }
-}
-EOL;
-
-
-
-
-        $this->assertSame(self::END, $this->start);
+        $arr = $this->start;
+        for ($gap = floor(count($arr) / 2); $gap > 0; $gap = floor($gap / 2)) {
+            echo $gap;
+            //注意：这里和动图演示的不一样，动图是分组执行，实际操作是多个分组交替执行
+            for ($j = $gap; $j < count($arr); $j++) {
+                //echo implode(',', $arr) . PHP_EOL;
+                //$j = 5,6,7,8
+                //5 = 5 => 0 <=> 5;
+                //6 = 5 => 1 <=> 6;
+                //7 = 5 => 2 <=> 7;
+                echo implode(',', [$j, $gap]) . PHP_EOL;
+                while ($j - $gap >= 0 && $arr[$j - $gap] > $arr[$j]) {
+                    swap($arr, $j, $j - $gap);
+                    $j -= $gap;
+                }
+                //echo implode(',', $arr) . PHP_EOL;
+            }
+            //echo implode(',', $arr) . PHP_EOL;
+        }
+        $this->assertSame(self::END, $arr);
     }
 
     /**

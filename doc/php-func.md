@@ -1,5 +1,5 @@
-<?php
-/*
+[在线测试](http://www.dooccn.com/php7/)
+```text
 base64_encode(string $data):string                      使用MIME base64编码数据
 
 php_sapi_name(void):string                              返回Web服务器和PHP之间的接口类型
@@ -22,9 +22,14 @@ usort($array,($current,$next) => {$current <=> $next})  数组自定义排序 (�
 
 array_multisort()
 
-substr(string, int start)                               返回字符串的子串
+substr(string $string,int $start [,int $length]):string 获取字串
 
 str_replace(search replace subject count)               子字符串替换
+
+array_slice(array $arr, int $offset [,int $length = null]): array 从数组中取出一段
+
+array_splice(array $arr, int $offset [, int length = count($arr)[, $reple]] : array 去掉数组莫一部分并用其他值取代
+```
 
 
 
