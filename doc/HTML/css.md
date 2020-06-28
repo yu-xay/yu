@@ -2,14 +2,42 @@
 
 + [在线css](http://jsrun.net/new)
 #####CSS轮廓 Outline
-outline: (outline-color,outline-style,outline-width);
+border: (border-width, border-style, border-color,inherit)
+outline: (outline-color,outline-style,outline-width, inherit);
+border-image
+border-image-source: [none | image]
+border-image-slice: 
+border-image-width:
+border-image-outset:
+border-image-repeat:
+box-shadow: inset
+
+
+
+```html
+<style>
+	.border {
+		height: 250px;
+		width: 250px;
+		border: 10px solid red;
+		outline: blue solid 10px;
+	}
+
+	.border div {
+		height: inherit;
+		border: inherit;
+	}
+</style>
+<div class="border">
+	<div></div>
+</div>
+```
 
 
 
 
 
-
-css 背景属性
+####css 背景属性
 + background-attachment: [scroll | fixed | inherit] 设置固定的背景图像
 + background-color: [COLOR | transparent | inherit] 设置元素背景颜色
 + background-image: [url('URL') | none | inherit]   将图像设置为背景
