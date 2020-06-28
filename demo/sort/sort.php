@@ -19,7 +19,43 @@ class sort extends TestCase
      */
     public function testBucket()
     {
-        $this->assertSame(self::END, $this->start);
+        $arr = $this->start;
+        $bucketSize = 10;
+        if (count($arr) === 0) {
+            return $arr;
+        }
+
+        $minValue = $arr[0];
+        $maxValue = $arr[0];
+        for ($i = 1; $i < count($arr); $i++) {
+            if ($arr[$i] < $minValue) {
+                $minValue = $arr[$i];
+            } elseif ($arr[$i] > $maxValue) {
+                $maxValue = $arr[$i];
+            }
+        }
+
+        $bucketCount = floor(($maxValue - $minValue) / $bucketSize) + 1;
+        $buckets = array_fill(0, $bucketCount, []);
+        for ($i = 0; $i < count($buckets); $i++) {
+            $buckets[$i] = [];
+        }
+
+        // *****数组拆分处理*****
+        for ($i = 0; $i < count($arr); $i++) {
+            $buckets[floor(($arr[$i] - $minValue) / $bucketSize)][] = $arr[$i];
+        }
+
+        $arr = array();
+        for ($i = 0; $i < count($buckets); $i++) {
+            $bucketTmp = $buckets[$i];
+            sort($bucketTmp);
+            for ($j = 0; $j < count($bucketTmp); $j++) {
+                $arr[] = $bucketTmp[$j];
+            }
+        }
+
+        $this->assertSame(self::END, $arr);
     }
 
     /**
@@ -95,7 +131,44 @@ class sort extends TestCase
      */
     public function testHeap()
     {
-        $this->assertSame(self::END, $this->start);
+        function swap(array &$arr, int $a, int $b)
+        {
+            $arr[$b] ^= $arr[$a];
+            $arr[$a] ^= $arr[$b];
+            $arr[$b] ^= $arr[$a];
+        }
+
+        //用数组建立最小堆
+        function buildHeap(&$arr, $arrSize)
+        {
+            for ($index = intval($arrSize / 2) - 1; $index >= 0; $index--) {
+                if ($index * 2 + 1 < $arrSize) {
+                    $max = $index * 2 + 1;
+                    if ($index * 2 + 2 < $arrSize && $arr[$index * 2 + 2] > $arr[$index * 2 + 1]) {
+                        $max = $index * 2 + 2;
+                    }
+                    if ($arr[$max] > $arr[$index]) {
+                        swap($arr, $max, $index);
+                    }
+                }
+            }
+        }
+
+        $arr = $this->start;
+        $arrSize = count($arr);
+
+        //1
+        //2 3
+        //45 67
+        //89 1011 1213 1415
+        buildHeap($arr, $arrSize);
+
+        for ($i = $arrSize - 1; $i > 0; $i--) {
+            swap($arr, $i, 0);
+            $arrSize--;
+            buildHeap($arr, $arrSize);
+        }
+        $this->assertSame(self::END, $arr);
     }
 
     /**
