@@ -21,13 +21,3 @@
 | Read Committed （读取提交内容） | × | √ | √ |
 | Repeatable Read （可重复读）Mysql默认 | × | × | √ |
 | Serializable （可串行化） | × | × | × |
-
-### 锁 ###
-- 乐观锁：
-  update {table_name}
-  set {column_name} = {value}, version=version+1
-  and
-  where version = version;
-- 悲观锁：update {table_name} set {column_name} = {value} for update;
-- 共享锁：x锁
-引擎
