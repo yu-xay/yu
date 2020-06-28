@@ -6,12 +6,14 @@
 - [科学上网](https://laod.cn/ "基本失效")
 - [图片压缩](https://tinypng.com/ "TinyPNG – Compress PNG images while preserving transparency")
 - [JQUERY插件库](http://www.jq22.com/daima "JQUERY插件库")
+- [腾讯云大学](https://cloud.tencent.com/developer/labs/gallery?page=1)
+- [阿里云大学](https://edu.aliyun.com/?spm=5176.11105641.fszjobuve.3.n2CAyn)
 
 ### 工具下载 ###
 > * Q: file could not be downloaded: Peer certificate ?
 > * A: composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
 - [阿里云](https://mirrors.aliyun.com/composer/)
-- [PHPSTORM-软件包](https://www.jetbrains.com/phpstorm/download/other.html "ECHO源码社区-站群里一颗闪亮的星！")
+- # [PHPSTORM-软件包](https://www.jetbrains.com/phpstorm/download/other.html "ECHO源码社区-站群里一颗闪亮的星！")
 - [PHPSTORM-激活码-禁网](http://medeming.com/ "http://pblog.rzepx.cn/27.htmlECHO源码社区-站群里一颗闪亮的星！")
 - [PHPSTORM-汉化包](https://github.com/pingfangx/TranslatorX "https://github.com/13966349186/TranslatorX")
 - [GIT软件](https://gitforwindows.org/ "Git for Windows")

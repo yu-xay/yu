@@ -43,7 +43,7 @@ class index extends TestCase
 
     public function testExchange()
     {
-        function swap(int $a, $b): array
+        function swap(int $a, int $b): array
         {
             //注意 $a 和 $b 不能指向同一个地址；否则为空
             $a ^= $b;
