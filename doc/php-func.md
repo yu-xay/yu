@@ -1,11 +1,14 @@
 [在线测试](http://www.dooccn.com/php7/)
-```text
+### 可补充(5天删除)
+```
 base64_encode(string $data):string                      使用MIME base64编码数据
 
 php_sapi_name(void):string                              返回Web服务器和PHP之间的接口类型
 
 http_build_query(array)                                 数组转字符串
 
+PHP_URL_SCHEME PHP_URL_HOST PHP_URL_PORT PHP_URL_USER 
+PHP_URL_PASS PHP_URL_PATH PHP_URL_QUERY PHP_URL_FRAGMENT  
 parse_url(string $url, [int $component = -1]):mixed     解析 URL
 
 xdebug_debug_zval('encode');                            引用次数
@@ -22,13 +25,13 @@ usort($array,($current,$next) => {$current <=> $next})  数组自定义排序 (�
 
 array_multisort()
 
-substr(string $string,int $start [,int $length]):string 获取字串
+substr(string $string,int $start [,int $length]):string 获取字串 1day
 
-str_replace(search replace subject count)               子字符串替换
+str_replace(search replace subject count)文档             子字符串替换
 
 array_slice(array $arr, int $offset [,int $length = null]): array 从数组中取出一段
 
-array_splice(array $arr, int $offset [, int length = count($arr)[, $reple]] : array 去掉数组莫一部分并用其他值取代
+array_splice(array &$arr, int $offset [, int length = count($arr)[, $reple]] : array 去掉数组莫一部分并用其他值取代
 ```
 
 
