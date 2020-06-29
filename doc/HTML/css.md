@@ -1,12 +1,18 @@
 + [参考手册](https://www.runoob.com/cssref/css-reference.html#background)
 
 + [在线css](http://jsrun.net/new)
-##### 盒子(Box)属性
+####常用CSS
 + overflow-x: [visible | hidden | screen | auto | no-display | no-content] 溢出元素显示内容
 + overflow-y: [不裁剪内容 | 裁剪隐藏滚动 | 裁剪不隐藏滚动 | 溢出才显示滚动 | 暂无浏览器支持 |暂无]
-+ opacity: [(value) | inherit]
++ opacity: [{value} | inherit] 透明度
++ font-family: [{name} | inherit] 字体
++ font-style: [normal | italic 斜体 | oblique 斜体 | inherit] 字体style
++ font-weight: [normal | lighter | bold | bolder | {value} | inherit] 字体粗细
++ @font-face 指定字体 指定在哪里可以找到该字体的URL;
+ 到list 属性
 
-#### flex布局
+#### 盒子模型 => flex布局
+#### 伪元素 content counter-increment con
 
 
 #####CSS轮廓 Outline
