@@ -1,4 +1,6 @@
-[中文文档](https://www.docs4dev.com/docs/zh/mysql/5.7/reference/mysql-indexes.html)
++ [中文文档](https://www.docs4dev.com/docs/zh/mysql/5.7/reference/mysql-indexes.html)
++ [一张图彻底搞定 explain](https://learnku.com/articles/38719)
+
 ### 单列索引
 + PRIMARY KEY 主键适应
 + UNIQUE 唯一索引
