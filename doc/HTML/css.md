@@ -1,6 +1,14 @@
 + [参考手册](https://www.runoob.com/cssref/css-reference.html#background)
 
 + [在线css](http://jsrun.net/new)
+##### 盒子(Box)属性
++ overflow-x: [visible | hidden | screen | auto | no-display | no-content] 溢出元素显示内容
++ overflow-y: [不裁剪内容 | 裁剪隐藏滚动 | 裁剪不隐藏滚动 | 溢出才显示滚动 | 暂无浏览器支持 |暂无]
++ opacity: [(value) | inherit]
+
+#### flex布局
+
+
 #####CSS轮廓 Outline
 border: (border-width, border-style, border-color,inherit)
 outline: (outline-color,outline-style,outline-width, inherit);
@@ -32,9 +40,6 @@ box-shadow: inset
 	<div></div>
 </div>
 ```
-
-
-
 
 
 ####css 背景属性
