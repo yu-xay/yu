@@ -1,18 +1,58 @@
 + [参考手册](https://www.runoob.com/cssref/css-reference.html#background)
-
 + [在线css](http://jsrun.net/new)
+#### 兼容
+-webkit- -moz- -ms-
+
 ####常用CSS
 + overflow-x: [visible | hidden | screen | auto | no-display | no-content] 溢出元素显示内容
 + overflow-y: [不裁剪内容 | 裁剪隐藏滚动 | 裁剪不隐藏滚动 | 溢出才显示滚动 | 暂无浏览器支持 |暂无]
 + opacity: [{value} | inherit] 透明度
+
 + font-family: [{name} | inherit] 字体
 + font-style: [normal | italic 斜体 | oblique 斜体 | inherit] 字体style
 + font-weight: [normal | lighter | bold | bolder | {value} | inherit] 字体粗细
 + @font-face 指定字体 指定在哪里可以找到该字体的URL;
- 到list 属性
+
++ list-style: [ TYPE | POSITION | IMAGE | initial | inherit]: 该属性应用于li列表
++ list-style-image: [URL | none | inherit] 指定列表中列表 标记的图像
++ list-style-position: [inside | outside | inherit] 位置
++ list-style-type:  [none | ...] 样式
+
++ column-count: [number | auto] 元素分成列数
++ column-gap: [length | normal] 中间距离
++ column-rule: [width style color] 列之间样式
++ column-span: [1 | all] 跨越多少列
++ column-width: [auto | length] 列宽度
++ columns: [column-width: column-count]
+
++ clear: [left | right | both | none | inherit] 清除浮动
++ clip: [rect (top, right, bottom, left) | auto | inherit] 裁剪一张图像 搭配absolute
++ display: [...] 定义生成框类型 https://www.runoob.com/cssref/pr-class-display.html
++ visible: [visible | hidden | collapse | inherit] 是否可见
+
++ border-collapse: [collapse | separate | inherit] 规定是否合并表格边框
++ border-spacing: [length length | inherit] 规定相邻单元格边框之间的距离
++ caption-side: [top | bottom | inherit] 规定表格标题的位置
++ empty-cells: [hide | show | inherit] 规定是否显示表格中的空单元格上的边框和背景
++ table-layout: [automatic | fixed |inherit] 设置用于表格的布局算法
+
++ direction: [ltr | rtl | inherit] 文本书写方向
++ letter-spacing: [normal | length | inherit] 设置字符间距
++ text-decoration: [overline | line-through | underline] 文本装饰 删除 下滑线
++ text-indent: [length | % | inherit] 缩进
++ text-transform: [uppercase | capitalize | lowercase] 控制文本的大小写
++ text-align: [left | right |center | justify | inherit] 规定文本的水平对齐方式
++ vertical-align: [...] 	设置元素的垂直对齐方式
+...
+
+
+
 
 #### 盒子模型 => flex布局
 #### 伪元素 content counter-increment con
+#### 过渡 transition 《=》 2D/3D 转换属性
+
+
 
 
 #####CSS轮廓 Outline
