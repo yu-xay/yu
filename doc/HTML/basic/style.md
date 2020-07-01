@@ -43,9 +43,13 @@
 + text-transform: [uppercase | capitalize | lowercase] 控制文本的大小写
 + text-align: [left | right |center | justify | inherit] 规定文本的水平对齐方式
 + vertical-align: [...] 	设置元素的垂直对齐方式
-...
-
-
++ white-space: [normal | pre | nowrap | pre-wrap | pre-line] 设置怎样给一元素控件留白
++ white-spacing [normal | length | inherit] 设置单词间距
++ text-align-last: [...] 段落最后一行
++ text-overflow: [clip | ellipsis | string] 指定当文本溢出包含的元素，应该发生什么
++ text-shadow: [x y blur color] 文字阴影
++ word-break: [normal | break-all | keep-all] 断行规则
++ word-wrap: [normal | break-word] 设置浏览器是否对过长的单词进行换行
 
 
 #### 盒子模型 => flex布局
