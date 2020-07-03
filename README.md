@@ -1,6 +1,6 @@
 # yu
 待处理文档
-1. php攻击（6种攻击详解）
+1. php攻击（6种攻击详解）~
 2. [CSS3](https://www.w3school.com.cn/css3/css3_border.asp) 
 3. MYSQL 优化
 - [中文](https://www.docs4dev.com/docs/zh/mysql/5.7/reference/optimize-overview.html#%E4%BC%98%E5%8C%96%E6%A6%82%E8%BF%B0)
@@ -13,7 +13,16 @@
 + [开发流程](https://pay.weixin.qq.com/wiki/doc/api/H5.php?chapter=15_4)
 + [JIT](https://learnku.com/php/t/44968)
 
-
+docker-machine ip default
+docker-machine ip default
+docker-machine ip default
+docker-machine ip default
+docker-machine ip default
+docker-machine ip default
+docker-machine ip default
+docker-machine ip default
+docker-machine ip default
+docker-machine ip default
 
 #### 备用
 - [开始你的bash/shell脚本编程](https://www.jianshu.com/p/5568d311fb5a)
