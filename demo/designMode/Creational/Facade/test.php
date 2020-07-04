@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace DesignMode\Creational\Facade;
 
@@ -8,9 +8,14 @@ class test extends TestCase
 {
     public function testDependencyInjection()
     {
-        $config = new DatabaseConfiguration('localhost', 3306, 'domnikl', '1234');
-        $connection = new DatabaseConnection($config);
+        $big = $this->createMock(Pig::class);
+        $big->method('cname')
+            ->will($this->returnValue('烤鸭'));
 
-        $this->assertSame('domnikl:1234@localhost:3306', $connection->getDsn());
+        $food = new Food(new RoastChicken(), $big);
+
+        $food->getName();
+        $end = $food->eat();
+        $this->assertSame('end', $end);
     }
 }
