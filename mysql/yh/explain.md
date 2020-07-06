@@ -33,6 +33,11 @@
     - uncacheable subquery --- 对于该结果不能被缓存并且必须重新评估外部查询的每一行的子查询。
     - uncacheable union --- 第二个或者最面一个属于一个不可缓存的子查询在UNION中
 
+http://itindex.net/detail/46772-%E4%BC%98%E5%8C%96-mysql-dependent
+https://blog.csdn.net/jiadajing267/article/details/81269067
+http://blog.chinaunix.net/uid-29491604-id-4849838.html
+https://www.cnblogs.com/tufujie/p/9413852.html
+
 + table 输出的行所引用的表
     + <unionM,N>: M和N的id值的行的union;
     + <derivedN>:
