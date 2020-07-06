@@ -36,7 +36,7 @@ array_splice(array &$arr, int $offset [, int length = count($arr)[, $reple]] : a
 
 wordwrap()   
 
-substr_compare("abcde", "bc", 1, 2); 1day
+substr_compare("abcde", "bc", 1, 2); 2day
 ```
 
 
