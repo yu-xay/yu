@@ -70,10 +70,6 @@ ref:    这种类型表示mysql会根据特定的算法快速查找到某个符�
   - 低层实现
     * hash表(散列表) 
 - b+tree
-###专业名称
-PK 主键 Primary Key
-FK 外键 Foreign Key
-UK 唯一 Unique Key
 
 ###说明
 1. 选择唯一索引

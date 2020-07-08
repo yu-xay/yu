@@ -26,6 +26,7 @@
     + union         ---- 第二个select出现在union之后，则会被标记为UNION。
                         如果union包含在from子句的子查询中，外层select 会标记为derived
     + union result  ---- union的结果集
+
     + 不常用高级 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
     - dependent union --- 在UNION中第二个或后面的SELECT语句，依赖于外部查询
     - dependent subquery --- 在子查询中的第一个SELECT，依赖于外部查询
@@ -42,6 +43,52 @@ https://www.cnblogs.com/tufujie/p/9413852.html
     + <unionM,N>: M和N的id值的行的union;
     + <derivedN>:
     + <subqueryN>:
-    + partitions
+
++ partitions: 分区
+    + 匹配查询记录的分区，非分区表， value为Null
+
++ type： 连接类型
+    + system 
+        + 是const的特例，表只有一行。
+    + const 通过索引一次就能找到
+        + 命中PK或UK
+        + 被连接的部分是一个常量(const)值
+    + eq_ref
+        + join 查询
+        + 命中PK或UK
+        + 等值连接
+        + 对于前表的每一行 后表只有一行命中
+    + ref 非唯一索引 等值匹配 可能有多行命中
+        +
+    + range 索引上的范围扫描
+        + between/in
+    + index 索引上的全集扫描  差
+        + count
+    + all 全表扫描  差
+        
++ possible_keys: MySQL能使用哪个索引在该表中找到行。
+    + SHOW INDEX FROM table 查看表索引
+
++ key
+
++ key_len 索引中使用的字节数
+    + 可通过计算索引长度，越短越好
+
++ ref 显示索引的哪一列被使用了
+    + 如果使用的是常数来作为查询条件，显示的是const
+    + 如果是连接查询，会显示具体的字段。数据库，表，字段
+    
++ rows: 行数
+    + 大概估算出找到该记录所需要的行数。
+
++ filtered
+
++ Extra
+    + using filesort 文件内排序
+    + using temporary
+    + using index
+    + using where
+    + 
+
 
     
