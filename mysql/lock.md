@@ -66,6 +66,7 @@ https://juejin.im/post/5b8577c26fb9a01a143fe04e
 
 ## 查看锁
 information_schema下面有三张表:INNODB_TRX、INNODB_LOCKS、INNODB_LOCK_WAITS，
+select * from information_schema.INNODB_TRX;shutshuwdown -s 
 
 ## 表锁
 + [官网](https://www.docs4dev.com/docs/zh/mysql/5.7/reference/lock-tables.html)

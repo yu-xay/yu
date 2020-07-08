@@ -38,12 +38,12 @@ http://itindex.net/detail/46772-%E4%BC%98%E5%8C%96-mysql-dependent
 https://blog.csdn.net/jiadajing267/article/details/81269067
 http://blog.chinaunix.net/uid-29491604-id-4849838.html
 https://www.cnblogs.com/tufujie/p/9413852.html
+https://blog.csdn.net/daohengshangqian/article/details/50561477
 
 + table 输出的行所引用的表
-    + <unionM,N>: M和N的id值的行的union;
-    + <derivedN>:
-    + <subqueryN>:
-
+    + <unionM,N>: M和N的id值的行的集合;
+    + <derivedN>:  该行引用value为N的行的派生表的结果
+    + <subqueryN>: 该行引用value为N的行的子查询的结果
 + partitions: 分区
     + 匹配查询记录的分区，非分区表， value为Null
 
@@ -81,9 +81,9 @@ https://www.cnblogs.com/tufujie/p/9413852.html
 + rows: 行数
     + 大概估算出找到该记录所需要的行数。
 
-+ filtered
++ filtered 按表条件过滤的行百分比
 
-+ Extra
++ Extra 执行情况的描述和说明
     + using filesort 文件内排序
     + using temporary
     + using index
