@@ -1,6 +1,4 @@
 <?php
-$b = 'rund';
-$a = <<<EOF
-select * from zjhj_bd_app;{$b}
-EOF;
-echo $a;
+$a = 'test';
+
+debug_zval_dump('a');
