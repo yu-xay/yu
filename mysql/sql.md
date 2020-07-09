@@ -55,12 +55,6 @@ AFTER `column_name`;
 DELETE FORM `table_name`
 WHERE ...;
 ```
-
-- 清空整张表
-```
-TRUNCATE TABLE `your_table_name`;
-```
-
 - 删除表
 ```
 DROP TABLE `your_table_name`;
@@ -81,13 +75,6 @@ DROP INDEX your_index_name(your_column_name);
 
 3. 改
 
-- 变更数据
-```
-UPDATE `table_name`
-SET column_name=your_value
-WHERE ...;
-```
-
 - 变更字段
 ```
 ALTER TABLE `your_table_name`
@@ -105,23 +92,6 @@ WHERE a.id = b.a_id...;
 ```
 
 4. 查
-
-
-- 普通查询
-```
-SELECT `column_name_one`, `column_name_two`
-FROM `table_name`;
-```
-
-- 关联查询
-```
-SELECT *
-FROM `your_table_name`
-AS a
-JOIN `your_anther_table_name`
-AS b
-WHERE a.column_name = b.column_name...;
-```
 
 - 合计函数条件查询：WHERE 关键字无法与合计函数一起使用
 ```
