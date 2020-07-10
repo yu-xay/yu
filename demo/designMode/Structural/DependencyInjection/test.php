@@ -1,6 +1,6 @@
 <?php
 
-namespace DesignMode\Creational\DependencyInjection;
+namespace DesignMode\Structural\DependencyInjection;
 
 use PHPUnit\Framework\TestCase;
 

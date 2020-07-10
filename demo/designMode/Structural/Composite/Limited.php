@@ -5,7 +5,7 @@
  * author: xay
  */
 
-namespace DesignMode\Creational\Composite;
+namespace DesignMode\Structural\Composite;
 
 
 interface Limited

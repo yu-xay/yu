@@ -1,5 +1,5 @@
 <?php
-namespace DesignMode\Behavioral\StaticFactory;
+namespace DesignMode\Creational\StaticFactory;
 
 /**
  * 使用一个静态方法来创建所有类型对象

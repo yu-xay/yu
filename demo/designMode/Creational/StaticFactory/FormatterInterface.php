@@ -1,5 +1,5 @@
 <?php
-namespace DesignMode\Behavioral\StaticFactory;
+namespace DesignMode\Creational\StaticFactory;
 
 interface FormatterInterface
 {

@@ -5,7 +5,7 @@
  * author: xay
  */
 
-namespace DesignMode\Creational\Adapter;
+namespace DesignMode\Structural\Adapter;
 
 /**
  * 这是这里的适配器。注意它实现了Book，

@@ -6,7 +6,7 @@
  * author: xay
  */
 
-namespace DesignMode\Creational\Composite;
+namespace DesignMode\Structural\Composite;
 
 use PHPUnit\Framework\TestCase;
 

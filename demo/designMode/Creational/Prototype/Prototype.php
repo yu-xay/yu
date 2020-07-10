@@ -5,7 +5,7 @@
  * author: xay
  */
 
-namespace DesignMode\Behavioral\Prototype;
+namespace DesignMode\Creational\Prototype;
 
 
 /**

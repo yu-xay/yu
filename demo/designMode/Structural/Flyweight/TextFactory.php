@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace DesignMode\Creational\Flyweight;
+namespace DesignMode\Structural\Flyweight;
 
 use Countable;
 

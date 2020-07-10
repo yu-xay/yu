@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DesignMode\Creational\Proxy;
+namespace DesignMode\Structural\Proxy;
 
 use PHPUnit\Framework\TestCase;
 

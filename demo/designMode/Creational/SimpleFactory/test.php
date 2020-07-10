@@ -1,6 +1,6 @@
 <?php
 
-namespace DesignMode\Behavioral\SimpleFactory;
+namespace DesignMode\Creational\SimpleFactory;
 
 use PHPUnit\Framework\TestCase;
 

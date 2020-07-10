@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace DesignMode\Behavioral\Builder;
+namespace DesignMode\Creational\Builder;
 
-use DesignMode\Behavioral\Builder\Parts\Car;
-use DesignMode\Behavioral\Builder\Parts\Truck;
+use DesignMode\Creational\Builder\Parts\Car;
+use DesignMode\Creational\Builder\Parts\Truck;
 use PHPUnit\Framework\TestCase;
 
 class test extends TestCase

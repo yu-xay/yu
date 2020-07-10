@@ -5,7 +5,7 @@
  * author: xay
  */
 
-namespace DesignMode\Behavioral\AbstractFactory;
+namespace DesignMode\Creational\AbstractFactory;
 
 /***
  * 在不指定具体类的情况下创建一系列相关或依赖对象。

@@ -5,7 +5,7 @@
  * author: xay
  */
 
-namespace DesignMode\Creational\Bridge;
+namespace DesignMode\Structural\Bridge;
 
 
 use PHPUnit\Framework\TestCase;

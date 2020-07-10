@@ -46,8 +46,9 @@ preg_replace(mixed $pattern, $replacement, $string) 正则替换
 
 
 
-
 ```
+
+[php特性](https://xiaoxiami.gitbook.io/php-7/php-71x-xin-te-xing/xin-te-xing/ke-wei-kong-ff08-nullable-ff09-lei-xing)
 
 
 

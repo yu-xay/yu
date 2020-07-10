@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace DesignMode\Behavioral\Singleton;
+namespace DesignMode\Creational\Singleton;
 
 use PHPUnit\Framework\TestCase;
 

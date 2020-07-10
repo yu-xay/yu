@@ -5,7 +5,7 @@
  * author: xay
  */
 
-namespace DesignMode\Behavioral\FactoryMethod;
+namespace DesignMode\Creational\FactoryMethod;
 
 
 class StdoutLoggerFactory implements LoggerFactory

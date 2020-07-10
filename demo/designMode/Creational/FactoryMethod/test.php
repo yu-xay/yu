@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace DesignMode\Behavioral\FactoryMethod;
+namespace DesignMode\Creational\FactoryMethod;
 
 use PHPUnit\Framework\TestCase;
 

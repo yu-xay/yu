@@ -5,12 +5,12 @@
  * author: xay
  */
 
-namespace DesignMode\Behavioral\Multiton;
+namespace DesignMode\Creational\Multiton;
 
 /**
  * 多例类可以有多个实例。而且该实例都是该类本身
  *  多例类必须自己创建、管理自己的实例，并向外界提供自己的实例
- * @package DesignMode\Behavioral\Multiton
+ * @package DesignMode\Creational\Multiton
  */
 class Multiton
 {

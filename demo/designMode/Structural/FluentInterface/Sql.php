@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DesignMode\Creational\FluentInterface;
+namespace DesignMode\Structural\FluentInterface;
 
 class Sql
 {

@@ -5,7 +5,7 @@
  * author: xay
  */
 
-namespace DesignMode\Behavioral\AbstractFactory;
+namespace DesignMode\Creational\AbstractFactory;
 
 
 class UnixJsonWriter implements JsonWriter

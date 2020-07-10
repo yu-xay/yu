@@ -1,6 +1,6 @@
 <?php
 
-namespace DesignMode\Behavioral\SimpleFactory;
+namespace DesignMode\Creational\SimpleFactory;
 
 /**
  * 因为非静态，所以你可以拥有多个不同参数的工厂

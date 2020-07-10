@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DesignMode\Creational\Registry;
+namespace DesignMode\Structural\Registry;
 
 use PHPUnit\Framework\TestCase;
 
