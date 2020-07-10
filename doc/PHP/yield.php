@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 //https://learnku.com/laravel/t/8704/using-yield-to-do-memory-optimization-in-php
 /**
  *生成器函数看上去就像一个普通函数， 除了不是返回一个值之外， 生成器会根据需求产生更多的值。

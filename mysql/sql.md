@@ -1,6 +1,6 @@
 ## 常用sql语句整理：mysql
 
-
+select distinct * from table
 1. 增
 
 - 增加一张表
