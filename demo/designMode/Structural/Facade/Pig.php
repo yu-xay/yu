@@ -1,6 +1,6 @@
 <?php
 
-namespace DesignMode\Creational\Facade;
+namespace DesignMode\Structural\Facade;
 
 interface Pig
 {

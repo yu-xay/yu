@@ -5,7 +5,7 @@
  * author: xay
  */
 
-namespace DesignMode\Creational\DataMapper;
+namespace DesignMode\Structural\DataMapper;
 
 
 use PHPUnit\Framework\TestCase;

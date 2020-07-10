@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace DesignMode\Behavioral\Multiton;
+namespace DesignMode\Creational\Multiton;
 
 use PHPUnit\Framework\TestCase;
 

@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-namespace DesignMode\Behavioral\Singleton;
+namespace DesignMode\Creational\Singleton;
 
 /**
  * 在应用程序调用的时候，只能获得一个对象实例。

@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace DesignMode\Behavioral\Builder;
+namespace DesignMode\Creational\Builder;
 
-use DesignMode\Behavioral\Builder\Parts\Vehicle;
+use DesignMode\Creational\Builder\Parts\Vehicle;
 
 class CarBuilder implements Builder
 {

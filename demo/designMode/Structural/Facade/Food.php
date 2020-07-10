@@ -6,7 +6,7 @@
  * author: xay
  */
 
-namespace DesignMode\Creational\Facade;
+namespace DesignMode\Structural\Facade;
 
 class Food
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace DesignMode\Creational\Decorator;
+namespace DesignMode\Structural\Decorator;
 
 use PHPUnit\Framework\TestCase;
 

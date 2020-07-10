@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DesignMode\Creational\DependencyInjection;
+namespace DesignMode\Structural\DependencyInjection;
 
 class DatabaseConfiguration
 {

@@ -6,7 +6,7 @@
  * author: xay
  */
 
-namespace DesignMode\Creational\Bridge;
+namespace DesignMode\Structural\Bridge;
 
 class Woman extends People
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DesignMode\Creational\Decorator;
+namespace DesignMode\Structural\Decorator;
 
 class San extends Middle
 {

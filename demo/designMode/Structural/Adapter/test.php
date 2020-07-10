@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DesignMode\Creational\Adapter;
+namespace DesignMode\Structural\Adapter;
 
 use PHPUnit\Framework\TestCase;
 

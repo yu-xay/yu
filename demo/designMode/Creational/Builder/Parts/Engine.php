@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace DesignMode\Behavioral\Builder\Parts;
+namespace DesignMode\Creational\Builder\Parts;
 
 class Engine
 {

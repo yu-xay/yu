@@ -1,6 +1,6 @@
 <?php
 
-namespace DesignMode\Behavioral\Prototype;
+namespace DesignMode\Creational\Prototype;
 
 
 use PHPUnit\Framework\TestCase;

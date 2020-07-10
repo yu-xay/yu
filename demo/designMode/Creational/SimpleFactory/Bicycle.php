@@ -5,7 +5,7 @@
  * author: xay
  */
 
-namespace DesignMode\Behavioral\SimpleFactory;
+namespace DesignMode\Creational\SimpleFactory;
 
 
 class Bicycle

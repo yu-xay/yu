@@ -6,7 +6,7 @@
  * author: xay
  */
 
-namespace DesignMode\Creational\Decorator;
+namespace DesignMode\Structural\Decorator;
 
 class Xiezi extends Middle
 {

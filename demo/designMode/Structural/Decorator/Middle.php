@@ -5,7 +5,7 @@
  * author: xay
  */
 
-namespace DesignMode\Creational\Decorator;
+namespace DesignMode\Structural\Decorator;
 
 
 abstract class Middle implements Decorator

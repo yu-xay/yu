@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace DesignMode\Behavioral\AbstractFactory;
+namespace DesignMode\Creational\AbstractFactory;
 
 use PHPUnit\Framework\TestCase;
 

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace DesignMode\Behavioral\Pool;
+namespace DesignMode\Creational\Pool;
 
 use PHPUnit\Framework\TestCase;
 

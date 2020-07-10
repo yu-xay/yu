@@ -6,7 +6,7 @@
  * author: xay
  */
 
-namespace DesignMode\Creational\Composite;
+namespace DesignMode\Structural\Composite;
 
 class Department implements Limited
 {

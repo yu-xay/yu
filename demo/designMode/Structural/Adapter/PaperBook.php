@@ -5,7 +5,7 @@
  * author: xay
  */
 
-namespace DesignMode\Creational\Adapter;
+namespace DesignMode\Structural\Adapter;
 
 
 class PaperBook implements Book

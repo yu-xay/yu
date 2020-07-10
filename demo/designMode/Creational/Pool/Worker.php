@@ -5,7 +5,7 @@
  * author: xay
  */
 
-namespace DesignMode\Behavioral\Pool;
+namespace DesignMode\Creational\Pool;
 
 
 class Worker

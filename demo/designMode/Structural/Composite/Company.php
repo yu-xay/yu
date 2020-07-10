@@ -6,7 +6,7 @@
  * author: xay
  */
 
-namespace DesignMode\Creational\Composite;
+namespace DesignMode\Structural\Composite;
 
 /**
  * 复合节点必须扩展组件协定。这对于构建

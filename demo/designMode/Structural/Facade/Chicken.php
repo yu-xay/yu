@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DesignMode\Creational\Facade;
+namespace DesignMode\Structural\Facade;
 
 interface Chicken
 {
