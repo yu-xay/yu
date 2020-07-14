@@ -8,3 +8,5 @@
 + PK 主键 Primary Key
 + FK 外键 Foreign Key
 + UK 唯一 Unique Key
+
+[1](https://learnku.com/articles/40174)
