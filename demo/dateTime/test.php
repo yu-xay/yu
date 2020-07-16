@@ -17,11 +17,9 @@ class deteTime extends TestCase
 
         $datetime = new \DateTime('2090-10-21 15:15:15');
 
-
         //创建长度2周的间隔
         //Y M D W H M S => 结构P<number><logo>T<number><logo> =>字符串P开头 有时间则日期时间加上T
         //$dateInterval = new \DateInterval('P2WT5H');
-
 
         //表示一个时间周期。
         $dateInterval = \DateInterval::createFromDateString('-2day');
@@ -30,8 +28,7 @@ class deteTime extends TestCase
         foreach ($datePeriod as $date) {
             echo $date->format('Y-m-d') . PHP_EOL;
         }
-//        $datetime->add($interval);
-//        echo $datetime->format('Y-m-d H:i:s');
-
+        // $datetime->add($interval);
+        // echo $datetime->format('Y-m-d H:i:s');
     }
 }

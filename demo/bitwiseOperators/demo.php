@@ -11,8 +11,8 @@ class index extends TestCase
      */
     public function testExcept()
     {
-        E_ALL; // 0b111111111111111 32767
-        E_NOTICE; //0b000000000001000   8
+        E_ALL;    // 0b111111111111111 32767
+        E_NOTICE; // 0b000000000001000   8
 
         $a = E_ALL ^ E_NOTICE;
         $this->assertSame(32759, $a);

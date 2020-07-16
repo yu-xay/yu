@@ -1,4 +1,5 @@
 <?php
+
 /**
  * link: http://www.zjhejiang.com/
  * copyright: Copyright (c) 2020 浙江禾匠信息科技有限公司
@@ -7,15 +8,14 @@
 
 namespace yu\composer;
 
-
 class registry
 {
     public static function autoload($class)
     {
-        echo 123;exit;
+        echo 123;
+        exit;
         $class = substr($class, strripos($class, '\\') + 1);
         $classFile = './auto/' . $class . '.php';
-
         if (is_file($classFile)) {
             include $classFile;
         } else {
