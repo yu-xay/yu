@@ -44,7 +44,7 @@ str_replace($search, $replace,$string,$count)  子字符串替换 遍历 替换 
 
 preg_replace(mixed $pattern, $replacement, $string) 正则替换
 
-
+extract
 
 ```
 

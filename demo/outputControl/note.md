@@ -1,16 +1,9 @@
-
-[simple](https://www.cnblogs.com/saw2012/archive/2013/01/30/2882451.html)
-[A](https://blog.csdn.net/enlyhua/article/details/51004229)
-[laravel](https://learnku.com/articles/41439)
-[php.net](https://www.php.net/manual/zh/function.ob-get-clean.php)
-[hard](https://www.cnblogs.com/raobenjun/p/8086051.html)
-[hard](https://blog.csdn.net/ligupeng7929/article/details/87936868)
-
+- [PHP输出缓冲区的总结](https://blog.csdn.net/ligupeng7929/article/details/87936868)
 
 #### output_buffering
 ```
     on/off 或者整数 。
-    设置为on时，将在所有脚本中使用输出缓存控制，不限制缓存的大小。
+    设置为on时，将在所有脚本中使用输出缓存控制。
     而设置为整数时，如output_buffering=4096，当缓存数据达到4096字节时会自动输出刷新缓存。
     而这个参数的不同正是导致以上代码在不同时候执行结果不同的原因。
     当output_buffering关闭时，脚本所有的输出（echo）都会即时发送到客户端，执行上面代码时就是每秒输出一个数字。
@@ -57,6 +50,13 @@ ob_list_handlers()  列出所有输出使用的操作方法。
 2. php下载大文件
     + feature/header $class->downBigFile();
 3. 静态文件缓存
-    
+4. 模板使用
+    ```php
+    ob_start();
+    ob_implicit_flush(false);
+    extract($_params_, EXTR_OVERWRITE);
+    require $_file_;
+    return ob_get_clean();
+```
 
 
