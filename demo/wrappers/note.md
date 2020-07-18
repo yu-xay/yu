@@ -2,7 +2,10 @@
 + cli.php
 + php://memory 内存中读写临时数据
 + php://temp/maxmemory:NN 写入文件
-
+https://www.jianshu.com/p/79591db09b5a
+https://www.php.net/manual/zh/wrappers.php.php
+http://aiezu.com/article/php_input_output_sets.html
+https://ask.csdn.net/questions/824117?sort=votes_count
 
 + php://input 可以访问请求的原始数据的只读流
 
