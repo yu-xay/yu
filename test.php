@@ -1,8 +1,7 @@
 <?php
+file_put_contents('my-errors.log', '');
+error_log(json_encode($_GET,JSON_UNESCAPED_UNICODE). "\n", 3, "./my-errors.log");
+error_log(json_encode($_POST,JSON_UNESCAPED_UNICODE). "\n", 3, "./my-errors.log");
+error_log(json_encode(file_get_contents('php://input'),JSON_UNESCAPED_UNICODE). "\n", 3, "./my-errors.log");
+error_log(json_encode(getallheaders(),JSON_UNESCAPED_UNICODE). "\n", 3, "./my-errors.log");
 
-$a =  wordwrap('主任跟过过过',3,PHP_EOL);
-
-//$text = "The quick brown fox jumped over the lazy dog.";
-//$a = wordwrap($text, 20, "<br />\n");
-
-print_r($a);

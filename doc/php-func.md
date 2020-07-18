@@ -24,8 +24,12 @@ number_format($number,位数,小数点，逗号)           千位数字格式化
 ```
 
 [php特性](https://xiaoxiami.gitbook.io/php-7/php-71x-xin-te-xing/xin-te-xing/ke-wei-kong-ff08-nullable-ff09-lei-xing)
+### 文件系统
+fopen fgets() ftell() rewind()
 
-
+###中
+memory_get_usage() 内存
+sys_get_temp_dir()  临时文件的目录
 
 
 

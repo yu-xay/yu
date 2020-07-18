@@ -8,12 +8,40 @@ use PHPUnit\Framework\TestCase;
 
 class Wrappers extends TestCase
 {
-    public function testIndex()
+    /*
+     * 有的流可以接受一系列可选的参数，叫做作流的上下文 使用stream_content_create()
+     * note1： Content-Type: application/x-www-form-urlencoded时 请求主体body数据会转换关联数组放入$_POST; php://input 获取元素数据
+     * note2： Content-Type: multipart/form-data 也会放入$_POST 能正常打印数据，但$_POST是接收不了的
+     */
+    public function testStreamParams()
     {
-        $a = new \DateTime('2020-12-21 03:08:43');
-        var_dump($a->getDateInterval);exit;
-        echo 1;
-        $this->assertSame(1, 1);
+        //todo mulipart/form-data $_POST 获取不到 原因未知 =>  failed to open stream: HTTP request failed!
+        $params = stream_context_create([
+            'http' => [
+                'method' => 'POST',
+                'header' => "'Expect:  \r\nContent-Type: multipart/form-data; boundary=" . uniqid() . "\r\n",
+                //."Content-Length: 30\r\n",
+                //'header' => "Content-Type: application/x-www-form-urlencoded\r\n", //$_POST
+                //'content' => '{"username": "join"}', //php://input
+                'content' => http_build_query(['username' => 'join']), //$_POST
+            ],
+        ]);
+        file_get_contents('http://localhost/yu/test.php?get=1', false, $params);
+
+        //file_put_contents('my-errors.log', '');
+        //error_log(json_encode($_GET,JSON_UNESCAPED_UNICODE). "\n", 3, "./my-errors.log");
+        //error_log(json_encode($_POST,JSON_UNESCAPED_UNICODE). "\n", 3, "./my-errors.log");
+        //error_log(json_encode(file_get_contents('php://input'),JSON_UNESCAPED_UNICODE). "\n", 3, "./my-errors.log");
+        //error_log(json_encode(getallheaders(),JSON_UNESCAPED_UNICODE). "\n", 3, "./my-errors.log");
+    }
+
+    public function testA()
+    {
+        $a = fopen('http://localhost/yu/my-errors.log', 'r');
+        $b = fgets($a);
+        php_
+
+        echo $b;
     }
 
     /**
@@ -28,7 +56,7 @@ class Wrappers extends TestCase
         {
             goto a;
             $handle = fopen($path, 'rb');
-            //可以过滤器列表 => stream_get_filters() https://www.php.net/manual/zh/filters.php 通常没用
+            //可以过滤器列表 => stream_get_filters() https://www.php.net/manual/zh/filters.php
             stream_filter_append($handle, 'string.toupper');
             a:
         }
