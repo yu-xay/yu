@@ -8,7 +8,9 @@
 + [文档](https://pay.weixin.qq.com/wiki/doc/api/index.html)
 + [开发流程](https://pay.weixin.qq.com/wiki/doc/api/H5.php?chapter=15_4)
 + [JIT](https://learnku.com/php/t/44968)
-
++ [+ MVCC 多版本并发控制]
++ [快照读]
++ [](https://learnku.com/php/t/47623)
 docker-machine ip default
 docker-machine ip default
 docker-machine ip default

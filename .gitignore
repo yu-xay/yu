@@ -1,4 +1,5 @@
 .idea
 /vendor/
 /.idea/
+/blog/
 /npm/node_modules/
