@@ -2,38 +2,39 @@
 
 ### 可补充(5天删除)
 ```
-debug_zval_dump('encode');                              引用次数
+- array_flip
+- str_repeat();
+- array_pad
+- http_build_query($array)                               数组转http参数
+- substr_count($string, $need, $offset, $length)         范围内子串重复次数
+- extract()                                              数组提取
+- number_format($number,decimals, '.', ',')              千位数格式化
+- array_slice($arr, $offset, [$length],cancelSort)       截取子数组
+- array_splice(&$arr, $offset, [$length], (array)$need)  替换&$arr, 返回同上
 
-http_build_query(array)                                 http头部数组转字符串 2day
-array_fill(index,number,value);                         填充数组 3day
-
-array_multisort()
-array_slice(array $arr, int $offset [,int $length = null]): array 从数组中取出一段 2day
-array_splice(array &$arr, int $offset [, int length = count($arr)[, $reple]] : array 去掉数组莫一部分并用其他值取代 2day
-wordwrap(str, num, 分隔符, 是否强制)                                        文本换行 4day
-sub: 子
-substr_count($haystack,$needle);               字符串出现次数  1dau
-
-substr($string.$start,$length)                 字符串子传                            1day
-substr_replace($string,$replact,$start,$length) 根据位置替换 混合参数        =>位置筛选 1day
-str_replace($search, $replace,$string,$count)  子字符串替换 遍历 替换 混合参数 =>查找字符串 1day
-preg_replace(mixed $pattern, $replacement, $string) 正则替换
-extract()                                         数组提交值  1day
-number_format($number,位数,小数点，逗号)           千位数字格式化  1day
-
+- substr_replace(string, V$replacementV, $start, $length) 根据位置替换字符串                                
+- str_replace($search, $replace, $string, $count)         根据搜索替换字符串
 ```
 
 [php特性](https://xiaoxiami.gitbook.io/php-7/php-71x-xin-te-xing/xin-te-xing/ke-wei-kong-ff08-nullable-ff09-lei-xing)
 ### 文件系统
 fopen fgets() ftell() rewind()
 
-###中
-memory_get_usage() 内存
-sys_get_temp_dir()  临时文件的目录
+###unimportant
+debug_zval_dump('encode');   引用次数
+memory_get_usage()           内存
+sys_get_temp_dir()           临时文件的目录
+array_multisort()            多个数组或多维数组排序
+preg_match                   执行匹配正则表达式
+preg_replace                 执行一个正则表达式的搜索和替换
 
-
+openssl_random_pseudo_bytes  安全随机数
+bin2hex                      二转16
 
 #END
+- array_fill(start,end,value)                            填充数组
+- substr(string, start, [length])                        截取子串
+- wordwrap(string, width, limit, English)                字符串切割
 - substr_compare(main_str,str,offset,length,Aa true) int 二进制比较文件
 - realpath()                                             获取真实路径
 - parse_url($url, PHP_URL_SCHEME):mixed                  解析url
