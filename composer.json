@@ -9,7 +9,8 @@
     "require": {
         "phpunit/phpunit": "^8.5",
         "workerman/workerman": "^3.5",
-        "ckg/new": "^3.2.1"
+        "ckg/new": "^3.2.1",
+        "alipaysdk/easysdk": "^2.0"
     },
     "autoload": {
         "files": [
