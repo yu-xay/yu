@@ -23,11 +23,28 @@ docker-machine ip default
 
 https://www.jianshu.com/p/8c17e4357502
 
-#### 备用
-- [开始你的bash/shell脚本编程](https://www.jianshu.com/p/5568d311fb5a)
-- [PHP 内核与原生扩展开发](https://learnku.com/docs/php-internals/php7)
-- [C](https://www.runoob.com/cprogramming/c-tutorial.html)
-
 https://blog.csdn.net/diavid/article/details/81035188
 https://github.com/colinlet/PHP-Interview-QA/blob/master/docs/03.PHP/QA.md#%E5%AF%B9%E8%B1%A1%E5%85%B3%E7%B3%BB%E6%98%A0%E5%B0%84orm
 https://www.cnblogs.com/shixiuxian/p/11230939.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### 备用
+- [OAuth 2.0](http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html)
+- [开始你的bash/shell脚本编程](https://www.jianshu.com/p/5568d311fb5a)
+- [PHP 内核与原生扩展开发](https://learnku.com/docs/php-internals/php7)
+- [C](https://www.runoob.com/cprogramming/c-tutorial.html)

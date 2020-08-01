@@ -1,29 +1,31 @@
-<?php
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div>123</div>
+</body>
+<script>
+ //   var axios = require('./bower_components/axios/dist/axios.js');
 
-function getMissElement($m, $n)
-{
-    $nArr   = array_fill(0, $n, -1);
-    $newArr = array_merge($m, $nArr);
-    for ($i = 0; $i < count($newArr); $i++) {
-        while ($i + 1 != $newArr[$i]) {
-            if ($newArr[$i] == -1) {
-                break;
-            }
-            $temp              = $newArr[$i];
-            $newArr[$i]        = $newArr[$temp - 1];
-            $newArr[$temp - 1] = $temp;
-        }
-    }
+    var b = require('./b');
+    console.log(b.foo);
+    setTimeout(() => {
+        console.log(b.foo);
+        console.log(require('./b').foo);
+    }, 1000);
 
-    for ($i = 0; $i < count($newArr); $i++) {
-        if ($newArr[$i] == -1) {
-            echo $i + 1;
-            echo "\n";
-        }
-    }
-}
-
-$missArr = [1, 9, 4, 5, 8, 3, 7];
-$n       = 2;
-
-getMissElement($missArr, $n);
+    axios.get('1.php')
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+</script>
+</html>
