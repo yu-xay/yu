@@ -138,6 +138,11 @@ class sort extends TestCase
             $arr[$b] ^= $arr[$a];
         }
 
+//        1 => 1
+       // 2  => 23
+//        2 => 4 5 67
+//        3 => 8 9 10 11 12 13 14 15
+        //2*n
         //用数组建立最小堆
         function buildHeap(&$arr, $arrSize)
         {
@@ -212,61 +217,67 @@ class sort extends TestCase
      */
     public function testMerge()
     {
-        function merge($arrA, $arrB)
+        function merge($left, $right)
         {
-            /********灵魂所在*******/
-            $arrC = array();
-            while (count($arrA) && count($arrB)) {
-                $arrC[] = $arrA[0] < $arrB[0] ? array_shift($arrA) : array_shift($arrB);
-            }
-            return array_merge($arrC, $arrA, $arrB);
+            $arr = [];
+            while (count($left) && count($right)) {
+                $b = $left[0] < $right[0] ? array_shift($left) : array_shift($right);
+                array_push($arr, $b);
+            };
+            return array_merge($arr, $left, $right);
         }
-
-        function mergeSort($arr)
+        function mergesort($data)
         {
-            $len = count($arr);
-            if ($len <= 1) {
-                return $arr;
+            $count = count($data);
+            if ($count < 2) {
+                return $data;
             }
+            $middle = intval($count / 2);
+            $left = array_slice($data, 0, $middle);
+            $right = array_slice($data, $middle);
 
-            $mid = intval($len / 2);
-            $left = array_slice($arr, 0, $mid);
-            $right = array_slice($arr, $mid);
-            $left = mergeSort($left);
-            $right = mergeSort($right);
-            $arr = merge($left, $right);
-            return $arr;
+            $left = mergesort($left);
+            $right = mergesort($right);
+
+            return merge($left, $right);
         }
-
-        $this->assertSame(self::END, mergeSort($this->start));
+        $this->start = mergesort($this->start);
+        $this->assertSame(self::END, $this->start);
     }
 
     /**
-     * Quick 快速
+     * Quick 快速 O(N*logN)
      * https://images2017.cnblogs.com/blog/849589/201710/849589-20171015230936371-1413523412.gif
      */
     public function testQuick()
     {
-        $func = function ($data) use (&$func) {
-            if (count($data) <= 1) {
+        function merge(array $data)
+        {
+            $count = count($data);
+            if ($count < 2) {
                 return $data;
             }
-            $count = count($data);
-            $middle = $data[0];
-            $left = $right = [];
-            for ($i = 1; $i < $count; $i++) {
-                if ($middle < $data[$i]) {
-                    $right[] = $data[$i];
-                } else {
-                    $left[] = $data[$i];
+            $left = [];
+            $right = [];
+            $middle = [];
+            for ($i = 0; $i < $count; $i++) {
+                if ($data[$i] > $data[0]) {
+                    array_push($right, $data[$i]);
+                    continue;
                 }
+                if ($data[$i] < $data[0]) {
+                    array_push($left, $data[$i]);
+                    continue;
+                }
+                array_push($middle, $data[$i]);
             }
-            $left = $func($left);
-            $right = $func($right);
+            $left = merge($left);
+            $right = merge($right);
+            return array_merge($left, $middle, $right);
+        }
 
-            return array_merge($left, array($middle), $right);
-        };
-        $this->assertSame(self::END, $func($this->start));
+        $this->start = merge($this->start);
+        $this->assertSame(self::END, $this->start);
     }
 
     /**
@@ -277,11 +288,11 @@ class sort extends TestCase
     {
         $count = count($this->start);
         for ($i = 1; $i < $count; $i++) {
-            for ($j = 0; $j < $i; $j++) {
-                if ($this->start[$i] < $this->start[$j]) {
-                    $this->start[$i] ^= $this->start[$j];
-                    $this->start[$j] ^= $this->start[$i];
-                    $this->start[$i] ^= $this->start[$j];
+            for ($j = $i; $j > 0; $j--) {
+                if ($this->start[$j] < $this->start[$j - 1]) {
+                    $this->start[$j - 1] ^= $this->start[$j];
+                    $this->start[$j] ^= $this->start[$j - 1];
+                    $this->start[$j - 1] ^= $this->start[$j];
                 }
             }
         }
@@ -289,40 +300,41 @@ class sort extends TestCase
     }
 
     /**
-     * Select 选择
+     * Select 选择 O(n2)
      * https://images2015.cnblogs.com/blog/1094457/201703/1094457-20170313214825557-329405797.gif
      */
     public function testSelect()
     {
         $count = count($this->start);
         for ($i = 0; $i < $count - 1; $i++) {
-            $tmp = $i;
+            $min = $i;
             for ($j = $i + 1; $j < $count; $j++) {
-                if ($this->start[$j] <= $this->start[$tmp]) {
-                    $tmp = $j;
+                if ($this->start[$min] > $this->start[$j]) {
+                    $min = $j;
                 }
             }
-            $sin = $this->start[$i];
-            $this->start[$i] = $this->start[$tmp];
-            $this->start[$tmp] = $sin;
+            if ($i !== $min) {
+                $this->start[$min] ^= $this->start[$i];
+                $this->start[$i] ^= $this->start[$min];
+                $this->start[$min] ^= $this->start[$i];
+            }
         }
-
         $this->assertSame(self::END, $this->start);
     }
 
     /**
-     * Bubble 冒泡
+     * Bubble 冒泡 O(n2)
      * https://images2015.cnblogs.com/blog/599210/201706/599210-20170619085503132-2067568088.gif
      */
     public function testBubble()
     {
         $count = count($this->start);
-        for ($i = 0; $i < $count; $i++) {
-            for ($j = 0; $j < $count; $j++) {
-                if ($this->start[$i] < $this->start[$j]) {
-                    $this->start[$j] ^= $this->start[$i];
-                    $this->start[$i] ^= $this->start[$j];
-                    $this->start[$j] ^= $this->start[$i];
+        for ($i = 0; $i < $count - 1; $i++) {
+            for ($j = 0; $j < $count - 1 - $i; $j++) {
+                if ($this->start[$j] > $this->start[$j + 1]) {
+                    $this->start[$j] ^= $this->start[$j + 1];
+                    $this->start[$j + 1] ^= $this->start[$j];
+                    $this->start[$j] ^= $this->start[$j + 1];
                 }
             }
         }
