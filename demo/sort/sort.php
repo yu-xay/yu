@@ -11,7 +11,7 @@ class sort extends TestCase
 {
     private const END = [0, 1, 2, 2, 3, 5, 6, 6, 8, 13, 14, 25, 45, 183, 256];
 
-    public $start = [5, 8, 2, 2, 6, 6, 0, 1, 3, 13, 45, 14, 256, 183, 25];
+    public $start = [5, 8, 2, 2, 6, 6, 3, 1, 0, 13, 45, 14, 256, 183, 25];
 
     /**
      * Bucket 桶排序
@@ -36,26 +36,24 @@ class sort extends TestCase
         }
 
         $bucketCount = floor(($maxValue - $minValue) / $bucketSize) + 1;
+
         $buckets = array_fill(0, $bucketCount, []);
-        for ($i = 0; $i < count($buckets); $i++) {
-            $buckets[$i] = [];
-        }
 
         // *****数组拆分处理*****
         for ($i = 0; $i < count($arr); $i++) {
             $buckets[floor(($arr[$i] - $minValue) / $bucketSize)][] = $arr[$i];
         }
 
-        $arr = array();
+        $this->start = array();
         for ($i = 0; $i < count($buckets); $i++) {
             $bucketTmp = $buckets[$i];
             sort($bucketTmp);
-            for ($j = 0; $j < count($bucketTmp); $j++) {
-                $arr[] = $bucketTmp[$j];
+            while (count($bucketTmp) > 0) {
+                array_push($this->start, array_shift($bucketTmp));
             }
         }
 
-        $this->assertSame(self::END, $arr);
+        $this->assertSame(self::END, $this->start);
     }
 
     /**
@@ -72,15 +70,13 @@ class sort extends TestCase
             }
             $bucket[$this->start[$i]] += 1;
         }
-
         $this->start = [];
         for ($j = 0; $j < count($bucket); $j++) {
-            $v = current($bucket);
-            while ($v > 0) {
-                $this->start[] = key($bucket);
-                $v--;
+            $num = $bucket[$j];
+            while ($num > 0) {
+                array_push($this->start, $j);
+                $num -= 1;
             }
-            next($bucket);
         }
         $this->assertSame(self::END, $this->start);
     }
@@ -91,34 +87,24 @@ class sort extends TestCase
      */
     public function testRadix()
     {
-        $maxDigit = 0;
-        for ($a = 0; $a < count($this->start); $a++) {
-            $maxDigit = strlen($this->start[$a]) > $maxDigit ? strlen($this->start[$a]) : $maxDigit;
-        }
-
-        for ($i = 1; $i <= $maxDigit; $i++) {
-            $radix = array_fill(0, 10, []);
+        array_walk($this->start, function ($item) use (&$maxDigit) {
+            $maxDigit = strlen($item) > $maxDigit ? strlen($item) : $maxDigit;
+        });
+        for ($i = 0; $i <= $maxDigit; $i++) {
+            $barrel = array_fill(0, 10, []);
             for ($j = 0; $j < count($this->start); $j++) {
                 //可使用mod
-                if (strlen($this->start[$j]) < $i) {
-                    $index = 0;
+                if (strlen($this->start[$j]) < $i + 1) {
+                    $barrel[0] = array_merge($barrel[0], [$this->start[$j]]);
                 } else {
-                    $index = substr($this->start[$j], -1 * $i, 1);
+                    $sub = substr($this->start[$j], -1 * ($i + 1), 1);
+                    $barrel[$sub] = array_merge($barrel[$sub], [$this->start[$j]]);
                 }
-                $radix[$index][] = $this->start[$j];
             }
-
             $this->start = [];
-            for ($k = 0; $k < count($radix); $k++) {
-                while (count($radix[$k]) > 0) {
-                    $key = null;
-                    for ($l = 0; $l < count($radix[$k]); $l++) {
-                        if (is_null($key) || $radix[$k][$key] > $radix[$k][$l]) {
-                            $key = $l;
-                        }
-                    }
-                    $merge = array_splice($radix[$k], $key, 1);
-                    $this->start = array_merge($this->start, $merge);
+            for ($k = 0; $k < count($barrel); $k++) {
+                for ($l = 0; $l < count($barrel[$k]); $l++) {
+                    array_push($this->start, $barrel[$k][$l]);
                 }
             }
         }
@@ -149,6 +135,7 @@ class sort extends TestCase
             for ($index = intval($arrSize / 2) - 1; $index >= 0; $index--) {
                 if ($index * 2 + 1 < $arrSize) {
                     $max = $index * 2 + 1;
+                    echo $index, PHP_EOL;
                     if ($index * 2 + 2 < $arrSize && $arr[$index * 2 + 2] > $arr[$index * 2 + 1]) {
                         $max = $index * 2 + 2;
                     }
@@ -179,36 +166,21 @@ class sort extends TestCase
     /**
      * Shell 希尔
      * https://images2018.cnblogs.com/blog/849589/201803/849589-20180331170017421-364506073.gif
+     * https://upload-images.jianshu.io/upload_images/6095354-ff984d80dbc0455f.png
      */
     public function testShell()
     {
-        function swap(array &$arr, int $a, int $b)
-        {
-            $arr[$b] ^= $arr[$a];
-            $arr[$a] ^= $arr[$b];
-            $arr[$b] ^= $arr[$a];
-        }
-
-        $arr = $this->start;
-        for ($gap = floor(count($arr) / 2); $gap > 0; $gap = floor($gap / 2)) {
-            echo $gap;
-            //注意：这里和动图演示的不一样，动图是分组执行，实际操作是多个分组交替执行
-            for ($j = $gap; $j < count($arr); $j++) {
-                //echo implode(',', $arr) . PHP_EOL;
-                //$j = 5,6,7,8
-                //5 = 5 => 0 <=> 5;
-                //6 = 5 => 1 <=> 6;
-                //7 = 5 => 2 <=> 7;
-                echo implode(',', [$j, $gap]) . PHP_EOL;
-                while ($j - $gap >= 0 && $arr[$j - $gap] > $arr[$j]) {
-                    swap($arr, $j, $j - $gap);
-                    $j -= $gap;
+        $gap = $count = count($this->start);
+        while (($gap = floor($gap / 2)) && $gap > 0) {
+            for ($i = $gap; $i < $count; $i++) {
+                $temp = $this->start[$i];
+                for ($j = $i - $gap; $j >= 0 && $this->start[$j] > $temp; $j -= $gap) {
+                    $this->start[$j + $gap] = $this->start[$j];
                 }
-                //echo implode(',', $arr) . PHP_EOL;
+                $this->start[$j + $gap] = $temp;
             }
-            //echo implode(',', $arr) . PHP_EOL;
         }
-        $this->assertSame(self::END, $arr);
+        $this->assertSame(self::END, $this->start);
     }
 
     /**
