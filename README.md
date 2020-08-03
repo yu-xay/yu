@@ -1,47 +1,19 @@
 # yu
 待处理文档
-1. php攻击（6种攻击详解）~
-2. [CSS3](https://www.w3school.com.cn/css3/css3_border.asp) 
+- php攻击（6种攻击详解）~
 
 - ORM 对象关系映射工具
 - ftp 和 sftp
-+ [文档](https://pay.weixin.qq.com/wiki/doc/api/index.html)
-+ [开发流程](https://pay.weixin.qq.com/wiki/doc/api/H5.php?chapter=15_4)
++ [蚂蚁支付](https://pay.weixin.qq.com/wiki/doc/api/index.html)
++ [微信H5支付](https://pay.weixin.qq.com/wiki/doc/api/H5.php?chapter=15_4)
 + [+ MVCC 多版本并发控制]
 + [快照读]
-+ [](https://learnku.com/php/t/47623)
-docker-machine ip default
-docker-machine ip default
-docker-machine ip default
-docker-machine ip default
-docker-machine ip default
-docker-machine ip default
-docker-machine ip default
-docker-machine ip default
-docker-machine ip default
++ [TEST](https://learnku.com/php/t/47623)
 docker-machine ip default
 
 https://www.jianshu.com/p/8c17e4357502
 
-https://blog.csdn.net/diavid/article/details/81035188
-https://github.com/colinlet/PHP-Interview-QA/blob/master/docs/03.PHP/QA.md#%E5%AF%B9%E8%B1%A1%E5%85%B3%E7%B3%BB%E6%98%A0%E5%B0%84orm
 https://www.cnblogs.com/shixiuxian/p/11230939.html
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #### 备用
 - [OAuth 2.0](http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html)

@@ -30,6 +30,7 @@ preg_replace                 执行一个正则表达式的搜索和替换
 
 openssl_random_pseudo_bytes  安全随机数
 bin2hex                      二转16
+highlight_file()             代码高亮
 
 #END
 - array_fill(start,end,value)                            填充数组

@@ -44,19 +44,23 @@ ob_implicit_flush() 相当于开启php.ini中的implicit_flush参数，立即发
 ob_list_handlers()  列出所有输出使用的操作方法。
 ```
 
+### 流程：
+    + php echo,var_dump -> php output_buffering -> webServer buffer-> browser buff-> browser display
+
 ## 用途 ##
 1. 使用缓冲区可以避免header setcookie 脚本输入前报错
     一遇到header函数，php马上执行apache发送一个http，而输出的数据存放在缓冲区，等待输入
 2. php下载大文件
     + feature/header $class->downBigFile();
+    + 可以while循环，一段一段读取文件输送到浏览器，否则全读。
+    + 解决了内存问题和用户等待时间
 3. 静态文件缓存
-4. 模板使用
-    ```php
-    ob_start();
-    ob_implicit_flush(false);
-    extract($_params_, EXTR_OVERWRITE);
-    require $_file_;
-    return ob_get_clean();
-```
+    + ob_get_content + file_put_content()
+4. 模板使用 导入 .=> test5
+
+
+## 补充 ##
++ ![Nginx](https://cdn.learnku.com/uploads/images/202003/06/58556/1ZLQnYZAD3.png)
+
 
 
