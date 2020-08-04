@@ -71,3 +71,85 @@ function passthru(literals) {
 
 #### Symbol
 + 
+
+
+#### Set和Map数据结构
++ new Set([])
+    + add(value) delete(value) has(value) clear() size
+    + 不会发生类型转换 3 和 ‘3’ =》 内部 === 判断
+    + 两个空对象不相等，所以它们被视为两个值
+    + Array.from() 可使转为数组 或 [...new Set(arr)]
+    + 遍历结构: keys()  values() entries()键值对
+    + Set键名和键值是同一个值 所以 keys() 和 values() 基本一致
+    + new Set([...a].filter(x => b.has(x))) 交集
++ new WeakSet() 只能放对象 弱引用  不会引发内存泄漏。
+
++ new Map() 相比于Object结构 提供了 [值-值]的对应
+    + 构造成员是 键值对组成的二维数组 ([key, value]) => map.set(key, value)
+    + set(key,value) size get(key) has(key) delete(key) clear()
+    + 只有对同一个对象的引用 map才认为是同一个键(内存地址)*
+    + Map 的键实际上是跟内存地址绑定的*
+    + [...Map] 即可转数组
+    + Object.entries({"a":1, "b":2}) Object.create(null)
++ new WeakMap() 只接受对象作为键名 并且键名指向对象，不计入垃圾回收机制
+
+####Proxy
+
+####Reflect
+
+####Promise
+
+####Iterator和 for...of 
++ Iterator 
+    + 各种数据结构，提供一个统一的、简便的访问接口
+    + 本质上是 指针 next 返回 value done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
