@@ -35,15 +35,6 @@ class Wrappers extends TestCase
         //error_log(json_encode(getallheaders(),JSON_UNESCAPED_UNICODE). "\n", 3, "./my-errors.log");
     }
 
-    public function testA()
-    {
-        $a = fopen('http://localhost/yu/my-errors.log', 'r');
-        $b = fgets($a);
-        php_
-
-        echo $b;
-    }
-
     /**
      * 使用流封装协议打开一些资源
      * 流过滤器

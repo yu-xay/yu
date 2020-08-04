@@ -8,24 +8,20 @@
     <title>Document</title>
 </head>
 <body>
-<div>123</div>
+1
 </body>
 <script>
- //   var axios = require('./bower_components/axios/dist/axios.js');
-
-    var b = require('./b');
-    console.log(b.foo);
-    setTimeout(() => {
-        console.log(b.foo);
-        console.log(require('./b').foo);
-    }, 1000);
-
-    axios.get('1.php')
-        .then(function (response) {
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+    let a = Symbol(1);
+    let b = Symbol(1);
+    console.log(a,b);
+    // const obj = {
+    //     toString() {
+    //         return 'abc';
+    //     }
+    // };
+    // const sym = Symbol(obj);
+    //
+    // console.log(sym.description + '123')
+   // console.log(sym + '111');
 </script>
 </html>

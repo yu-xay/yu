@@ -1,5 +1,5 @@
 + [JIT](https://learnku.com/php/t/44968)
-+ [执行流程](https://blog.csdn.net/diavid/article/details/81035188)
++ [底层](https://www.cnblogs.com/shixiuxian/p/11230939.html)
 
 ####PHP代码执行过程
 1. Scanning(Lexing/Tokenize) 将php代码转换成语言片段(Tokens);单词符号
@@ -8,8 +8,6 @@
 4. Execution                 顺次执行Opacode，从而实现PHP脚本的功能
 5. zend Vm                   Zend VM引擎 接收操作码 并执行
 
-
-+ [底层](https://www.cnblogs.com/shixiuxian/p/11230939.html)
 ###JIT
 + 在运行时进行编译是昂贵的
 + 跳过zend vm 编译成 机器码
