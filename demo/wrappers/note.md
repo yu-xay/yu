@@ -2,11 +2,9 @@
 + cli.php
 + php://memory 内存中读写临时数据
 + php://temp/maxmemory:NN 写入文件
-https://www.jianshu.com/p/79591db09b5a
-https://www.php.net/manual/zh/wrappers.php.php
-http://aiezu.com/article/php_input_output_sets.html
-https://ask.csdn.net/questions/824117?sort=votes_count
-
++ php://fd 允许直接访问指定的文件描述符
++ php://output 只写数据流,允许你以 print 和 echo 一样的方式 写入到输出缓冲区
++ php://filter 数据流打开的筛选过滤应用
 + php://input 可以访问请求的原始数据的只读流
 
 1.无法获取$_GET数据。
@@ -20,10 +18,10 @@ https://ask.csdn.net/questions/824117?sort=votes_count
 PHP才会将http请求数据包中相应的数据填入全局变量$_POST
 
 ```html
-<form action="post.php" method="post" enctype="multipart/form-data"> 
-            <input type="text" name="user"> 
-        <input type="password" name="password"> 
-            <input type="submit"> 
+<form action="post.php" method="post" enctype="multipart/form-data">
+    <input type="text" name="user">
+    <input type="password" name="password">
+    <input type="submit">
 </form>
 ```
 ```php

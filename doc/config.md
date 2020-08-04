@@ -24,6 +24,7 @@
 - [资源应用库](http://caiyun.feixin.10086.cn/dl/175Cjf9LVi9ol "lpuT") ngrok PHPSTORM WAMPSERVER
 
 ### 其他 ###
+- [PHP常见库](https://learnku.com/articles/40507)
 - [隐私邮箱](https://www.yinsiduanxin.com/mail.html)
 - [前端兼容性](https://caniuse.com/# "Can I use... Support tables for HTML5, CSS3, etc")
 - [18个惊人的Angular开源项目-简书](https://www.jianshu.com/p/c8d45d30f341)

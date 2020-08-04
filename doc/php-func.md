@@ -1,16 +1,12 @@
 [在线测试](http://php.jsrun.net/)
 
-### 可补充(5天删除)
 ```
-- array_flip
-- str_repeat();
-- array_pad
-- http_build_query($array)                               数组转http参数
+- js arguments                                          arge_func——
+- js Object.fromEntries()
+- property_exists                                       判断对象是否存在属性 
+- array_flip                                            反转数组
+- array_pad                                             填充数组
 - substr_count($string, $need, $offset, $length)         范围内子串重复次数
-- extract()                                              数组提取
-- number_format($number,decimals, '.', ',')              千位数格式化
-- array_slice($arr, $offset, [$length],cancelSort)       截取子数组
-- array_splice(&$arr, $offset, [$length], (array)$need)  替换&$arr, 返回同上
 
 - substr_replace(string, V$replacementV, $start, $length) 根据位置替换字符串                                
 - str_replace($search, $replace, $string, $count)         根据搜索替换字符串
@@ -33,6 +29,12 @@ bin2hex                      二转16
 highlight_file()             代码高亮
 
 #END
+- str_repeat()                                           字符串重复次数
+- array_slice($arr, $offset, [$length,] [$Index])        获取部分数组
+- array_splice(&$arr, $offset,[$length,] [(array)$need]) 子数组替换成$arr
+- number_format($number,decimals, '.', ',')              千位数格式化
+- http_build_query(mixed $array)                         生成请求字符串
+- extract(&$array, EXTR_OVERWRITE,_as)                   从数组中到出变量
 - array_fill(start,end,value)                            填充数组
 - substr(string, start, [length])                        截取子串
 - wordwrap(string, width, limit, English)                字符串切割
