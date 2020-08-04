@@ -10,9 +10,13 @@
 <div style="background: #bde7a8;width: 80vw;height: 80vh;margin-bottom:80px"></div>
 </body>
 <script>
-    let a = Symbol(1);
-    let b = Symbol(1);
-    console.log(a, b);
+    const myMap = new Map()
+        .set('yes', true)
+        .set('no', false);
+    console.log(myMap)
+    for(let i of myMap){
+        console.error(i);
+    }
 
 </script>
 </html>
