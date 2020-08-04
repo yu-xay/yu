@@ -1,6 +1,8 @@
 [在线测试](http://php.jsrun.net/)
 
 ```
+- ucfirst                                              首字母大小
+- str_split                                             数组隔开
 - js arguments                                          arge_func——
 - js Object.fromEntries()
 - property_exists                                       判断对象是否存在属性 
