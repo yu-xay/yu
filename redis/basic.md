@@ -1,4 +1,19 @@
-+ 类型：String，List， Set， Sorted Set， HASH，
++ 类型：
+    + String 存放一些静态资源，支持incr 做统计计算
+    + List 队列 rpush放队尾 lpop放队头
+    + Set hastTable实现 快速查找记录是否存在，记录不能重复的数据
+    + Sorted Set SkipList(跳跃表) 实现排序 可以构建优先级的队列
+    + HASH 适应存放对象
++ 支持排序 List Set Sorted Set
+    + SORT key [BY pattern] [LIMIT start count] [GET pattern] [ASC | DESC] [ALPHA] [STORE dstkey]
+    + SORT key 简单排序 默认ASC
+    + By tese*: 给定模式排序
+    + limit 0 2: 限制数量
+    + ALPHA : 字母排序
+    + store cachelist: 结构集缓存为cachelist
++ 事务
+    + 只能保证每个命令能够连续执行，不支持回滚操作
+    
 + config get | config set | config rewrite
 + 持久化：
     + 内存快照 Snapshotting
