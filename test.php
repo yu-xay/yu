@@ -6,17 +6,17 @@
     <title>Document</title>
 </head>
 <body>
-<div style="background: #8888e5;width: 800px;height: 800px;margin-bottom:80px"></div>
-<div style="background: #bde7a8;width: 80vw;height: 80vh;margin-bottom:80px"></div>
+
 </body>
 <script>
-    const myMap = new Map()
-        .set('yes', true)
-        .set('no', false);
-    console.log(myMap)
-    for(let i of myMap){
-        console.error(i);
+    function timeout(ms) {
+        return new Promise((resolve, reject) => {
+            setTimeout(resolve, ms, 'done');
+        });
     }
 
+    timeout(100).then((value) => {
+        console.log(value);
+    });
 </script>
 </html>
