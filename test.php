@@ -9,14 +9,30 @@
 
 </body>
 <script>
-    function timeout(ms) {
-        return new Promise((resolve, reject) => {
-            setTimeout(resolve, ms, 'done');
+    const someAsyncThing = function() {
+        return new Promise(function(resolve, reject) {
+            // 下面一行会报错，因为x没有声明
+             //resolve(x + 2);
+            throw new Error('temp');
+             resolve(1);
+            // resolve(3);
+            //reject(123);
         });
-    }
+    };
 
-    timeout(100).then((value) => {
-        console.log(value);
+    let a = Promise.resolve()
+        .catch(function(error) {
+            return '111';;
+            console.error(error);
+        })
+        .then(function(e) {
+            return '222';
+            console.log('carry on');
+        }).finally((e) => {
+            throw new Error('123123');
+        return '333';
+            console.log(123);
     });
+    console.log(a);
 </script>
 </html>
