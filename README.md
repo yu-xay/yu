@@ -22,3 +22,7 @@ https://www.cnblogs.com/shixiuxian/p/11230939.html
 - [开始你的bash/shell脚本编程](https://www.jianshu.com/p/5568d311fb5a)
 - [PHP 内核与原生扩展开发](https://learnku.com/docs/php-internals/php7)
 - [C](https://www.runoob.com/cprogramming/c-tutorial.html)
+
+
+http://www.verydoc.net/http/00004400.html
+http 参考手册
