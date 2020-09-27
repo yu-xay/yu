@@ -1,6 +1,7 @@
 [在线测试](http://php.jsrun.net/)
 
 ```
+strstr
 - ucfirst                                              首字母大小
 - str_split                                             数组隔开
 - js arguments                                          arge_func——
