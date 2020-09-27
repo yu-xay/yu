@@ -49,7 +49,29 @@
     1. 子服务器 START SLAVE 开始复制
     2.  Waiting for master to send event I/O进程
         Slave has read all relay log; waiting for more updates SQL进程
-    
+
+### C
+  在备机的mysql上执行：show slave status \G
+  发现Slave_SQL_Running: No
+        Last_Errno: 1146
+        Last_Error: Error 'Table 'opaq_151.vehicle_new' doesn't exist' on query. Default database: 'opaq_151'. Query: 'delete from vehicle_new where ID_>1700001960'；
+  分析SQL语句发现，slave机上没有 vehicle_new 表，所以报错。
+  这个时候想恢复的话，只要
+  stop slave;
+  set GLOBAL SQL_SLAVE_SKIP_COUNTER=1;
+  start slave;
+  就可以了
   
+  set GLOBAL SQL_SLAVE_SKIP_COUNTER=1的意思是：
+   跳过某个无法执行的命令
+     1、set global sql_slave_skip_counter=N中的N是指跳过N个event
+  
+     2、最好记的是N被设置为1时，效果跳过下一个事务。
+  
+     3、跳过第N个event后，位置若刚好落在一个事务内部，则会跳过这整个事务
+  
+     4、一个insert/update/delete不一定只对应一个event，由引擎和日志格式决定
+     
+     
     
     

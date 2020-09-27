@@ -25,4 +25,5 @@ https://www.cnblogs.com/shixiuxian/p/11230939.html
 
 
 http://www.verydoc.net/http/00004400.html
+https://www.easyswoole.com/Cn/Components/Queue/driver.html
 http 参考手册
