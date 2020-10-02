@@ -1,0 +1,84 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div>同步流下载</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/json2csv"></script>
+<script src="https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/web-streams-polyfill@2.0.2/dist/ponyfill.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/streamsaver@2.0.3/StreamSaver.min.js"></script>
+<script>
+    class down{
+        writer;
+        #type;
+        constructor(fileName){
+            let fileStream = streamSaver.createWriteStream(fileName);
+            this.writer = fileStream.getWriter();
+        }
+        set setType(value) {
+            this.type = value;
+            console.log('setter: '+value);
+        }
+        d(myCars,callback,params){
+            const type = this.type
+            let csv;
+            if(type === 'starting'){
+                let json2csvParser = new json2csv.Parser({
+                    header: true,
+                });
+                csv = json2csvParser.parse(myCars);
+            } else {
+                let json2csvParser = new json2csv.Parser({
+                    header: false,
+                });
+                csv = json2csvParser.parse(myCars);
+                csv = "\r\n" +csv;
+            }
+
+            let blob = new Blob([csv], {
+                type: 'text/plaincharset=utf-8'
+            })
+            const readableStream = blob.stream().getReader();
+
+
+            readableStream.read().then(res => {
+                if(this.type === 'ending'){
+                    this.writer.close();
+                } else {
+                    this.writer.write(res.value).then(callback(params))
+
+                }
+            })
+        }
+
+    }
+
+
+    let a = new down('file.csv');
+    function request(page = 1){
+        setTimeout((page) => {
+            let myCars = new Array(500).fill({'兑换码': "ykGLcmfKedBU", '生成方式': "手动", '有效期': "永久", '状态': "已兑换", '生成时间': "2020-09-25 15:44:40"});
+            if(page == 1){
+                a.setType = 'starting';
+            }else if(page == 10){
+                a.setType = 'ending';
+            } else {
+                a.setType = 'passring';
+            }
+            ++page;
+            a.d(myCars,request, {page: page});
+        },2000,page)
+    }
+    request(1);
+</script>
+
+
+</html>

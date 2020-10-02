@@ -35,7 +35,7 @@ $class = new class {
     public function blockDown()
     {
         header("Range: bytes=0-9");
-        header('HTTP /1.1 206 Partial Content');
+        header('HTTP/1.1 206 Partial Content');
         header('Content-Range: bytes 0-10/100');
         header('Content-Disposition: attachment; filename=down.binary');
     }
