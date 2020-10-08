@@ -1,23 +1,30 @@
 [在线测试](http://php.jsrun.net/)
 
 ```
-strstr
-- ucfirst                                              首字母大小
-- str_split                                             数组隔开
 - js arguments                                          arge_func——
 - js Object.fromEntries()
 - property_exists                                       判断对象是否存在属性 
-- array_flip                                            反转数组
-- array_pad                                             填充数组
-- substr_count($string, $need, $offset, $length)         范围内子串重复次数
-
-- substr_replace(string, V$replacementV, $start, $length) 根据位置替换字符串                                
-- str_replace($search, $replace, $string, $count)         根据搜索替换字符串
 ```
 
 [php特性](https://xiaoxiami.gitbook.io/php-7/php-71x-xin-te-xing/xin-te-xing/ke-wei-kong-ff08-nullable-ff09-lei-xing)
 ### 文件系统
 fopen fgets() ftell() rewind()
+
+## 
++ strstr(string need before_needle) 查找字符串首次出现
++ stripos(string need offset)  查找字符串首次出现位置
++ ucfirst(string)大写  lcfirst(string)小
++ str_split(string, [int]) 字符串转数组
++ substr_count(string,need, [offset], [length]) 子串重复次数
++ substr_replace(string,need,offset, length) 返回替换后的子串
++ str_replace(search, need,string,&count) 根据搜索替换字符串
+
+- substr(string, start, [length])                        截取子串   
+- array_fill(start,end,value)   创建填充数组
++ array_pad(array, size, value); 数组填充到size
++ array_filp(array) 交互键值
+- array_slice($arr, $offset, [$length,] [$Index])        获取部分数组
+- array_splice(&$arr, $offset,[$length,] [(array)$need]) 子数组替换成$arr
 
 ###unimportant
 debug_zval_dump('encode');   引用次数
@@ -33,13 +40,11 @@ highlight_file()             代码高亮
 
 #END
 - str_repeat()                                           字符串重复次数
-- array_slice($arr, $offset, [$length,] [$Index])        获取部分数组
-- array_splice(&$arr, $offset,[$length,] [(array)$need]) 子数组替换成$arr
 - number_format($number,decimals, '.', ',')              千位数格式化
 - http_build_query(mixed $array)                         生成请求字符串
 - extract(&$array, EXTR_OVERWRITE,_as)                   从数组中到出变量
-- array_fill(start,end,value)                            填充数组
-- substr(string, start, [length])                        截取子串
+
+
 - wordwrap(string, width, limit, English)                字符串切割
 - substr_compare(main_str,str,offset,length,Aa true) int 二进制比较文件
 - realpath()                                             获取真实路径
