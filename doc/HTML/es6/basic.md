@@ -70,7 +70,16 @@ function passthru(literals) {
 + Object.assign() 对象属性值为简单类型（string，number）为深拷贝 属性值为对象或其他引用类型 则为浅拷贝
 
 #### Symbol
-+ 
++ 生成唯一值 
++ description 
++ let obj = {
+    [s](arg) { ... }
+  };
++ Object.getOwnPropertySymbols() 获取Symbol键名
++ Reflect.ownKeys() 返回所有键名 包括 Symbol键名
++ Symbol.for(key) 登记key到全局 =》 模块的单列模式
++ Symbol.keyFor(key) 获取登记名称
++ 提供了 11 个内置的 Symbol 值，指向语言内部使用的方法
 
 
 #### Set和Map数据结构
