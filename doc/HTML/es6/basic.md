@@ -103,7 +103,7 @@ function passthru(literals) {
 + new WeakMap() 只接受对象作为键名 并且键名指向对象，不计入垃圾回收机制
 
 ####Proxy
-
+    + 在目标对象之前 架设一个拦截，可以对外界进行改写或拦截
 ####Reflect
 
 ####Promise
