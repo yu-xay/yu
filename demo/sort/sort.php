@@ -124,10 +124,10 @@ class sort extends TestCase
             $arr[$b] ^= $arr[$a];
         }
 
-//        1 => 1
-       // 2  => 23
-//        2 => 4 5 67
-//        3 => 8 9 10 11 12 13 14 15
+        //        1 => 1
+        // 2  => 23
+        //        2 => 4 5 67
+        //        3 => 8 9 10 11 12 13 14 15
         //2*n
         //用数组建立最小堆
         function buildHeap(&$arr, $arrSize)
@@ -301,8 +301,8 @@ class sort extends TestCase
     public function testBubble()
     {
         $count = count($this->start);
-        for ($i = 0; $i < $count - 1; $i++) {
-            for ($j = 0; $j < $count - 1 - $i; $j++) {
+        for ($i = $count - 1; $i > 0; $i--) {
+            for ($j = 0; $j < $i; $j++) {
                 if ($this->start[$j] > $this->start[$j + 1]) {
                     $this->start[$j] ^= $this->start[$j + 1];
                     $this->start[$j + 1] ^= $this->start[$j];

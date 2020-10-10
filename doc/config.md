@@ -1,5 +1,4 @@
 ## 配置相关 ##
-- [HTTP状态码](http://www.verydoc.net/http/00004364.html)
 
 ### 文档论坛网址 ###
 - [赵克立博客_技术栈 ](https://www.zhaokeli.com/)
