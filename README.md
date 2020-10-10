@@ -9,7 +9,6 @@
 + [+ MVCC 多版本并发控制]
 + [快照读]
 + [TEST](https://learnku.com/php/t/47623)
-docker-machine ip default
 
 https://www.jianshu.com/p/8c17e4357502
 
@@ -24,6 +23,4 @@ https://www.cnblogs.com/shixiuxian/p/11230939.html
 - [C](https://www.runoob.com/cprogramming/c-tutorial.html)
 
 
-http://www.verydoc.net/http/00004400.html
-https://www.easyswoole.com/Cn/Components/Queue/driver.html
 http 参考手册
