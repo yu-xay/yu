@@ -1,4 +1,6 @@
 ## 配置相关 ##
+- [HTTP状态码](http://www.verydoc.net/http/00004364.html)
+
 ### 文档论坛网址 ###
 - [赵克立博客_技术栈 ](https://www.zhaokeli.com/)
 - [50道SQL练习题及答案与详细分析](https://www.jianshu.com/p/476b52ee4f1b "https://www.jianshu.com/p/fdb6115d927e")
