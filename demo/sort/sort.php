@@ -90,22 +90,20 @@ class sort extends TestCase
         array_walk($this->start, function ($item) use (&$maxDigit) {
             $maxDigit = strlen($item) > $maxDigit ? strlen($item) : $maxDigit;
         });
-        for ($i = 0; $i <= $maxDigit; $i++) {
+        for ($i = 1; $i <= $maxDigit; $i++) {
             $barrel = array_fill(0, 10, []);
             for ($j = 0; $j < count($this->start); $j++) {
                 //可使用mod
-                if (strlen($this->start[$j]) < $i + 1) {
-                    $barrel[0] = array_merge($barrel[0], [$this->start[$j]]);
+                if (strlen($this->start[$j]) < $i) {
+                    array_push($barrel[0], $this->start[$j]);
                 } else {
-                    $sub = substr($this->start[$j], -1 * ($i + 1), 1);
-                    $barrel[$sub] = array_merge($barrel[$sub], [$this->start[$j]]);
+                    $sub = substr($this->start[$j], -1 * $i, 1);
+                    array_push($barrel[$sub], $this->start[$j]);
                 }
             }
             $this->start = [];
             for ($k = 0; $k < count($barrel); $k++) {
-                for ($l = 0; $l < count($barrel[$k]); $l++) {
-                    array_push($this->start, $barrel[$k][$l]);
-                }
+                $this->start = array_merge($this->start, $barrel[$k]);
             }
         }
         $this->assertSame(self::END, $this->start);
@@ -124,41 +122,33 @@ class sort extends TestCase
             $arr[$b] ^= $arr[$a];
         }
 
-        //        1 => 1
-        // 2  => 23
-        //        2 => 4 5 67
-        //        3 => 8 9 10 11 12 13 14 15
-        //2*n
         //用数组建立最小堆
-        function buildHeap(&$arr, $arrSize)
+        function buildHeap(&$arr, $count)
         {
-            for ($index = intval($arrSize / 2) - 1; $index >= 0; $index--) {
-                if ($index * 2 + 1 < $arrSize) {
-                    $max = $index * 2 + 1;
-                    echo $index, PHP_EOL;
-                    if ($index * 2 + 2 < $arrSize && $arr[$index * 2 + 2] > $arr[$index * 2 + 1]) {
-                        $max = $index * 2 + 2;
-                    }
-                    if ($arr[$max] > $arr[$index]) {
-                        swap($arr, $max, $index);
-                    }
+            //  1 => 0
+            //  2 => 12
+            //  2 => 34 56
+            //  3 => 78910 1112 1314
+            //  4 => 15
+            // index
+            // index * 2 + 1 index * 2 + 2
+            for ($index = intval($count / 2) - 1; $index >= 0; $index--) {
+                $left = $index * 2 + 1;
+                $right = $index * 2 + 2;
+                //echo sprintf('index: %s, left: %s, right: %s, count: %s %s', $index, $left, $right, $count, PHP_EOL);
+                $max = $arr[$right] > $arr[$left] ? $right : $left;
+                if ($arr[$max] > $arr[$index]) {
+                    swap($arr, $max, $index);
                 }
             }
         }
 
         $arr = $this->start;
-        $arrSize = count($arr);
+        $count = count($arr);
 
-        //1
-        //2 3
-        //45 67
-        //89 1011 1213 1415
-        buildHeap($arr, $arrSize);
-
-        for ($i = $arrSize - 1; $i > 0; $i--) {
+        for ($i = $count - 1; $i > 0; $i--) {
+            buildHeap($arr, $i);
             swap($arr, $i, 0);
-            $arrSize--;
-            buildHeap($arr, $arrSize);
         }
         $this->assertSame(self::END, $arr);
     }

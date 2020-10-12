@@ -4,28 +4,30 @@ require_once './vendor/autoload.php';
 $start = [5, 8, 2, 2, 6, 6, 3, 1, 0, 13, 45, 14, 256, 183, 25];
 const END = [0, 1, 2, 2, 3, 5, 6, 6, 8, 13, 14, 25, 45, 183, 256];
 
-function mergeT($left, $right)
-{
-    $middle = [];
-    while (count($left) && count($right)) {
-        array_push($middle, current($left) > current($right) ? array_shift($right) : array_shift($left));
+$maxDigit = 0;
+foreach ($start as $item) {
+    $maxDigit = $maxDigit < strlen($item) ? strlen($item) : $maxDigit;
+}
+for ($i = 1; $i < $maxDigit + 1; $i++) {
+    $arr = array_fill(0, 10, []);
+    foreach ($start as $item) {
+        $text = substr($item, -1 * $i, 1);
+        if (strlen($item) < $i || $text === false) {
+
+
+            array_push($arr[0], $item);
+        } else {
+            array_push($arr[$text], $item);
+        }
     }
-    return array_merge($middle, $left, $right);
+    $start = [];
+    foreach ($arr as $item2) {
+        if (!empty($item2)) {
+            $start = array_merge($start, $item2);
+        }
+    }
 }
 
-function mergee(array $data)
-{
-    if (count($data) < 2) {
-        return $data;
-    }
-    $i = intval(count($data) / 2);
-    $left = array_slice($data, 0, $i);
-    $right = array_slice($data, $i);
-    $left = mergee($left);
-    $right = mergee($right);
-    return mergeT($left, $right);
-}
-
-$start = mergee($start);
+//
 dd($start);
-dd(END === $start);
+//dd(END === $start);
