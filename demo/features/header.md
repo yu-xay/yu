@@ -22,6 +22,7 @@ HTTP
 + header('Content-Length: 1334') 设置内容长度
 + header('Accept-Ranges: bytes') 安装字节大小返回 浏览器可能会尝试恢复中断的下载，而不是从头再次开始 或ie9 用none来禁用下载或暂停
 + header('Content-Disposition: attachment; filename=文件') 意味着消息体应该被下载到本地
++ [HTTP状态码](http://www.verydoc.net/http/00004364.html)
 
 
 
