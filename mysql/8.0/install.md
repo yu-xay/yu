@@ -19,7 +19,7 @@ character-set-server=utf8
 # 创建新表时将使用的默认存储引擎
 default-storage-engine=INNODB
 ```
-3. 进入/bin/ 执行 ./mysqld -initialize-insecure 
+3. 进入/bin/ 执行 ./mysqld --initialize-insecure 
 ```
 mysqld –initialize-insecure自动生成无密码的root用户，
 mysqld –initialize自动生成带随机密码的root用户。

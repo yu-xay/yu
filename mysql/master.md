@@ -37,7 +37,7 @@
     master_port = 3306,
     master_user = 'admin',
     master_password = '123456',
-    master_log_file = 'mysql-bin.000367',
+    master_log_file = 'mysql-bin.000001',
     master_log_pos = 0;
     ```
     4. SHOW SLAVE STATUS;
