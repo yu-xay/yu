@@ -6,7 +6,7 @@
 - ftp 和 sftp
 + [蚂蚁支付](https://pay.weixin.qq.com/wiki/doc/api/index.html)
 + [微信H5支付](https://pay.weixin.qq.com/wiki/doc/api/H5.php?chapter=15_4)
-+ [+ MVCC 多版本并发控制]
+
 + [快照读]
 + [TEST](https://learnku.com/php/t/47623)
 
