@@ -50,53 +50,54 @@
     2.  Waiting for master to send event I/O进程
         Slave has read all relay log; waiting for more updates SQL进程
 
-1.从库停止主从复制
+####主从重新同步
+1. 从库停止主从复制
 stop slave;
  
-2.对主库数据库加锁
+2. 对主库数据库加锁
 flush tables with read lock;
  
-3.备份主库数据
+3. 备份主库数据
 mysqldump -uroot -p --databases testdb1 testdb2 > full_bak.sql
  
-4.重置主库日志
+4. 重置主库日志
 reset master；
  
-5.对主库数据库解锁
+5. 对主库数据库解锁
 unlock tables;
  
-6.删除旧数据
+6. 删除旧数据
 drop database testdb1;
 drop database testdb2;
  
-7.从库导入数据
+7. 从库导入数据
 source /tmp/full_bak.sql
  
-8.重置从库日志
+8. 重置从库日志
 reset slave; 或者 reset slave all;
-  
-清理slave 同步信息：
----reset slave 仅清理master.info 和 relay-log.info 文件
----删除所有的relay log 文件，重启用一个新的relay log 文件。
----重置 MASTER_DELAY  复制延迟间隔为:0
----不清理内存里的同步复制配置信息
----不重置 gtid_executed or gtid_purged 参数值
-  
-reset slave;
-（重启mysqld后，内存里的同步配置信息自动重置）
-reset slave all;
----其他功能和reset slave 一样，唯一区别是：会立即清理内存里的同步配置信息。
-  
-9.开启主从复制
+    ```text
+    清理slave 同步信息：
+    ---reset slave 仅清理master.info 和 relay-log.info 文件
+    ---删除所有的relay log 文件，重启用一个新的relay log 文件。
+    ---重置 MASTER_DELAY  复制延迟间隔为:0
+    ---不清理内存里的同步复制配置信息
+    ---不重置 gtid_executed or gtid_purged 参数值
+      
+    reset slave;
+    （重启mysqld后，内存里的同步配置信息自动重置）
+    reset slave all;
+    ---其他功能和reset slave 一样，唯一区别是：会立即清理内存里的同步配置信息。
+    ```
+9. 开启主从复制
 start slave;
   
-10.查看主从复制状态
+10. 查看主从复制状态
 show slave status;
 Slave_IO_Running: Yes
 Slave_SQL_Running: Yes
 
 ### Q
-  在备机的mysql上执行：show slave status \G
+  + 在备机的mysql上执行：show slave status \G
   发现Slave_SQL_Running: No
         Last_Errno: 1146
         Last_Error: Error 'Table 'opaq_151.vehicle_new' doesn't exist' on query. Default database: 'opaq_151'. Query: 'delete from vehicle_new where ID_>1700001960'；
@@ -107,15 +108,15 @@ Slave_SQL_Running: Yes
   start slave;
   就可以了
   
-  set GLOBAL SQL_SLAVE_SKIP_COUNTER=1的意思是：
-   跳过某个无法执行的命令
-     1、set global sql_slave_skip_counter=N中的N是指跳过N个event
+   - set GLOBAL SQL_SLAVE_SKIP_COUNTER=1的意思是：
+        跳过某个无法执行的命令
+     1. set global sql_slave_skip_counter=N中的N是指跳过N个event
   
-     2、最好记的是N被设置为1时，效果跳过下一个事务。
+     2. 最好记的是N被设置为1时，效果跳过下一个事务。
   
-     3、跳过第N个event后，位置若刚好落在一个事务内部，则会跳过这整个事务
+     3. 跳过第N个event后，位置若刚好落在一个事务内部，则会跳过这整个事务
   
-     4、一个insert/update/delete不一定只对应一个event，由引擎和日志格式决定
+     4. 一个insert/update/delete不一定只对应一个event，由引擎和日志格式决定
      
      
     

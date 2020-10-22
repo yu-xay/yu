@@ -9,13 +9,12 @@
 
 + [快照读]
 + [TEST](https://learnku.com/php/t/47623)
++ [常见跨域](https://segmentfault.com/a/1190000011145364)
 
-https://www.jianshu.com/p/8c17e4357502
-
-https://www.cnblogs.com/shixiuxian/p/11230939.html
-[面](https://learnku.com/articles/47414)
-[book](https://www.kancloud.cn/martist/be_new_friends/1736333)
-https://www.cnblogs.com/orcl-2018/p/13182440.html
+- [x](https://www.jianshu.com/p/8c17e4357502)
+- [x](https://www.cnblogs.com/shixiuxian/p/11230939.html)
+- [面](https://learnku.com/articles/47414)
+- [book](https://www.kancloud.cn/martist/be_new_friends/1736333)
 
 #### 备用
 - [OAuth 2.0](http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html)
@@ -24,7 +23,4 @@ https://www.cnblogs.com/orcl-2018/p/13182440.html
 - [C](https://www.runoob.com/cprogramming/c-tutorial.html)
 - [Node](http://nodejs.cn/)
 - [webpackjs](https://www.webpackjs.com/concepts/)
-
-
-
-http 参考手册
+- [PHPSTORM](https://www.jetbrains.com/help/phpstorm/quick-start-guide-phpstorm.html)
