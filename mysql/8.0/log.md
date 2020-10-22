@@ -46,3 +46,15 @@ shell> sudo mv /var/log/mysql/mysqld.log /var/log/mysql/mysqld.log.0 && /usr/loc
 - rename table mysql.general_log to mysql.general_log_new 或者相换新旧
 
 ### 管理二进制文件
++ mysqlinlogpurge
++ shell> mysqlbinlogpurge.exe --master=root:@127.0.0.1:3308 --slaves=root:@127.0.0.1:3310
+
+＃由所有从站复制的最新binlog文件：mysql-bin.000001
+＃清除'mysql-bin.000002'之前的二进制日志
+mysqld 
+report-host= 127.0.0.1
+report-port 3310
+
++ shell>  mysqlbinlogpurge.exe --master=root:@127.0.0.1:3308 --discover-slaves-login=root --verbose
+   
+   

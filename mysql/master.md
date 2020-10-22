@@ -61,7 +61,7 @@ flush tables with read lock;
 mysqldump -uroot -p --databases testdb1 testdb2 > full_bak.sql
  
 4. 重置主库日志
-reset master；
+reset master;
  
 5. 对主库数据库解锁
 unlock tables;
