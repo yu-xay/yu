@@ -28,3 +28,8 @@
 > + A:
 >   + 超载或停机维护
 >
+> + Q: 60 SSL certificate problem: unable to get local issuer certificate
+> + A:
+>   + [CA证书](https://curl.haxx.se/docs/caextract.html)
+>   + curl.cainfo = /path/to/downloaded/caextract.html
+>   + 重启
