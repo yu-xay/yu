@@ -4,8 +4,12 @@
 
 
 docker cp C:\Users\yu\Desktop\default.conf 9d3cc192f0f6:/etc/nginx/conf.d/default.conf
-docker run --name me_php -d -v D:/wamp/www:/var/www/html php:7.4-fpm
-docker run --name me_nginx -p 9091:80 -d -v D:/wamp/www:/usr/share/nginx/html -v D:/wamp/bin/docker/conf.d:/etc/nginx/conf.d --link me_php:php nginx
+
+
+
+docker run -itd --name me-mysql -p 3311:3306 -e MYSQL_ROOT_PASSWORD=123456 mysql
+docker run --name me-php -d -v D:/wamp/www:/var/www/html php:7.4-fpm
+docker run --name me-nginx -p 80:80 -d -v D:/wamp/www:/usr/share/nginx/html -v D:/wamp/bin/docker/conf.d:/etc/nginx/conf.d --link me-php:php nginx
 
 
 
