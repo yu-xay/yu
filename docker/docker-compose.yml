@@ -1,0 +1,24 @@
+version: "3.1"
+services:
+#  memcached:
+#      #build: ./php
+#      container_name: yu-memcached
+#      #dockerfile: Memcached
+#      image: hello-world
+    php-fpm:
+      image: php:7.4-fpm
+      volumes:
+        - ../../wamp/www:/var/www/html
+    nginx:
+      image: nginx
+      container_name: yu-nginx
+#      working_dir: /application
+      volumes:
+#        - .:/application
+        - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      ports:
+        - "9090:80"
+#    php:
+#      image: php
+#      container_name: yu-php
+#      working_dir: /application

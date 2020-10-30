@@ -1,6 +1,8 @@
 + docker-machine ip default
+1. [官网文档](https://docs.docker.com/docker-for-windows/install-windows-home/)
 
-+ [官网](https://docs.docker.com/docker-for-windows/install-windows-home/)
+
+
 
 
 docker cp C:\Users\yu\Desktop\default.conf 9d3cc192f0f6:/etc/nginx/conf.d/default.conf
@@ -13,11 +15,6 @@ docker run --name me-php -d -v C:/wamp/www:/var/www/html php:7.4-fpm
 docker run --name me-nginx -p 9090:80 -d -v C:/wamp/www:/usr/share/nginx/html -v C:/wamp/bin/docker/conf.d:/etc/nginx/conf.d --link me-php:php nginx
 
 https://blog.csdn.net/lypeng_/article/details/98175906
-
-https://blog.csdn.net/weixin_42665727/article/details/80996408
-
-https://blog.csdn.net/mysticboy/article/details/106632922
-
 
 
 
