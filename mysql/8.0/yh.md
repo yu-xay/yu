@@ -56,7 +56,50 @@
     ```
 
 #### EXPLAIN CONNECTION [NUM] 
-docker run -itd --name mysql-test -p 3306:3311 -e MYSQL_ROOT_PASSWORD=123456 mysql
 + [导出格式](https://dev.mysql.com/doc/refman/8.0/en/explain-output.html)
 
 ### 基准查询和服务器
+
+### 添加索引
++ Innodb是通过主键来存储行，即是聚簇索引
++ 其他所有键存储主键的值（不直接引用行），即是辅助索引/二级适应/非聚簇索引
+
+- Primary KEY
+- 应该是UNIQUE 和 NOT NULL 和 一个单调递增的值 和一个主键
+- 选择最小的键，因为所有的二级使用都要存储主键
+- 如果不选择，innoDB会在内部生成一个6字节行ID的隐藏聚簇索引
+
+- mysql> ALTER TABLE departments ADD INDEX        index_last_name(dept_name);       #普通索引
+- mysql> ALTER TABLE departments ADD UNIQUE INDEX index_last_name(dept_name);       #唯一索引
+- mysql> ALTER TABLE departments ADD INDEX        index_last_name(dept_name(10));   #索引基于前10个
+- mysql> ALTER TABLE departments DROP INDEX       index_last_name;                  #删除索引
+
+* 函数会无法使用索引 可添加虚拟列 YEAR('name')
+* mysql> ALTER TABLE departments ALTER INDEX index_last_name INVISIBLE;   /*!80000 INVISIBLE */
+*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
