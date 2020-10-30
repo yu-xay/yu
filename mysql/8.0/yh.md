@@ -60,6 +60,8 @@
 
 ### 基准查询和服务器
 
+mysqlslap -uroot -p -P3310 --create-schema=employees --query="select e.emp_no,salary from salaries s join employees e on s.emp_no=e.emp_no where (first_name = 'Adam');" -c 1000 i 100
+
 ### 添加索引
 + Innodb是通过主键来存储行，即是聚簇索引
 + 其他所有键存储主键的值（不直接引用行），即是辅助索引/二级适应/非聚簇索引

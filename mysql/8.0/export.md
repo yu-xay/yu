@@ -13,7 +13,7 @@
     + [TABLE]: 数据库名
     + [DUMP.sql]: 导出文件名
 
-+ mysqldump [OPTIONS] database [table] > [DUMP.sql]
++ mysqldump [OPTIONS] --database [table] > [DUMP.sql]
     + <8.0 存储过程和事件存储在mysql.proc和mysql.event表中
     + mysqldump [OPTIONS] --all-databases > [DUMP.sql]
     + =8.0 存储过程和事件存储在数据字典表中，但这些表不会被备份
