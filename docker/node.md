@@ -1,11 +1,5 @@
-+ docker-machine ip default
 1. [官网文档](https://docs.docker.com/docker-for-windows/install-windows-home/)
 
-
-
-
-
-docker cp C:\Users\yu\Desktop\default.conf 9d3cc192f0f6:/etc/nginx/conf.d/default.conf
 
 
 https://blog.csdn.net/wt1286331074/article/details/91425518
