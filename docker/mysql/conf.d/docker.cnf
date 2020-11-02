@@ -1,0 +1,9 @@
+[mysqld]
+skip-name-resolve
+skip-host-cache
+#skip-grant-tables
+bind-address = 0.0.0.0
+max_connections = 800
+
+# disable_ssl
+skip_ssl
