@@ -21,3 +21,6 @@
 >   + 之前装虚拟机卸载后命令行冲突了
 >   + 删除DOCKER 相关环境 重装软件即可
 >
+> + Q: 启动保存 an error occurred
+> + A:
+>   + shell> bcdedit /set hypervisorlaunchtype Auto

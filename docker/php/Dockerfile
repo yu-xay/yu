@@ -20,7 +20,7 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     && rm -r /tmp/redis.tar.gz \
     && mkdir -p /usr/src/php/ext \
     && mv phpredis-5.3.2 /usr/src/php/ext/redis \
-    && docker-php-ext-install pdo pdo_mysql gd bcmath redis
+    && docker-php-ext-install pdo pdo_mysql gd bcmath redis pcntl
 
 # Install selected extensions and other stuff
 # RUN apt-get update \
