@@ -1,19 +1,19 @@
 version: "3.1"
 services:
-#  redis:
-#    image: redis:alpine
-#    container_name: yu-redis
-#  mysql:
-#    image: mysql:5.7
-#    container_name: yu-mysql
-#    volumes:
-#      - ./mysql/conf.d/:/etc/mysql/conf.d/
-#      - ./mysql/mysql-files/:/var/lib/mysql-files/
-#    privileged: true
-#    environment:
-#      - MYSQL_ROOT_PASSWORD=123456
-#    ports:
-#      - "3311:3306"
+  redis:
+    image: redis:alpine
+    container_name: yu-redis
+  mysql:
+    image: mysql:5.7
+    container_name: yu-mysql
+    volumes:
+      - ./mysql/conf.d/:/etc/mysql/conf.d/
+      - ./mysql/mysql-files/:/var/lib/mysql-files/
+    privileged: true
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+    ports:
+      - "3311:3306"
   nginx:
     image: nginx:latest
     container_name: yu-nginx
@@ -25,12 +25,12 @@ services:
     ports:
       - "443:443"
       - "80:80"
-#  php-fpm:
-#    build: php
-#    container_name: yu-php-fpm
-#    working_dir: /application
-#    privileged: true
-#    volumes:
-#      - ../../:/application
-#      - ./php/php.ini:/usr/local/etc/php/conf.d/php.ini
+  php-fpm:
+    build: php
+    container_name: yu-php-fpm
+    working_dir: /application
+    privileged: true
+    volumes:
+      - ../../:/application
+      - ./php/php.ini:/usr/local/etc/php/conf.d/php.ini
 
