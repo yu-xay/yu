@@ -9,9 +9,9 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     && echo "deb-src http://mirrors.ustc.edu.cn/debian stable main contrib non-free " >> /etc/apt/sources.list \
     && echo "deb http://mirrors.ustc.edu.cn/debian stable-proposed-updates main contrib non-free " >> /etc/apt/sources.list \
     && echo "deb-src http://mirrors.ustc.edu.cn/debian stable-proposed-updates main contrib non-free" >> /etc/apt/sources.list \
-    && apt-get clean \
     && apt-get update \
-    && apt-get install -y libwebp-dev libjpeg-dev libpng-dev libfreetype6-dev vim \
+    && apt-get clean \
+    && apt-get install -y libwebp-dev libjpeg-dev libpng-dev libfreetype6-dev vim procps cron \
     && docker-php-source extract \
     && cd /usr/src/php/ext/gd \
     && docker-php-ext-configure gd --with-webp=/usr/include/webp --with-jpeg=/usr/include --with-freetype=/usr/include/freetype2 \
@@ -22,6 +22,7 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     && mv phpredis-5.3.2 /usr/src/php/ext/redis \
     && docker-php-ext-install pdo pdo_mysql gd bcmath redis pcntl
 
+#CMD service cron start
 # Install selected extensions and other stuff
 # RUN apt-get update \
 #    && apt-get -y --no-install-recommends install  php-memcached php7.4-mysql php7.4-pgsql php-redis php7.4-gd \
