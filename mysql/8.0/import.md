@@ -14,7 +14,7 @@
 ### myloader 恢复
     + 是多线程恢复mydumper备份集的工具
 
-### 普通文件恢复
+### 普通文件恢复 
     + shell> sudo systemctl stop mysql
     + shell> sudo mv /backup/mysql /var/lib
     + shell> sudo chown -R mysql:mysql /var/lib/mysql
