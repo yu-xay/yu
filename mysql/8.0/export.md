@@ -18,7 +18,7 @@
     + mysqldump [OPTIONS] --all-databases > [DUMP.sql]
     + =8.0 存储过程和事件存储在数据字典表中，但这些表不会被备份
     + mysqldump [OPTIONS] --all-databases --routines --triggers --events > [DUMP.sql]
-
+    + --default-character-set=utf8  防止乱码
 + 时间点恢复 应指定 以下
     + --single-transaction 
         - 在执行备份前，通过将事务隔离改为REPEATABLE-READ，并执行START TRANSACTION 来提供一致的备份
