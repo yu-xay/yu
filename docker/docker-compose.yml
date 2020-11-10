@@ -33,4 +33,5 @@ services:
     volumes:
       - ../../:/application
       - ./php/php.ini:/usr/local/etc/php/conf.d/php.ini
+      - ./php/php-fpm.conf:/usr/local/etc/php-fpm.d/php-fpm.conf
 
