@@ -13,6 +13,7 @@ CMD ["nginx", "-g", "daemon off;"]
 https 未处理
 cmd 未处理
 
+https://kitematic.com/
 
 set ff=unix
 队列先安装后listen

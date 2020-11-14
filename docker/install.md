@@ -24,3 +24,6 @@
 > + Q: 启动保存 an error occurred
 > + A:
 >   + shell> bcdedit /set hypervisorlaunchtype Auto
+> + Q: windows -v IQ 挂载读写问题
+> + A:
+>   + 从入门到放弃
