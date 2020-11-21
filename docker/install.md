@@ -26,4 +26,11 @@
 >   + shell> bcdedit /set hypervisorlaunchtype Auto
 > + Q: windows -v IQ 挂载读写问题
 > + A:
->   + 从入门到放弃
+>   + window 安装 ubuntu
+>   + wsl.exe -l -v
+>   + wsl.exe --set-version Ubuntu 2
+>   + wsl.exe --set-default-version 2
+>   + Docker Desktop 启用Ubuntu集成
+>   + $ sudo groupadd docker #添加docker用户组
+>   + $ sudo gpasswd -a yu docker #将登陆用户加入到docker用户组中
+>   + $ newgrp docker #更新用户组
