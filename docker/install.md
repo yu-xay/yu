@@ -26,6 +26,7 @@
 >   + shell> bcdedit /set hypervisorlaunchtype Auto
 > + Q: windows -v IQ 挂载读写问题
 > + A:
+>   + ![https://learnku.com/articles/51641](https://cdn.learnku.com/uploads/images/202011/17/72948/7ToiFR5cjm.png!large)
 >   + window 安装 ubuntu
 >   + wsl.exe -l -v
 >   + wsl.exe --set-version Ubuntu 2
@@ -34,3 +35,7 @@
 >   + $ sudo groupadd docker #添加docker用户组
 >   + $ sudo gpasswd -a yu docker #将登陆用户加入到docker用户组中
 >   + $ newgrp docker #更新用户组
+> + Q: terminal 使用ubuntu
+> + A:
+>   + /c/Users/yu/AppData/Local/Microsoft/WindowsApps/ubuntu
+>   + shell> ubuntu #打开命令行
