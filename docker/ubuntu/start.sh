@@ -2,8 +2,8 @@
 cp auto.sh /home/yu/a
 
 # 更换源
-#cp /etc/apt/sources.list && /etc/apt/sources.list.backup
-#cp sources.list && /etc/apt/sources.list
+#cp /etc/apt/sources.list /etc/apt/sources.list.backup
+#cp sources.list /etc/apt/sources.list
 
 
 #http://nodejs.cn/download/ 安装nodejs npm
