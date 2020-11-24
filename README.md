@@ -16,6 +16,8 @@
 - [面](https://learnku.com/articles/47414)
 - [book](https://www.kancloud.cn/martist/be_new_friends/1736333)
 
+- [nginx](https://www.kancloud.cn/lijianlin/nginx/1196082)
+- [nginx](https://www.runoob.com/w3cnote/nginx-setup-intro.html)
 #### 备用
 - [OAuth 2.0](http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html)
 - [开始你的bash/shell脚本编程](https://www.jianshu.com/p/5568d311fb5a)
