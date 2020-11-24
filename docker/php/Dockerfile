@@ -21,6 +21,15 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     && mkdir -p /usr/src/php/ext \
     && mv phpredis-5.3.2 /usr/src/php/ext/redis \
     && docker-php-ext-install pdo pdo_mysql gd bcmath redis pcntl
+    #apt-get install wget
+    #wget https://github.com/composer/composer/releases/download/2.0.7/composer.phar
+    #修改为可执行
+    chmod u+x composer.phar
+    #复制到/usr/local/bin/ 这样就可以直接运行composer 命令
+    #mv composer.phar /usr/local/bin/composer
+    #修改仓库地址为阿里云
+    #composer config -g repo.packagist composer https://mirrors.aliyun.com/composer
+
 
 #CMD service cron start
 # Install selected extensions and other stuff
