@@ -2,6 +2,7 @@
 
 # Q 可能文件权限过高 会导致无法加载
 chmod 664 "/etc/mysql/conf.d/docker.cnf"
+    && chmod 664 "/etc/mysql/conf.d/mysql.cnf"
 
 # MySQL(5.7.19)的默认配置文件是 /etc/mysql/my.cnf 文件。
 # 如果想要自定义配置，建议向 /etc/mysql/conf.d 目录中创建 .cnf 文件。
