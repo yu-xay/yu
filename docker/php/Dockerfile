@@ -11,7 +11,7 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     && echo "deb-src http://mirrors.ustc.edu.cn/debian stable-proposed-updates main contrib non-free" >> /etc/apt/sources.list \
     && apt-get update \
     && apt-get clean \
-    && apt-get install -y libwebp-dev libjpeg-dev libpng-dev libfreetype6-dev vim procps cron \
+    && apt-get install -y libwebp-dev libjpeg-dev libpng-dev libfreetype6-dev vim procps cron zip unzip \
     && docker-php-source extract \
     && cd /usr/src/php/ext/gd \
     && docker-php-ext-configure gd --with-webp=/usr/include/webp --with-jpeg=/usr/include --with-freetype=/usr/include/freetype2 \
