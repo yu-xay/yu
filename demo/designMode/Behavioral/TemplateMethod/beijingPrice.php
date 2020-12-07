@@ -8,6 +8,6 @@ class beijingPrice extends footPrice
 {
     protected function getHamburgPrice()
     {
-            return 30;
+        return 30;
     }
 }

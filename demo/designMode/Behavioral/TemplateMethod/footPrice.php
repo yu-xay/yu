@@ -15,7 +15,6 @@ abstract class footPrice
     protected function getWaterPrice()
     {
         return 10;
-
     }
 
     abstract protected function getHamburgPrice();
