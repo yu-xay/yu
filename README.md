@@ -19,6 +19,7 @@
 - [nginx](https://www.kancloud.cn/lijianlin/nginx/1196082)
 - [nginx](https://www.runoob.com/w3cnote/nginx-setup-intro.html)
 #### 备用
+- [Swoole](https://www.swoole.com/)
 - [OAuth 2.0](http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html)
 - [开始你的bash/shell脚本编程](https://www.jianshu.com/p/5568d311fb5a)
 - [PHP 内核与原生扩展开发](https://learnku.com/docs/php-internals/php7)
