@@ -25,6 +25,7 @@ services:
     ports:
       - "443:443"
       - "80:80"
+      - "88:88"
   php-fpm:
     build: php
     container_name: yu-php-fpm
