@@ -18,6 +18,7 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     && docker-php-source extract \
     && cd /usr/src/php/ext/gd \
     && docker-php-ext-configure gd --with-webp=/usr/include/webp --with-jpeg=/usr/include --with-freetype=/usr/include/freetype2 \
+    ## && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/ \
     ## 下载reids扩展
     && curl --referer https://i.chaoxing.com/ -L -o /tmp/redis.tar.gz https://d0.ananas.chaoxing.com/download/e68fb98805f957732458c8269604ca15 \
     ## && curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/5.3.2.tar.gz \
@@ -32,7 +33,7 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     && rm -r /tmp/swoole-src.tar.gz \
     && mv swoole-src-4.5.9 /usr/src/php/ext/swoole \
     ## 安装PHP扩展
-    && docker-php-ext-install pdo pdo_mysql gd bcmath redis pcntl swoole \
+    && docker-php-ext-install pdo pdo_mysql gd bcmath redis pcntl swoole zip \
     ## find /* -name php-config
     ## && cp /usr/src/php/ext/openssl/config0.m4 /usr/src/php/ext/openssl/config.m4 \
     ## && cd /usr/src/php/ext/swoole && phpize && ./configure --with-php-config=/usr/local/bin/php-config && make && make install
