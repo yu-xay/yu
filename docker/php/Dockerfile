@@ -33,7 +33,7 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     && rm -r /tmp/swoole-src.tar.gz \
     && mv swoole-src-4.5.9 /usr/src/php/ext/swoole \
     ## 安装PHP扩展
-    && docker-php-ext-install pdo pdo_mysql gd bcmath redis pcntl swoole zip \
+    && docker-php-ext-install pdo pdo_mysql gd bcmath redis pcntl swoole \
     ## find /* -name php-config
     ## && cp /usr/src/php/ext/openssl/config0.m4 /usr/src/php/ext/openssl/config.m4 \
     ## && cd /usr/src/php/ext/swoole && phpize && ./configure --with-php-config=/usr/local/bin/php-config && make && make install
