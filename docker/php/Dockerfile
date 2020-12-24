@@ -13,7 +13,7 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     && apt-get update \
     && apt-get clean \
     ## 安装系统工具
-    && apt-get install -y libwebp-dev libjpeg-dev libpng-dev libfreetype6-dev vim procps cron zip unzip wget net-tools \
+    && apt-get install -y libwebp-dev libjpeg-dev libpng-dev libfreetype6-dev vim procps cron zip unzip wget net-tools libzip-dev \
     ## 下载GD扩展
     && docker-php-source extract \
     && cd /usr/src/php/ext/gd \
@@ -33,7 +33,7 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     && rm -r /tmp/swoole-src.tar.gz \
     && mv swoole-src-4.5.9 /usr/src/php/ext/swoole \
     ## 安装PHP扩展
-    && docker-php-ext-install pdo pdo_mysql gd bcmath redis pcntl swoole \
+    && docker-php-ext-install pdo pdo_mysql gd bcmath redis pcntl swoole zip \
     ## find /* -name php-config
     ## && cp /usr/src/php/ext/openssl/config0.m4 /usr/src/php/ext/openssl/config.m4 \
     ## && cd /usr/src/php/ext/swoole && phpize && ./configure --with-php-config=/usr/local/bin/php-config && make && make install
