@@ -27,19 +27,19 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     && mkdir -p /usr/src/php/ext \
     && mv phpredis-5.3.2 /usr/src/php/ext/redis \
     ## 下载swoole扩展
-    && curl --referer https://i.chaoxing.com/ -L -o /tmp/swoole-src.tar.gz https://d0.ananas.chaoxing.com/download/cf41f0bf15bdb2e134f24ec26c7714f6 \
+    && curl --referer https://i.chaoxing.com/ -L -o /tmp/swoole-src.tar.gz https://d0.ananas.chaoxing.com/download/f4698e608ce389d68739f08666e708fa \
     ## && curl -L -o /tmp/swoole-src.tar.gz https://github.com/swoole/swoole-src/archive/v4.5.9.tar.gz \
     && tar xfz /tmp/swoole-src.tar.gz \
     && rm -r /tmp/swoole-src.tar.gz \
-    && mv swoole-src-4.5.9 /usr/src/php/ext/swoole \
+    && mv swoole-src-4.6.0 /usr/src/php/ext/swoole \
     ## 安装PHP扩展
     && docker-php-ext-install pdo pdo_mysql gd bcmath redis pcntl swoole zip \
     ## find /* -name php-config
     ## && cp /usr/src/php/ext/openssl/config0.m4 /usr/src/php/ext/openssl/config.m4 \
     ## && cd /usr/src/php/ext/swoole && phpize && ./configure --with-php-config=/usr/local/bin/php-config && make && make install
     ## 安装composer
-    && wget --referer=https://i.chaoxing.com/ https://d0.ananas.chaoxing.com/download/25b534d48d88fd8a15a557916cd5b35e -O composer.phar \
-    ## && wget https://github.com/composer/composer/releases/download/2.0.7/composer.phar \
+    && wget --referer=https://i.chaoxing.com/ https://d0.ananas.chaoxing.com/download/276dfa9d18fcc7b53e8c95da694c77a6 -O composer.phar \
+    ## && wget https://github.com/composer/composer/releases/download/2.0.8/composer.phar \
     && chmod u+x composer.phar \
     && mv composer.phar /usr/local/bin/composer \
     ## 修改composer镜像
