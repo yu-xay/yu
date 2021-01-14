@@ -27,7 +27,7 @@ fopen fgets() ftell() rewind()
 - array_splice(&$arr, $offset,[$length,] [(array)$need]) 子数组替换成$arr
 
 ###unimportant
-debug_zval_dump('encode');   引用次数
+debug_zval_dump('encode');   引用次数 
 memory_get_usage()           内存
 sys_get_temp_dir()           临时文件的目录
 array_multisort()            多个数组或多维数组排序
