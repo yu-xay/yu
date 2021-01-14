@@ -9,6 +9,7 @@
 - [JQUERY插件库](http://www.jq22.com/daima "JQUERY插件库")
 - [腾讯云大学](https://cloud.tencent.com/developer/labs/gallery?page=1)
 - [阿里云大学](https://edu.aliyun.com/?spm=5176.11105641.fszjobuve.3.n2CAyn)
+- [PHPWATCH](https://php.watch/#read-more)
 
 ### 工具下载 ###
 > * Q: file could not be downloaded: Peer certificate ?
