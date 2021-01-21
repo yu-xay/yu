@@ -11,18 +11,18 @@
 fopen fgets() ftell() rewind()
 
 ## 
-+ strstr(string need before_needle) 查找字符串首次出现
-+ stripos(string need offset)  查找字符串首次出现位置
-+ ucfirst(string)大写  lcfirst(string)小
++ strstr(string need before_needle) 查找字符串首次出现结尾字符串 == strchr
++ strpos(string need offset)       查找字符串首次出现位置 strripos
++ ucfirst(string)大写  lcfirst(string)小 strtoupper strtolower
 + str_split(string, [int]) 字符串转数组
+- substr(string, start, [length])               截取子串
 + substr_count(string,need, [offset], [length]) 子串重复次数
 + substr_replace(string,need,offset, length) 返回替换后的子串
 + str_replace(search, need,string,&count) 根据搜索替换字符串
-
-- substr(string, start, [length])                        截取子串   
 - array_fill(start,end,value)   创建填充数组
 + array_pad(array, size, value); 数组填充到size
 + array_filp(array) 交互键值
+
 - array_slice($arr, $offset, [$length,] [$Index])        获取部分数组
 - array_splice(&$arr, $offset,[$length,] [(array)$need]) 子数组替换成$arr
 
@@ -38,6 +38,26 @@ openssl_random_pseudo_bytes  安全随机数
 bin2hex                      二转16
 highlight_file()             代码高亮
 
+```text
+  str => 子字符串   str => 返回值
+  i   => insensitive 不敏感
+  l   => left
+  r   => right
+  pos => position 位置
+  ucfirst => uppercase 大写
+  lcfirst => lowercase 小写
+  len     => 长度
+  substr  => substring 子串
+  replace => 替换
+    split   => 分裂;使分开(成为几个部分);
+    pad     => 填充
+    fill    => 填满
+    filp    => 翻转
+    slice   => 部分
+    splice  => 粘接
+  repeat  => 重复
+  compare => 比较
+```
 #END
 - str_repeat()                                           字符串重复次数
 - number_format($number,decimals, '.', ',')              千位数格式化
