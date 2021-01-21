@@ -6,8 +6,11 @@ namespace DesignMode\Behavioral\Command;
 
 class Cook
 {
-    public function run(array $menus)
+    public $text = '';
+
+    public function createDrink()
     {
-        return join(",", $menus);
+        $this->text = 'Coke drinks';
+        return $this->text;
     }
 }

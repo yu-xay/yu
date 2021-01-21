@@ -11,10 +11,11 @@ class test extends TestCase
     public function testCook()
     {
         $cook = new Cook();
-        $waiter = new waiter($cook);
-        $user = new user($waiter);
-        $user->eat('dog');
-        $user->eat('dog');
-        $this->assertSame('dog, dog', $user->run());
+        $c = new Drinks($cook);
+
+        $waiter = new Waiter();
+        $waiter->add($c);
+        $waiter->run();
+        $this->assertSame('dog,dog', $cook->text);
     }
 }
