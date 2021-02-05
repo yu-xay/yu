@@ -1,0 +1,2 @@
+
+cd /home/yu/app/yu/docker && docker-compose up -d && exit
