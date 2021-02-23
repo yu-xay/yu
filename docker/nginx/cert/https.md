@@ -1,6 +1,6 @@
 ###使用windows10 wamp apache mkcert###
-1. [mkcert](http://caiyun.feixin.10086.cn/dl/175Cjf9LVi9ol "lpuT https://github.com/FiloSottile/mkcert/releases")
-2. "mkcert-v1.4.1-windows-amd64.exe" rename "mkcert.exe";
+1. [mkcert](https://github.com/FiloSottile/mkcert/releases "lpuT http://caiyun.feixin.10086.cn/dl/175Cjf9LVi9ol")
+2. "mkcert-v1.4.3-windows-amd64.exe" rename "mkcert.exe";
 3. 打开cmd 执行 mkcert -install => mkcert localhost 127.0.0.1 ::1;
 4. 生成"localhost+2.pem" "localhost+2-key.pem"
 5. "localhost+2.pem" rename "server.crt"; "localhost+2-key" rename "server.key"
