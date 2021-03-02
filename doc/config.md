@@ -10,7 +10,7 @@
 - [腾讯云大学](https://cloud.tencent.com/developer/labs/gallery?page=1)
 - [阿里云大学](https://edu.aliyun.com/?spm=5176.11105641.fszjobuve.3.n2CAyn)
 - [PHPWATCH](https://php.watch/#read-more)
-
+- [easy-tips](https://github.com/TIGERB/easy-tips)
 ### 工具下载 ###
 > * Q: file could not be downloaded: Peer certificate ?
 > * A: composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/

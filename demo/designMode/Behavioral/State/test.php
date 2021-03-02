@@ -2,18 +2,17 @@
 
 declare(strict_types=1);
 
-namespace DesignMode\Behavioral\Mediator;
-
+namespace DesignMode\Behavioral\State;
 
 use PHPUnit\Framework\TestCase;
 
 class test extends TestCase
 {
-    public function testFood()
+    public function testIndex()
     {
-        $a = new me();
-        $a->setMediator(new element(new food(),new shop(), $a));
-        $food = $a->order();
-        $this->assertSame('goods junk-food',$food);
+        $o = new OrderContext();
+        $o->proceedToNext();
+        $o->proceedToNext();
+
     }
 }
