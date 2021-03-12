@@ -3,6 +3,8 @@ services:
   redis:
     image: redis:alpine
     container_name: yu-redis
+    ports:
+      - "6379:6379"
   mysql:
     image: mysql:5.7
     container_name: yu-mysql
@@ -20,15 +22,14 @@ services:
     working_dir: /application
     volumes:
       - ./nginx/cert/:/etc/nginx/conf.d/cert/
-      - ../../:/application
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
     ports:
       - "443:443"
       - "80:80"
       - "88:88"
-  php-fpm:
+  php7.2-fpm:
     build: php
-    container_name: yu-php-fpm
+    container_name: yu-php7.2-fpm
     working_dir: /application
     privileged: true
     volumes:
