@@ -3,6 +3,7 @@ WORKDIR "/application"
 
 COPY . /usr/local/etc/php/conf.d/
 # http://i.chaoxing.com/ xia1846721817
+# https://sourceforge.net/projects/yu-download/files/ account.sakura-a pass.0182
 RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     ## 更换镜像
     && echo " " > /etc/apt/sources.list \
