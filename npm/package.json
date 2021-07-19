@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "vue": "^2.6.11",
+    "vue": "^3.0.11",
     "vue-axios": "^2.1.5",
     "webpack": "^4.41.5"
   },

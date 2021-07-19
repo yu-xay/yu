@@ -16,8 +16,8 @@
 + sudo apt remove node
 + cd /usr/local/bin
 + tar -xJf node-v14.15.0-linux-x64.tar.xz -C /opt
-+ sudo ln -s /opt/node-v14.15.0-linux-x64/bin/node /usr/bin/node
-+ sudo ln -s /opt/node-v14.15.0-linux-x64/bin/npm /usr/bin/npm
++ sudo ln -s /opt/node-v14.16.1-linux-x64/bin/node /usr/bin/node
++ sudo ln -s /opt/node-v14.16.1-linux-x64/bin/npm /usr/bin/npm
 
 ### 校准时间
 
