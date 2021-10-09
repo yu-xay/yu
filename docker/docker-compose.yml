@@ -33,6 +33,7 @@ services:
     container_name: yu-php7.2-fpm
     working_dir: /application
     privileged: true
+    tty: true
     volumes:
       - ../../:/application
       - ./php/php.ini:/usr/local/etc/php/conf.d/php.ini
