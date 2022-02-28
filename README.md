@@ -27,3 +27,5 @@
 - [Node](http://nodejs.cn/)
 - [webpackjs](https://www.webpackjs.com/concepts/)
 - [PHPSTORM](https://www.jetbrains.com/help/phpstorm/quick-start-guide-phpstorm.html)
+- 鉴权部分设计，单点，高并发,Saas 项目架构设计
+- [SPRINGBOOT](https://mp.weixin.qq.com/s?__biz=Mzg2NTAzMTExNg==&mid=2247483724&idx=1&sn=77ce80187dbfdbaaafa0366f6a0c9151&scene=19#wechat_redirect)

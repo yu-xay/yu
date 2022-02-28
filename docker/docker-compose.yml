@@ -1,5 +1,16 @@
 version: "3.1"
 services:
+#  phpmyadmin:
+#    image: phpmyadmin/phpmyadmin
+#    container_name: yu-phpmyadmin
+#    environment:
+#       - PMA_ARBITRARY=1
+#       - PMA_HOST=mysql
+#       - PMA_PORT=3306
+#       - PMA_USER=root
+#       - PMA_PASSWORD=123456
+#    ports:
+#       - "3000:80"
   redis:
     image: redis:alpine
     container_name: yu-redis
