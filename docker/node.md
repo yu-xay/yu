@@ -3,3 +3,4 @@
 https://kitematic.com/
 + docker system prune -a
 wsl.exe --distribution Ubuntu
++ docker system prune --volumes
