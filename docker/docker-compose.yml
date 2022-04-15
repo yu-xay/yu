@@ -1,8 +1,11 @@
 version: "3.1"
 services:
-#  openjdk:
-#    image: openjdk:latest
-#    container_name: yu-openjdk
+  openjdk:
+    build: openjdk
+    container_name: yu-openjdk
+    working_dir: /application
+    volumes:
+      - ../../:/application
 #  phpmyadmin:
 #    image: phpmyadmin:latest
 #    container_name: yu-phpmyadmin
