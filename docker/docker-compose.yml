@@ -1,11 +1,10 @@
 version: "3.1"
 services:
-  openjdk:
-    build: openjdk
-    container_name: yu-openjdk
-    working_dir: /application
-    volumes:
-      - ../../:/application
+#  openjdk:
+#    image: openjdk:18
+#    tty: true
+#    stdin_open: true
+#    container_name: yu-openjdk
 #  phpmyadmin:
 #    image: phpmyadmin:latest
 #    container_name: yu-phpmyadmin
@@ -17,6 +16,11 @@ services:
 #      - PMA_PORT=3306
 #      - PMA_USER=root
 #      - PMA_PASSWORD=123456
+#  center:
+#    image: centos
+#    tty: true
+#    container_name: yu-centos
+#    stdin_open: true
   redis:
     image: redis:alpine
     container_name: yu-redis
@@ -41,6 +45,8 @@ services:
       - ./nginx/cert/:/etc/nginx/conf.d/cert/
       - ../../:/application
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+     - php7.2-fpm
     ports:
       - "443:443"
       - "80:80"

@@ -13,7 +13,7 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     && apt-get update \
     && apt-get clean \
     ## 安装系统工具
-    && apt-get install -y libwebp-dev libjpeg-dev libpng-dev libfreetype6-dev vim procps cron zip unzip wget net-tools libzip-dev \
+    && apt-get install -y git libwebp-dev libjpeg-dev libpng-dev libfreetype6-dev vim procps cron zip unzip wget net-tools libzip-dev \
     ## 下载GD扩展
     && docker-php-source extract \
     && cd /usr/src/php/ext/gd \
