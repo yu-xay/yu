@@ -21,11 +21,11 @@ services:
   #      - PMA_PORT=3306
   #      - PMA_USER=root
   #      - PMA_PASSWORD=123456
-  #  center:
-  #    image: centos:7
-  #    tty: true
-  #    container_name: yu-centos
-  #    stdin_open: true
+  center:
+    image: centos:7
+    tty: true
+    container_name: yu-centos
+    stdin_open: true
   redis:
     image: redis:alpine
     container_name: yu-redis
@@ -40,6 +40,7 @@ services:
     container_name: yu-mysql
     volumes:
       - ./mysql/conf.d/:/etc/mysql/conf.d/
+      - ./mysql/mysql/:/var/lib/mysql/
       - ./mysql/mysql-files/:/var/lib/mysql-files/
     privileged: true
     environment:
@@ -72,4 +73,5 @@ services:
       - ./php/php-fpm.conf:/usr/local/etc/php-fpm.d/php-fpm.conf
     depends_on:
       - redis
+      - mysql
 
