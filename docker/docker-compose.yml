@@ -5,25 +5,34 @@ services:
 #    tty: true
 #    stdin_open: true
 #    container_name: yu-openjdk
-#  phpmyadmin:
-#    image: phpmyadmin:latest
-#    container_name: yu-phpmyadmin
+#    working_dir: /application
+#    volumes:
+#      - ../../:/application
 #    ports:
-#      - "3000:80"
-#    environment:
-#      - PMA_ARBITRARY=1
-#      - PMA_HOST=mysql
-#      - PMA_PORT=3306
-#      - PMA_USER=root
-#      - PMA_PASSWORD=123456
-#  center:
-#    image: centos
-#    tty: true
-#    container_name: yu-centos
-#    stdin_open: true
+#      - "8080:8080"
+  #  phpmyadmin:
+  #    image: phpmyadmin:latest
+  #    container_name: yu-phpmyadmin
+  #    ports:
+  #      - "3000:80"
+  #    environment:
+  #      - PMA_ARBITRARY=1
+  #      - PMA_HOST=mysql
+  #      - PMA_PORT=3306
+  #      - PMA_USER=root
+  #      - PMA_PASSWORD=123456
+  #  center:
+  #    image: centos:7
+  #    tty: true
+  #    container_name: yu-centos
+  #    stdin_open: true
   redis:
     image: redis:alpine
     container_name: yu-redis
+    volumes:
+      - ./redis/data/:/data/
+      - ./redis/conf/redis.conf:/etc/redis/redis.conf
+    command: ["redis-server","/etc/redis/redis.conf"]
     ports:
       - "6379:6379"
   mysql:
@@ -61,4 +70,6 @@ services:
       - ../../:/application
       - ./php/php.ini:/usr/local/etc/php/conf.d/php.ini
       - ./php/php-fpm.conf:/usr/local/etc/php-fpm.d/php-fpm.conf
+    depends_on:
+      - redis
 

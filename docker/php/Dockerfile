@@ -13,7 +13,7 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     && apt-get update \
     && apt-get clean \
     ## 安装系统工具
-    && apt-get install -y git libwebp-dev libjpeg-dev libpng-dev libfreetype6-dev vim procps cron zip unzip wget net-tools libzip-dev \
+    && apt-get install -y nano git libwebp-dev libjpeg-dev libpng-dev libfreetype6-dev vim procps cron zip unzip wget net-tools libzip-dev \
     ## 下载GD扩展
     && docker-php-source extract \
     && cd /usr/src/php/ext/gd \
@@ -44,6 +44,13 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     && mv composer.phar /usr/local/bin/composer \
     ## 修改composer镜像
     && composer config -g repo.packagist composer https://mirrors.aliyun.com/composer
+#    ## GIT
+#    && git config --global core.autocrlf input \
+#    && git config --global alias.s status \
+#    && git config --global alias.b branch \
+#    && git config --global alias.c checkout \
+#    && git config --global alias.p pull \
+#    && git config --global alias.d diff \
 
 EXPOSE 18306
 #  apt-get install sudo
