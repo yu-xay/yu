@@ -27,7 +27,7 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     ## && docker-php-ext-configure gd --with-webp=/usr/include/webp --with-jpeg=/usr/include --with-freetype=/usr/include/freetype2 \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/ \
     && docker-php-ext-install gd \
-    ######################################################## reids
+    ######################################################## redis
     && curl -L -o /tmp/redis.tar.gz https://master.dl.sourceforge.net/project/yu-download/extensions/phpredis-5.3.7.tar.gz?viasf=1 \
     ## && curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/5.3.7.tar.gz \
     && tar xfz /tmp/redis.tar.gz \
@@ -35,11 +35,11 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     && mv phpredis-5.3.7 /usr/src/php/ext/redis \
     && docker-php-ext-install redis \
     ######################################################## swoole
-    && curl -L -o /tmp/swoole-src.tar.gz https://master.dl.sourceforge.net/project/yu-download/extensions/swoole-src-4.8.11.tar.gz?viasf=1 \
-    ## && curl -L -o /tmp/swoole-src.tar.gz https://github.com/swoole/swoole-src/archive/v4.8.11.tar.gz \
+    && curl -L -o /tmp/swoole-src.tar.gz https://master.dl.sourceforge.net/project/yu-download/extensions/swoole-src-4.8.12.tar.gz?viasf=1 \
+    ## && curl -L -o /tmp/swoole-src.tar.gz https://github.com/swoole/swoole-src/archive/v4.8.12.tar.gz \
     && tar xfz /tmp/swoole-src.tar.gz \
     && rm -r /tmp/swoole-src.tar.gz \
-    && mv swoole-src-4.8.11 /usr/src/php/ext/swoole \
+    && mv swoole-src-4.8.12 /usr/src/php/ext/swoole \
     && docker-php-ext-install swoole \
     ## find /* -name php-config
     ## && cp /usr/src/php/ext/openssl/config0.m4 /usr/src/php/ext/openssl/config.m4 \
@@ -62,7 +62,7 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     && git config --global alias.d diff \
     ######################################################## composer
     && wget https://master.dl.sourceforge.net/project/yu-download/extensions/composer.phar?viasf=1 -O composer.phar \
-    ## && wget https://github.com/composer/composer/releases/download/2.3.10/composer.phar \
+    ## && wget https://github.com/composer/composer/releases/download/2.4.4/composer.phar \
     && chmod u+x composer.phar \
     && mv composer.phar /usr/local/bin/composer \
     && composer config -g repo.packagist composer https://mirrors.aliyun.com/composer
