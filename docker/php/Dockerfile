@@ -20,7 +20,7 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     ## 安装系统工具 #####
     && apt-get install -y nano libwebp-dev libjpeg-dev libpng-dev libfreetype6-dev vim procps cron zip unzip wget net-tools libzip-dev \
     ## 安装PHP扩展
-    && docker-php-ext-install pdo pdo_mysql bcmath pcntl zip \
+    && docker-php-ext-install mysqli pdo pdo_mysql bcmath pcntl zip \
     ######################################################## GD \
     && docker-php-source extract \
     && cd /usr/src/php/ext/gd \

@@ -22,9 +22,10 @@ services:
   #    - PMA_USER=root
   #    - PMA_PASSWORD=123456
   #center:
-  #  image: centos:7
-  #  tty: true
+  #  build: centos
   #  container_name: yu-centos
+  #  privileged: true
+  #  tty: true
   #  stdin_open: true
   redis:
     image: redis:alpine
