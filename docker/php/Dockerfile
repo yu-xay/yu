@@ -5,15 +5,15 @@ COPY . /usr/local/etc/php/conf.d/
 # https://sourceforge.net/projects/yu-download/files/ account.sakura-a pass.0182
 RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     ##### 更换镜像 #####
-    && echo " " > /etc/apt/sources.list \
-    && echo "deb http://mirrors.ustc.edu.cn/debian/ buster main contrib non-free " >> /etc/apt/sources.list \
-    && echo "deb http://mirrors.ustc.edu.cn/debian/ buster-updates main contrib non-free " >> /etc/apt/sources.list \
-    && echo "deb http://mirrors.ustc.edu.cn/debian/ buster-backports main contrib non-free " >> /etc/apt/sources.list \
-    && echo "deb http://mirrors.ustc.edu.cn/debian-security/ buster/updates main contrib non-free " >> /etc/apt/sources.list \
-    && echo "deb-src http://mirrors.ustc.edu.cn/debian/ buster main contrib non-free " >> /etc/apt/sources.list \
-    && echo "deb-src http://mirrors.ustc.edu.cn/debian/ buster-updates main contrib non-free " >> /etc/apt/sources.list \
-    && echo "deb-src http://mirrors.ustc.edu.cn/debian/ buster-backports main contrib non-free " >> /etc/apt/sources.list \
-    && echo "deb-src http://mirrors.ustc.edu.cn/debian-security/ buster/updates main contrib non-free " >> /etc/apt/sources.list \
+    #    && echo " " > /etc/apt/sources.list \
+    #    && echo "deb http://mirrors.ustc.edu.cn/debian/ buster main contrib non-free " >> /etc/apt/sources.list \
+    #    && echo "deb http://mirrors.ustc.edu.cn/debian/ buster-updates main contrib non-free " >> /etc/apt/sources.list \
+    #    && echo "deb http://mirrors.ustc.edu.cn/debian/ buster-backports main contrib non-free " >> /etc/apt/sources.list \
+    #    && echo "deb http://mirrors.ustc.edu.cn/debian-security/ buster/updates main contrib non-free " >> /etc/apt/sources.list \
+    #    && echo "deb-src http://mirrors.ustc.edu.cn/debian/ buster main contrib non-free " >> /etc/apt/sources.list \
+    #    && echo "deb-src http://mirrors.ustc.edu.cn/debian/ buster-updates main contrib non-free " >> /etc/apt/sources.list \
+    #    && echo "deb-src http://mirrors.ustc.edu.cn/debian/ buster-backports main contrib non-free " >> /etc/apt/sources.list \
+    #    && echo "deb-src http://mirrors.ustc.edu.cn/debian-security/ buster/updates main contrib non-free " >> /etc/apt/sources.list \
     && apt-get update \
     && apt-get -y upgrade \
     && apt-get clean \
