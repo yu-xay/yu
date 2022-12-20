@@ -1,32 +1,32 @@
 version: "3.1"
 services:
-  openjdk:
-    image: openjdk:17
-    tty: true
-    stdin_open: true
-    container_name: yu-openjdk
-    working_dir: /application
-    volumes:
-      - ../../:/application
-    ports:
-      - "8080:8080"
-  phpmyadmin:
-    image: phpmyadmin:latest
-    container_name: yu-phpmyadmin
-    ports:
-      - "3000:80"
-    environment:
-      - PMA_ARBITRARY=1
-      - PMA_HOST=mysql
-      - PMA_PORT=3306
-      - PMA_USER=root
-      - PMA_PASSWORD=123456
-  center:
-    build: centos
-    container_name: yu-centos
-    privileged: true
-    tty: true
-    stdin_open: true
+  #openjdk:
+  #  image: openjdk:17
+  #  tty: true
+  #  stdin_open: true
+  #  container_name: yu-openjdk
+  #  working_dir: /application
+  #  volumes:
+  #    - ../../:/application
+  #  ports:
+  #    - "8080:8080"
+  #phpmyadmin:
+  #  image: phpmyadmin:latest
+  #  container_name: yu-phpmyadmin
+  #  ports:
+  #    - "3000:80"
+  #  environment:
+  #    - PMA_ARBITRARY=1
+  #    - PMA_HOST=mysql
+  #    - PMA_PORT=3306
+  #    - PMA_USER=root
+  #    - PMA_PASSWORD=123456
+  #center:
+  #  build: centos
+  #  container_name: yu-centos
+  #  privileged: true
+  #  tty: true
+  #  stdin_open: true
   redis:
     image: redis:alpine
     container_name: yu-redis
