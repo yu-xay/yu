@@ -7,7 +7,7 @@ ARG DEBIAN=buster
 ARG REDIS=5.3.7
 ARG SWOOLE=4.8.12
 ARG IMAGICK=3.7.0
-ARG COMPOSER=2.4.4
+ARG COMPOSER=2.5.0
 
 COPY . /usr/local/etc/php/conf.d/
 # https://sourceforge.net/projects/yu-download/files/ account.sakura-a pass.0182
