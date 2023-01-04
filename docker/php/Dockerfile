@@ -71,8 +71,8 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     && git config --global alias.c checkout \
     && git config --global alias.p pull \
     && git config --global alias.d diff \
-    #################### 安装composer ####################
-    && wget https://ghproxy.com/https://github.com//composer/releases/download/${COMPOSER}/composer.phar \
+    #################### 安装composer #################### \
+    && wget https://ghproxy.com/https://github.com/composer/composer/releases/download/${COMPOSER}/composer.phar \
     ## && wget https://master.dl.sourceforge.net/project/yu-download/extensions/composer.phar?viasf=1 -O composer.phar \
     && chmod u+x composer.phar \
     && mv composer.phar /usr/local/bin/composer \
