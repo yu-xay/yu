@@ -4,12 +4,14 @@ WORKDIR "/application"
 ## @see http://mirrors.ustc.edu.cn/help
 ## https://sourceforge.net/projects/yu-download/files/ account.sakura-a pass.0182
 # ARG DEBIAN=bullseye
-# ARG SWOOLE=5.0.1
+# ARG SWOOLE=5.0.2
+# ARG XDEBUG=3.2.0
 ARG DEBIAN=buster
-ARG SWOOLE=4.8.12
+ARG SWOOLE=4.8.13
+ARG XDEBUG=3.1.6
 ARG REDIS=5.3.7
 ARG IMAGICK=3.7.0
-ARG COMPOSER=2.5.1
+ARG COMPOSER=2.5.5
 
 COPY . /usr/local/etc/php/conf.d/
 RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
@@ -30,6 +32,8 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     && apt-get clean \
     #################### 安装系统工具 ####################
     && apt-get install -y nano libwebp-dev libjpeg-dev libpng-dev libfreetype6-dev vim procps cron zip unzip wget net-tools libzip-dev \
+    && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+    && echo 'Asia/Shanghai' >> /etc/timezone \
     #################### 安装PHP扩展 ####################
     && docker-php-ext-install mysqli pdo pdo_mysql bcmath pcntl zip \
     #################### 安装GD扩展 ####################
@@ -45,16 +49,6 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     && rm -r /tmp/redis.tar.gz \
     && mv phpredis-${REDIS} /usr/src/php/ext/redis \
     && docker-php-ext-install redis \
-    #################### 安装Swoole扩展 ####################
-    && curl -L -o /tmp/swoole-src.tar.gz https://ghproxy.com/https://github.com/swoole/swoole-src/archive/v${SWOOLE}.tar.gz \
-    ## && curl -L -o /tmp/swoole-src.tar.gz https://master.dl.sourceforge.net/project/yu-download/extensions/swoole-src-${SWOOLE}.tar.gz?viasf=1 \
-    && tar xfz /tmp/swoole-src.tar.gz \
-    && rm -r /tmp/swoole-src.tar.gz \
-    && mv swoole-src-${SWOOLE} /usr/src/php/ext/swoole \
-    && docker-php-ext-install swoole \
-    ## find /* -name php-config
-    ## && cp /usr/src/php/ext/openssl/config0.m4 /usr/src/php/ext/openssl/config.m4 \
-    ## && cd /usr/src/php/ext/swoole && phpize && ./configure --with-php-config=/usr/local/bin/php-config && make && make install
     #################### 安装imagick扩展 ####################
     && apt-get install -y imagemagick libmagickwand-dev libmagickcore-dev \
     && curl -L -o /tmp/imagick.tar.gz https://ghproxy.com/https://github.com/Imagick/imagick/archive/refs/tags/${IMAGICK}.tar.gz \
@@ -63,6 +57,19 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     && rm -r /tmp/imagick.tar.gz \
     && mv imagick-${IMAGICK} /usr/src/php/ext/imagick \
     && docker-php-ext-install imagick \
+    #################### 安装Swoole扩展 ####################
+    && curl -L -o /tmp/swoole-src.tar.gz https://ghproxy.com/https://github.com/swoole/swoole-src/archive/v${SWOOLE}.tar.gz \
+    ## && curl -L -o /tmp/swoole-src.tar.gz https://master.dl.sourceforge.net/project/yu-download/extensions/swoole-src-${SWOOLE}.tar.gz?viasf=1 \
+    && tar xfz /tmp/swoole-src.tar.gz \
+    && rm -r /tmp/swoole-src.tar.gz \
+    && mv swoole-src-${SWOOLE} /usr/src/php/ext/swoole \
+    && docker-php-ext-install swoole \
+    #################### 安装Xdebug扩展 ####################
+    && curl -L -o /tmp/xdebug-${XDEBUG}.tar https://xdebug.org/files/xdebug-${XDEBUG}.tgz \
+    && tar xfz /tmp/xdebug-${XDEBUG}.tar \
+    && rm -r /tmp/xdebug-${XDEBUG}.tar \
+    && mv xdebug-${XDEBUG} /usr/src/php/ext/xdebug \
+    && docker-php-ext-install xdebug \
     #################### 修改GIF别名 ####################
     && apt-get install -y nano git \
     && git config --global core.autocrlf input \
@@ -79,9 +86,7 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     && composer config -g repo.packagist composer https://mirrors.aliyun.com/composer
 
 EXPOSE 18306
-## 下载Xdebug扩展
-#    && curl -L -o /tmp/xdebug-3.1.5.tar https://xdebug.org/files/xdebug-3.1.5.tgz \
-#    && tar xfz /tmp/xdebug-3.1.5.tar \
-#    && rm -r /tmp/xdebug-3.1.5.tar \
-#    && mv xdebug-3.1.5 /usr/src/php/ext/xdebug \
-#    && docker-php-ext-install xdebug \
+    ## 手动编译安装
+    ## find /* -name php-config
+    ## && cp /usr/src/php/ext/openssl/config0.m4 /usr/src/php/ext/openssl/config.m4 \
+    ## && cd /usr/src/php/ext/swoole && phpize && ./configure --with-php-config=/usr/local/bin/php-config && make && make install

@@ -27,6 +27,11 @@ services:
   #  privileged: true
   #  tty: true
   #  stdin_open: true
+  #redislabs:
+  #  image: redislabs/redisinsight:latest
+  #  container_name: yu-redislabs
+  #  ports:
+  #    - "5000:8001"
   redis:
     image: redis:alpine
     container_name: yu-redis
