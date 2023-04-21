@@ -1,7 +1,5 @@
 # yu
 待处理文档
-- php攻击（6种攻击详解）~
-
 - ORM 对象关系映射工具
 - ftp 和 sftp
 + [蚂蚁支付](https://pay.weixin.qq.com/wiki/doc/api/index.html)

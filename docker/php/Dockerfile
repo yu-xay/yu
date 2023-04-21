@@ -7,11 +7,11 @@ WORKDIR "/application"
 # ARG SWOOLE=5.0.2
 # ARG XDEBUG=3.2.0
 ARG DEBIAN=buster
-ARG SWOOLE=4.8.12
+ARG SWOOLE=4.8.13
 ARG XDEBUG=3.1.6
 ARG REDIS=5.3.7
 ARG IMAGICK=3.7.0
-ARG COMPOSER=2.5.4
+ARG COMPOSER=2.5.5
 
 COPY . /usr/local/etc/php/conf.d/
 RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
