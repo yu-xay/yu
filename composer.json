@@ -15,7 +15,7 @@
     },
     "autoload": {
         "files": [
-            "test/functions.php"
+            "helpers/functions.php"
         ],
         "psr-4": {
             "DesignMode\\": "demo/designMode"

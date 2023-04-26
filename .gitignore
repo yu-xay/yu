@@ -1,7 +1,5 @@
 .idea
 /vendor/
 /.idea/
-/blog/
 /bd/
-/job/
 /npm/node_modules/

@@ -2,10 +2,10 @@ FROM php:7.2-fpm
 WORKDIR "/application"
 
 ## @see http://mirrors.ustc.edu.cn/help
-## https://sourceforge.net/projects/yu-download/files/ account.sakura-a pass.0182
+## https://yu-download.sourceforge.io/ account.sakura-a pass.0182
 # ARG DEBIAN=bullseye
 # ARG SWOOLE=5.0.2
-# ARG XDEBUG=3.2.0
+# ARG XDEBUG=3.2.1
 ARG DEBIAN=buster
 ARG SWOOLE=4.8.13
 ARG XDEBUG=3.1.6
@@ -31,7 +31,7 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     && apt-get -y upgrade \
     && apt-get clean \
     #################### 安装系统工具 ####################
-    && apt-get install -y nano libwebp-dev libjpeg-dev libpng-dev libfreetype6-dev vim procps cron zip unzip wget net-tools libzip-dev \
+    && apt-get install -y systemd nano libwebp-dev libjpeg-dev libpng-dev libfreetype6-dev vim procps cron zip unzip wget net-tools libzip-dev \
     && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo 'Asia/Shanghai' >> /etc/timezone \
     #################### 安装PHP扩展 ####################
@@ -71,7 +71,7 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     && mv xdebug-${XDEBUG} /usr/src/php/ext/xdebug \
     && docker-php-ext-install xdebug \
     #################### 修改GIF别名 ####################
-    && apt-get install -y nano git \
+    && apt-get install -y git \
     && git config --global core.autocrlf input \
     && git config --global alias.s status \
     && git config --global alias.b branch \
