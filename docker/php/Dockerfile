@@ -2,9 +2,9 @@ FROM php:7.2-fpm
 WORKDIR "/application"
 
 ## @see http://mirrors.ustc.edu.cn/help
-## https://yu-download.sourceforge.io/ account.sakura-a pass.0182
+## https://sourceforge.net/projects/yu-x/ account.sakura-a pass.0182
 # ARG DEBIAN=bullseye
-# ARG SWOOLE=5.0.2
+# ARG SWOOLE=5.0.3
 # ARG XDEBUG=3.2.1
 ARG DEBIAN=buster
 ARG SWOOLE=4.8.13
@@ -30,6 +30,7 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     && apt-get update \
     && apt-get -y upgrade \
     && apt-get clean \
+    && rm -r /bin/sh && ln -s /bin/bash /bin/sh \
     #################### 安装系统工具 ####################
     && apt-get install -y systemd nano libwebp-dev libjpeg-dev libpng-dev libfreetype6-dev vim procps cron zip unzip wget net-tools libzip-dev \
     && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
@@ -78,12 +79,15 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     && git config --global alias.c checkout \
     && git config --global alias.p pull \
     && git config --global alias.d diff \
+    && git config --global pull.rebase false \
+    && git config --global core.autocrlf input \
     #################### 安装composer #################### \
     && wget https://ghproxy.com/https://github.com/composer/composer/releases/download/${COMPOSER}/composer.phar \
     ## && wget https://master.dl.sourceforge.net/project/yu-download/extensions/composer.phar?viasf=1 -O composer.phar \
     && chmod u+x composer.phar \
     && mv composer.phar /usr/local/bin/composer \
-    && composer config -g repo.packagist composer https://mirrors.aliyun.com/composer
+    ## composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
+    && composer config -g repo.packagist composer https://mirrors.cloud.tencent.com/composer/
 
 EXPOSE 18306
     ## 手动编译安装

@@ -1,23 +1,24 @@
-### 更换源
-
-+ cp /etc/apt/sources.list /etc/apt/sources.list.backup
-+ cp sources.list /etc/apt/sources.list
-+ sudo apt-get update
-
-### GIT
-
-+ git config --global core.autocrlf input
-
 ### 安装nodejs npm
++ [nodejs + npm](https://nodejs.org/en/download)
 
-+ http://nodejs.cn/download/ 安装nodejs npm
-+ wget https://npm.taobao.org/mirrors/node/v18.13.0/node-v18.13.0-linux-x64.tar.xz
-+ sudo apt remove npm
-+ sudo apt remove node
-+ cd /usr/local/bin
-+ tar -xJf node-v18.13.0-linux-x64.tar.xz -C /opt
-+ sudo ln -s /opt/node-v18.13.0-linux-x64/bin/node /usr/bin/node
-+ sudo ln -s /opt/node-v18.13.0-linux-x64/bin/npm /usr/bin/npm
+```
+cd /opt \
+&& version="20.2.0" \
+&& wget https://nodejs.org/dist/v"$version"/node-v"$version"-linux-x64.tar.xz \
+&& tar -xJf node-v"$version"-linux-x64.tar.xz -C ./ \
+&& rm -rf /usr/bin/node \
+&& rm -rf /usr/bin/npm \
+&& rm -rf /opt/node-v"$version"-linux-x64.tar.xz \
+&& sudo ln -s /opt/node-v"$version"-linux-x64/bin/node /usr/bin/node \
+&& sudo ln -s /opt/node-v"$version"-linux-x64/bin/npm /usr/bin/npm \
+&& echo 'install success'
+```
+
+[link](https://blog.csdn.net/weixin_36343850/article/details/79217611)
+```cron
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin 
+* * * * * /application/zjhj_mall_v4/queue.sh
+```
 
 ### 校准时间
 

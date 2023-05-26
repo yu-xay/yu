@@ -61,8 +61,8 @@ services:
       - ./nginx/cert/:/etc/nginx/conf.d/cert/
       - ../../:/application
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-#    depends_on:
-#     - php7.2-fpm
+    #depends_on:
+    # - php7.2-fpm
     ports:
       - "443:443"
       - "80:80"
@@ -74,10 +74,13 @@ services:
     privileged: true
     tty: true
     volumes:
-      - ../../:/application
-      - ./php/php.ini:/usr/local/etc/php/conf.d/php.ini
-      - ./php/php-fpm.conf:/usr/local/etc/php-fpm.d/php-fpm.conf
-#    depends_on:
-#      - redis
-#      - mysql
+       - ../../:/application
+       - ./php/php.ini:/usr/local/etc/php/conf.d/php.ini
+       - ./php/zz-docker.conf:/usr/local/etc/php-fpm.d/zz-docker.conf
+    ports:
+      - "7072:80"
+    # - "7082:80"
+    #depends_on:
+    #  - redis
+    #  - mysql
 
