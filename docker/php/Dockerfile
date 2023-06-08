@@ -11,7 +11,7 @@ ARG SWOOLE=4.8.13
 ARG XDEBUG=3.1.6
 ARG REDIS=5.3.7
 ARG IMAGICK=3.7.0
-ARG COMPOSER=2.5.5
+ARG COMPOSER=2.5.7
 
 COPY . /usr/local/etc/php/conf.d/
 RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
@@ -71,6 +71,16 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     && rm -r /tmp/xdebug-${XDEBUG}.tar \
     && mv xdebug-${XDEBUG} /usr/src/php/ext/xdebug \
     && docker-php-ext-install xdebug \
+    #################### 统一开关 ####################
+    && rm -rf /usr/local/etc/php/conf.d/docker-php-ext-redis.ini \
+    && rm -rf /usr/local/etc/php/conf.d/docker-php-ext-bcmath.ini \
+    && rm -rf /usr/local/etc/php/conf.d/docker-php-ext-swoole.ini \
+    && rm -rf /usr/local/etc/php/conf.d/docker-php-ext-gd.ini \
+    && rm -rf /usr/local/etc/php/conf.d/docker-php-ext-mysqli.ini \
+    && rm -rf /usr/local/etc/php/conf.d/docker-php-ext-pcntl.ini \
+    && rm -rf /usr/local/etc/php/conf.d/docker-php-ext-pdo_mysql.ini \
+    && rm -rf /usr/local/etc/php/conf.d/docker-php-ext-sodium.ini \
+    && rm -rf /usr/local/etc/php/conf.d/docker-php-ext-zip.ini \
     #################### 修改GIF别名 ####################
     && apt-get install -y git \
     && git config --global core.autocrlf input \
