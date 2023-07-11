@@ -11,7 +11,7 @@ ARG SWOOLE=4.8.13
 ARG XDEBUG=3.1.6
 ARG REDIS=5.3.7
 ARG IMAGICK=3.7.0
-ARG COMPOSER=2.5.7
+ARG COMPOSER=2.5.8
 
 COPY . /usr/local/etc/php/conf.d/
 RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \

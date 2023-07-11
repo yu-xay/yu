@@ -3,7 +3,7 @@
 
 ```
 cd /opt \
-&& version="20.2.0" \
+&& version="20.4.0" \
 && wget https://nodejs.org/dist/v"$version"/node-v"$version"-linux-x64.tar.xz \
 && tar -xJf node-v"$version"-linux-x64.tar.xz -C ./ \
 && rm -rf /usr/bin/node \

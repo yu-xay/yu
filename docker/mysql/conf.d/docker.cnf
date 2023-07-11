@@ -28,7 +28,7 @@ default-storage-engine=INNODB
 #错误日志
 #log-error="D:/wamp/bin/mysql/mysql-8.0.21-winx64/data/mysql-error-log.log"
 #通用日志
-general_log=1
+general_log=0
 #通用查询位置
 general_log_file ="/var/lib/mysql/mysql-common.log"
 
@@ -43,7 +43,7 @@ slow_query_log_file="/var/lib/mysql/mysql-long.log"
 log_output="FILE,TABLE"
 
 [mysqld]
-log-bin=mysql-bin
-server-id=3311
-report-host = 127.0.0.1
-report-port=3311
+#log-bin=mysql-bin
+#server-id=3311
+#report-host = 127.0.0.1
+#report-port=3311
