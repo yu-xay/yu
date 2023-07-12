@@ -68,19 +68,27 @@ services:
       - "80:80"
       - "88:88"
   php7.2-fpm:
-    build: php
     container_name: yu-php7.2-fpm
+    build:
+      context: php
+      args:
+        - PHP_VERSION=7.2
+        - SWOOLE=4.8.13
+        - XDEBUG=3.1.6
+        #- PHP_VERSION=8.2
+        #- SWOOLE=5.0.3
+        #- XDEBUG=3.2.1
+        - REDIS=5.3.7
+        - IMAGICK=3.7.0
+        - COMPOSER=2.5.8
     working_dir: /application
     privileged: true
     tty: true
     volumes:
-       - ../../:/application
-       - ./php/php.ini:/usr/local/etc/php/conf.d/php.ini
-       - ./php/zz-docker.conf:/usr/local/etc/php-fpm.d/zz-docker.conf
+      - ../../:/application
+      - ./php/php.ini:/usr/local/etc/php/conf.d/php.ini
+      - ./php/zz-docker.conf:/usr/local/etc/php-fpm.d/zz-docker.conf
     ports:
       - "7072:80"
     # - "7082:80"
-    #depends_on:
-    #  - redis
-    #  - mysql
 

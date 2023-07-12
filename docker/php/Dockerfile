@@ -1,32 +1,27 @@
-FROM php:7.2-fpm
+ARG PHP_VERSION
+FROM php:${PHP_VERSION}-fpm
+
+ARG SWOOLE
+ARG XDEBUG
+ARG REDIS
+ARG IMAGICK
+ARG COMPOSER
+
+## @see https://mirrors.ustc.edu.cn/help/debian.html
+## hhttps://mirrors.ustc.edu.cn/help/debian.htmlttps://sourceforge.net/projects/yu-x/ account.sakura-a pass.
 WORKDIR "/application"
 
-## @see http://mirrors.ustc.edu.cn/help
-## https://sourceforge.net/projects/yu-x/ account.sakura-a pass.0182
-# ARG DEBIAN=bullseye
-# ARG SWOOLE=5.0.3
-# ARG XDEBUG=3.2.1
-ARG DEBIAN=buster
-ARG SWOOLE=4.8.13
-ARG XDEBUG=3.1.6
-ARG REDIS=5.3.7
-ARG IMAGICK=3.7.0
-ARG COMPOSER=2.5.8
-
-COPY . /usr/local/etc/php/conf.d/
-RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
-    ##### 更换镜像 #####
-    && echo " " > /etc/apt/sources.list \
-    && echo "deb http://mirrors.ustc.edu.cn/debian/ ${DEBIAN} main contrib non-free " >> /etc/apt/sources.list \
-    && echo "deb-src http://mirrors.ustc.edu.cn/debian/ ${DEBIAN} main contrib non-free " >> /etc/apt/sources.list \
-    && echo "deb http://mirrors.ustc.edu.cn/debian/ ${DEBIAN}-updates main contrib non-free " >> /etc/apt/sources.list \
-    && echo "deb-src http://mirrors.ustc.edu.cn/debian/ ${DEBIAN}-updates main contrib non-free " >> /etc/apt/sources.list \
-    && echo "deb http://mirrors.ustc.edu.cn/debian/ ${DEBIAN}-backports main contrib non-free " >> /etc/apt/sources.list \
-    && echo "deb-src http://mirrors.ustc.edu.cn/debian/ ${DEBIAN}-backports main contrib non-free " >> /etc/apt/sources.list \
-    ## && echo "deb http://mirrors.ustc.edu.cn/debian-security/ ${DEBIAN}-security main contrib non-free " >> /etc/apt/sources.list \
-    ## && echo "deb-src http://mirrors.ustc.edu.cn/debian-security/ ${DEBIAN}-security main contrib non-free " >> /etc/apt/sources.list \
-    && echo "deb http://mirrors.ustc.edu.cn/debian-security/ ${DEBIAN}/updates main contrib non-free " >> /etc/apt/sources.list \
-    && echo "deb-src http://mirrors.ustc.edu.cn/debian-security/ ${DEBIAN}/updates main contrib non-free " >> /etc/apt/sources.list \
+RUN echo "Building Docker image..." \
+    #################### 更换镜像 ####################
+    && if awk 'BEGIN{exit ARGV[2]>=ARGV[1]}' ${PHP_VERSION} 8.2; then \
+            cp /etc/apt/sources.list.d/debian.sources /etc/apt/sources.list.d/debian.sources.bak; \
+            sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list.d/debian.sources; \
+            sed -i 's|security.debian.org/debian-security|mirrors.ustc.edu.cn/debian-security|g' /etc/apt/sources.list.d/debian.sources; \
+        else \
+            cp /etc/apt/sources.list /etc/apt/sources.list.bak; \
+            sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list; \
+            sed -i 's|security.debian.org/debian-security|mirrors.ustc.edu.cn/debian-security|g' /etc/apt/sources.list; \
+        fi \
     && apt-get update \
     && apt-get -y upgrade \
     && apt-get clean \
@@ -40,8 +35,11 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     #################### 安装GD扩展 ####################
     && docker-php-source extract \
     && cd /usr/src/php/ext/gd \
-    ## && docker-php-ext-configure gd --with-webp=/usr/include/webp --with-jpeg=/usr/include --with-freetype=/usr/include/freetype2 \
-    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/ \
+    && if awk 'BEGIN{exit ARGV[2]>=ARGV[1]}' ${PHP_VERSION} 7.4; then \
+            docker-php-ext-configure gd --with-webp=/usr/include/webp --with-jpeg=/usr/include --with-freetype=/usr/include/freetype2; \
+        else \
+            docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/; \
+        fi \
     && docker-php-ext-install gd \
     #################### 安装Redis扩展 ####################
     && curl -L -o /tmp/redis.tar.gz https://ghproxy.com/https://github.com/phpredis/phpredis/archive/${REDIS}.tar.gz \
@@ -72,6 +70,8 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
     && mv xdebug-${XDEBUG} /usr/src/php/ext/xdebug \
     && docker-php-ext-install xdebug \
     #################### 统一开关 ####################
+    && rm -rf /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && rm -rf /usr/local/etc/php/conf.d/docker-php-ext-imagick.ini \
     && rm -rf /usr/local/etc/php/conf.d/docker-php-ext-redis.ini \
     && rm -rf /usr/local/etc/php/conf.d/docker-php-ext-bcmath.ini \
     && rm -rf /usr/local/etc/php/conf.d/docker-php-ext-swoole.ini \
