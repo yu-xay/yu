@@ -41,6 +41,9 @@ RUN echo "Building Docker image..." \
             docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/; \
         fi \
     && docker-php-ext-install gd \
+    #################### 安装intl扩展 ####################
+    && apt-get install -y libicu-dev \
+    && docker-php-ext-install intl \
     #################### 安装Redis扩展 ####################
     && curl -L -o /tmp/redis.tar.gz https://ghproxy.com/https://github.com/phpredis/phpredis/archive/${REDIS}.tar.gz \
     ## && curl -L -o /tmp/redis.tar.gz https://master.dl.sourceforge.net/project/yu-download/extensions/phpredis-${REDIS}.tar.gz?viasf=1 \
@@ -69,7 +72,8 @@ RUN echo "Building Docker image..." \
     && rm -r /tmp/xdebug-${XDEBUG}.tar \
     && mv xdebug-${XDEBUG} /usr/src/php/ext/xdebug \
     && docker-php-ext-install xdebug \
-    #################### 统一开关 ####################
+    #################### 统一开关 #################### \
+    && rm -rf /usr/local/etc/php/conf.d/docker-php-ext-intl.ini \
     && rm -rf /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && rm -rf /usr/local/etc/php/conf.d/docker-php-ext-imagick.ini \
     && rm -rf /usr/local/etc/php/conf.d/docker-php-ext-redis.ini \

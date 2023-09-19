@@ -21,15 +21,15 @@ services:
   #    - PMA_PORT=3306
   #    - PMA_USER=root
   #    - PMA_PASSWORD=123456
-  #center:
+  #centos:
   #  build: centos
   #  container_name: yu-centos
   #  privileged: true
   #  tty: true
   #  stdin_open: true
-  #redislabs:
+  #redisinsight:
   #  image: redislabs/redisinsight:latest
-  #  container_name: yu-redislabs
+  #  container_name: yu-redisinsight
   #  ports:
   #    - "5000:8001"
   redis:
@@ -80,7 +80,7 @@ services:
         #- XDEBUG=3.2.1
         - REDIS=5.3.7
         - IMAGICK=3.7.0
-        - COMPOSER=2.5.8
+        - COMPOSER=2.6.2
     working_dir: /application
     privileged: true
     tty: true
