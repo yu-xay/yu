@@ -76,7 +76,7 @@ services:
         - PHP_VERSION=7.2
         - SWOOLE=4.8.13
         - XDEBUG=3.1.6
-        #- PHP_VERSION=8.2
+        #- PHP_VERSION=8.3
         #- SWOOLE=5.1.1
         #- XDEBUG=3.3.0
         - REDIS=5.3.7
@@ -91,5 +91,5 @@ services:
       - ./php/zz-docker.conf:/usr/local/etc/php-fpm.d/zz-docker.conf
     ports:
       - "7072:80"
-    # - "7082:80"
+    # - "7083:80"
 
