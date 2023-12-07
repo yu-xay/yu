@@ -1,7 +1,7 @@
 version: "3.1"
 services:
   #openjdk:
-  #  image: openjdk:17
+  #  image: openjdk:21
   #  tty: true
   #  stdin_open: true
   #  container_name: yu-openjdk
@@ -61,6 +61,7 @@ services:
       - ./nginx/cert/:/etc/nginx/conf.d/cert/
       - ../../:/application
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    # openresty/openresty /usr/local/openresty/nginx/conf/nginx.conf
     #depends_on:
     # - php7.2-fpm
     ports:
@@ -76,11 +77,11 @@ services:
         - SWOOLE=4.8.13
         - XDEBUG=3.1.6
         #- PHP_VERSION=8.2
-        #- SWOOLE=5.0.3
-        #- XDEBUG=3.2.1
+        #- SWOOLE=5.1.1
+        #- XDEBUG=3.3.0
         - REDIS=5.3.7
         - IMAGICK=3.7.0
-        - COMPOSER=2.6.2
+        - COMPOSER=2.6.5
     working_dir: /application
     privileged: true
     tty: true
