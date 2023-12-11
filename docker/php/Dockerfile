@@ -14,14 +14,14 @@ WORKDIR "/application"
 RUN echo "Building Docker image..."
 #################### 更换镜像 ####################
 RUN if awk 'BEGIN{exit ARGV[2]>=ARGV[1]}' ${PHP_VERSION} 8.2; then \
-            cp /etc/apt/sources.list.d/debian.sources /etc/apt/sources.list.d/debian.sources.bak; \
-            sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list.d/debian.sources; \
-            sed -i 's|security.debian.org/debian-security|mirrors.ustc.edu.cn/debian-security|g' /etc/apt/sources.list.d/debian.sources; \
-        else \
-            cp /etc/apt/sources.list /etc/apt/sources.list.bak; \
-            sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list; \
-            sed -i 's|security.debian.org/debian-security|mirrors.ustc.edu.cn/debian-security|g' /etc/apt/sources.list; \
-        fi
+        cp /etc/apt/sources.list.d/debian.sources /etc/apt/sources.list.d/debian.sources.bak; \
+        sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list.d/debian.sources; \
+        sed -i 's|security.debian.org/debian-security|mirrors.ustc.edu.cn/debian-security|g' /etc/apt/sources.list.d/debian.sources; \
+     else \
+        cp /etc/apt/sources.list /etc/apt/sources.list.bak; \
+        sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list; \
+        sed -i 's|security.debian.org/debian-security|mirrors.ustc.edu.cn/debian-security|g' /etc/apt/sources.list; \
+     fi
 RUN apt-get update
 RUN apt-get -y upgrade
 RUN apt-get clean
@@ -36,32 +36,31 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql bcmath pcntl zip
 RUN docker-php-source extract
 RUN cd /usr/src/php/ext/gd
 RUN if awk 'BEGIN{exit ARGV[2]>=ARGV[1]}' ${PHP_VERSION} 7.4; then \
-            docker-php-ext-configure gd --with-webp=/usr/include/webp --with-jpeg=/usr/include --with-freetype=/usr/include/freetype2; \
-        else \
-            docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/; \
-        fi
+        docker-php-ext-configure gd --with-webp=/usr/include/webp --with-jpeg=/usr/include --with-freetype=/usr/include/freetype2; \
+    else \
+        docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/; \
+    fi
 RUN docker-php-ext-install gd
 #################### 安装intl扩展 ####################
 RUN apt-get install -y libicu-dev
 RUN docker-php-ext-install intl
 #################### 安装Redis扩展 ####################
-RUN curl -L -o /tmp/redis.tar.gz https://ghproxy.com/https://github.com/phpredis/phpredis/archive/${REDIS}.tar.gz
+RUN curl -L -o /tmp/redis.tar.gz https://mirror.ghproxy.com/https://github.com/phpredis/phpredis/archive/${REDIS}.tar.gz
 ## RUN curl -L -o /tmp/redis.tar.gz https://master.dl.sourceforge.net/project/yu-download/extensions/phpredis-${REDIS}.tar.gz?viasf=1
 RUN tar xfz /tmp/redis.tar.gz
 RUN rm -r /tmp/redis.tar.gz
 RUN mv phpredis-${REDIS} /usr/src/php/ext/redis
 RUN docker-php-ext-install redis
 #################### 安装imagick扩展 ####################
-### https://www.linuxcapable.com/how-to-install-php-imagick-on-debian-linux/
-#    RUN apt-get install -y imagemagick libmagickwand-dev libmagickcore-dev
-#    RUN curl -L -o /tmp/imagick.tar.gz https://ghproxy.com/https://github.com/Imagick/imagick/archive/refs/tags/${IMAGICK}.tar.gz
-#    ## RUN curl -L -o /tmp/imagick.tar.gz https://master.dl.sourceforge.net/project/yu-download/extensions/imagick-${IMAGICK}.tar.gz?viasf=1
-#    RUN tar xfz /tmp/imagick.tar.gz
-#    RUN rm -r /tmp/imagick.tar.gz
-#    RUN mv imagick-${IMAGICK} /usr/src/php/ext/imagick
-#    RUN docker-php-ext-install imagick
+RUN apt-get install -y libmagickwand-dev libmagickcore-dev
+RUN curl -L -o /tmp/imagick.tar.gz https://mirror.ghproxy.com/https://github.com/Imagick/imagick/archive/refs/tags/${IMAGICK}.tar.gz
+## RUN curl -L -o /tmp/imagick.tar.gz https://master.dl.sourceforge.net/project/yu-download/extensions/imagick-${IMAGICK}.tar.gz?viasf=1
+RUN tar xfz /tmp/imagick.tar.gz
+RUN rm -r /tmp/imagick.tar.gz
+RUN mv imagick-${IMAGICK} /usr/src/php/ext/imagick
+RUN docker-php-ext-install imagick
 #################### 安装Swoole扩展 ####################
-RUN curl -L -o /tmp/swoole-src.tar.gz https://ghproxy.com/https://github.com/swoole/swoole-src/archive/v${SWOOLE}.tar.gz
+RUN curl -L -o /tmp/swoole-src.tar.gz https://mirror.ghproxy.com/https://github.com/swoole/swoole-src/archive/v${SWOOLE}.tar.gz
 ## RUN curl -L -o /tmp/swoole-src.tar.gz https://master.dl.sourceforge.net/project/yu-download/extensions/swoole-src-${SWOOLE}.tar.gz?viasf=1
 RUN tar xfz /tmp/swoole-src.tar.gz
 RUN rm -r /tmp/swoole-src.tar.gz
@@ -97,7 +96,7 @@ RUN git config --global alias.d diff
 RUN git config --global pull.rebase false
 RUN git config --global core.autocrlf input
 #################### 安装composer ####################
-RUN wget https://ghproxy.com/https://github.com/composer/composer/releases/download/${COMPOSER}/composer.phar
+RUN wget https://mirror.ghproxy.com/https://github.com/composer/composer/releases/download/${COMPOSER}/composer.phar
 ## RUN wget https://master.dl.sourceforge.net/project/yu-download/extensions/composer.phar?viasf=1 -O composer.phar
 RUN chmod u+x composer.phar
 RUN mv composer.phar /usr/local/bin/composer
