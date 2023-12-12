@@ -7,8 +7,8 @@ ARG REDIS
 ARG IMAGICK
 ARG COMPOSER
 
-## @see https://mirrors.ustc.edu.cn/help/debian.html0
-## https://mirrors.ustc.edu.cn/help/debian.htmlttps://sourceforge.net/projects/yu-x/ account.sakura-a pass.
+## Debian镜像 https://mirrors.ustc.edu.cn/help/debian.html
+## sourceforge下载源 https://sourceforge.net/projects/yu-download/files/ account.sakura-a pass.0182
 WORKDIR "/application"
 
 RUN echo "Building Docker image..."
@@ -105,6 +105,6 @@ RUN composer config -g repo.packagist composer https://mirrors.cloud.tencent.com
 
 EXPOSE 18306
     ## 手动编译安装
-    ## find /* -name php-config
-    ## && cp /usr/src/php/ext/openssl/config0.m4 /usr/src/php/ext/openssl/config.m4 \
-    ## && cd /usr/src/php/ext/swoole && phpize && ./configure --with-php-config=/usr/local/bin/php-config && make && make install
+    ## RUN find /* -name php-config
+    ## RUN cp /usr/src/php/ext/openssl/config0.m4 /usr/src/php/ext/openssl/config.m4
+    ## RUN cd /usr/src/php/ext/swoole && phpize && ./configure --with-php-config=/usr/local/bin/php-config && make && make install

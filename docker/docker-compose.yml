@@ -28,10 +28,10 @@ services:
   #  tty: true
   #  stdin_open: true
   #redisinsight:
-  #  image: redislabs/redisinsight:latest
+  #  image: oblakstudio/redisinsight:latest
   #  container_name: yu-redisinsight
   #  ports:
-  #    - "5000:8001"
+  #    - "5000:5000"
   redis:
     image: redis:alpine
     container_name: yu-redis
@@ -81,7 +81,7 @@ services:
         #- XDEBUG=3.3.0
         - REDIS=5.3.7
         - IMAGICK=3.7.0
-        - COMPOSER=2.6.5
+        - COMPOSER=2.6.6
     working_dir: /application
     privileged: true
     tty: true
