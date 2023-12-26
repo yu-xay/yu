@@ -78,8 +78,8 @@ services:
         - XDEBUG=3.1.6
         #- PHP_VERSION=8.3
         #- SWOOLE=5.1.1
-        #- XDEBUG=3.3.0
-        - REDIS=5.3.7
+        #- XDEBUG=3.3.1
+        - REDIS=6.0.2
         - IMAGICK=3.7.0
         - COMPOSER=2.6.6
     working_dir: /application
