@@ -31,7 +31,16 @@ services:
   #  image: oblakstudio/redisinsight:latest
   #  container_name: yu-redisinsight
   #  ports:
-  #    - "5000:5000"
+  #    - "5540:5540"
+  #qinglong:
+  #  image: whyour/qinglong:latest
+  #  container_name: yu-qinglong
+  #  volumes:
+  #    - ./qinglong/data/:/ql/data/
+  #  ports:
+  #    - "0.0.0.0:5700:5700"
+  #  environment:
+  #    - QlPort=5700
   redis:
     image: redis:alpine
     container_name: yu-redis
@@ -77,11 +86,11 @@ services:
         - SWOOLE=4.8.13
         - XDEBUG=3.1.6
         #- PHP_VERSION=8.3
-        #- SWOOLE=5.1.1
+        #- SWOOLE=5.1.2
         #- XDEBUG=3.3.1
         - REDIS=6.0.2
         - IMAGICK=3.7.0
-        - COMPOSER=2.6.6
+        - COMPOSER=2.7.1
     working_dir: /application
     privileged: true
     tty: true
