@@ -3,3 +3,5 @@
 /.idea/
 /bd/
 /npm/node_modules/
+.fleet/
+C/
