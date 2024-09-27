@@ -13,7 +13,7 @@ services:
   #  image: phpmyadmin:latest
   #  container_name: yu-phpmyadmin
   #  ports:
-  #    - "3000:80"
+  #    - "5000:80"
   #  environment:
   #    - PMA_ARBITRARY=1
   #    - PMA_HOST=mysql
@@ -25,6 +25,15 @@ services:
   #  container_name: yu-redisinsight
   #  ports:
   #    - "5540:5540"
+  # 音乐标签添加
+  #music_tag_web:
+  #  image: xhongc/music_tag_web:latest
+  #  container_name: yu-music_tag_web
+  #  volumes:
+  #    - ./music_tag_web/music:/app/media/
+  #    - ./music_tag_web/config:/app/data/
+  #  ports:
+  #    - "8001:8001"
   #qinglong:
   #  image: whyour/qinglong:latest
   #  container_name: yu-qinglong
@@ -54,7 +63,7 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=123456
     ports:
-      - "3311:3306"
+      - "5306:3306"
   nginx:
     image: nginx:latest
     container_name: yu-nginx
@@ -79,11 +88,11 @@ services:
         - SWOOLE=4.8.13
         - XDEBUG=3.1.6
         #- PHP_VERSION=8.3
-        #- SWOOLE=5.1.3
+        #- SWOOLE=5.1.4
         #- XDEBUG=3.3.2
         - REDIS=6.0.2
         - IMAGICK=3.7.0
-        - COMPOSER=2.7.7
+        - COMPOSER=2.7.9
     working_dir: /application
     privileged: true
     tty: true
