@@ -88,11 +88,11 @@ services:
         - XDEBUG=3.1.6
         - REDIS=6.0.2
         #- PHP_VERSION=8.4
-        #- SWOOLE=6.0.0-rc1 #>=php8.0
-        #- XDEBUG=3.4.0beta1 #>=php8.4
+        #- SWOOLE=6.0.1 #>=php8.0
+        #- XDEBUG=3.4.1 #>=php8.4
         #- REDIS=6.1.0 #>=php7.4
         - IMAGICK=3.7.0
-        - COMPOSER=2.8.3
+        - COMPOSER=2.8.6
     working_dir: /application
     privileged: true
     tty: true
