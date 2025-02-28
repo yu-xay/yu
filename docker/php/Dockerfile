@@ -45,7 +45,7 @@ RUN docker-php-ext-install gd
 RUN apt-get install -y libicu-dev
 RUN docker-php-ext-install intl
 #################### 安装Redis扩展 ####################
-RUN curl -L -o /tmp/redis.tar.gz https://mirror.ghproxy.com/https://github.com/phpredis/phpredis/archive/${REDIS}.tar.gz
+RUN curl -L -o /tmp/redis.tar.gz https://ghfast.top/https://github.com/phpredis/phpredis/archive/${REDIS}.tar.gz
 ## RUN curl -L -o /tmp/redis.tar.gz https://master.dl.sourceforge.net/project/yu-download/extensions/phpredis-${REDIS}.tar.gz?viasf=1
 RUN tar xfz /tmp/redis.tar.gz
 RUN rm -r /tmp/redis.tar.gz
@@ -53,14 +53,14 @@ RUN mv phpredis-${REDIS} /usr/src/php/ext/redis
 RUN docker-php-ext-install redis
 #################### 安装imagick扩展 ####################
 RUN apt-get install -y libmagickwand-dev libmagickcore-dev
-RUN curl -L -o /tmp/imagick.tar.gz https://mirror.ghproxy.com/https://github.com/Imagick/imagick/archive/refs/tags/${IMAGICK}.tar.gz
+RUN curl -L -o /tmp/imagick.tar.gz https://ghfast.top/https://github.com/Imagick/imagick/archive/refs/tags/${IMAGICK}.tar.gz
 ## RUN curl -L -o /tmp/imagick.tar.gz https://master.dl.sourceforge.net/project/yu-download/extensions/imagick-${IMAGICK}.tar.gz?viasf=1
 RUN tar xfz /tmp/imagick.tar.gz
 RUN rm -r /tmp/imagick.tar.gz
 RUN mv imagick-${IMAGICK} /usr/src/php/ext/imagick
 RUN docker-php-ext-install imagick
 #################### 安装Swoole扩展 ####################
-RUN curl -L -o /tmp/swoole-src.tar.gz https://mirror.ghproxy.com/https://github.com/swoole/swoole-src/archive/v${SWOOLE}.tar.gz
+RUN curl -L -o /tmp/swoole-src.tar.gz https://ghfast.top/https://github.com/swoole/swoole-src/archive/v${SWOOLE}.tar.gz
 ## RUN curl -L -o /tmp/swoole-src.tar.gz https://master.dl.sourceforge.net/project/yu-download/extensions/swoole-src-${SWOOLE}.tar.gz?viasf=1
 RUN tar xfz /tmp/swoole-src.tar.gz
 RUN rm -r /tmp/swoole-src.tar.gz
@@ -96,7 +96,7 @@ RUN git config --global alias.d diff
 RUN git config --global pull.rebase false
 RUN git config --global core.autocrlf input
 #################### 安装composer ####################
-RUN wget https://mirror.ghproxy.com/https://github.com/composer/composer/releases/download/${COMPOSER}/composer.phar
+RUN wget https://ghfast.top/https://github.com/composer/composer/releases/download/${COMPOSER}/composer.phar
 ## RUN wget https://master.dl.sourceforge.net/project/yu-download/extensions/composer.phar?viasf=1 -O composer.phar
 RUN chmod u+x composer.phar
 RUN mv composer.phar /usr/local/bin/composer
