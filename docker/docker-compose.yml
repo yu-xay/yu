@@ -42,6 +42,14 @@ services:
   #    - "0.0.0.0:5700:5700"
   #  environment:
   #    - QlPort=5700
+  #vaultwarden:
+  #  image: vaultwarden/server:latest
+  #  container_name: yu-vaultwarden
+  #  volumes:
+  #    - ./vw-data/:/data/
+  #  restart: unless-stopped
+  #  ports:
+  #    - "5080:80"
   redis:
     image: redis:alpine
     container_name: yu-redis
@@ -88,11 +96,11 @@ services:
         - XDEBUG=3.1.6
         - REDIS=6.0.2
         #- PHP_VERSION=8.4
-        #- SWOOLE=6.0.1 #>=php8.0
-        #- XDEBUG=3.4.1 #>=php8.4
-        #- REDIS=6.1.0 #>=php7.4
-        - IMAGICK=3.7.0
-        - COMPOSER=2.8.6
+        #- SWOOLE=6.0.2 #>=php8.0
+        #- XDEBUG=3.4.2 #>=php8.4
+        #- REDIS=6.2.0 #>=php7.4
+        - IMAGICK=3.8.0
+        - COMPOSER=2.8.8
     working_dir: /application
     privileged: true
     tty: true
