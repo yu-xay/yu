@@ -16,7 +16,7 @@ cd /opt \
 
 [link](https://blog.csdn.net/weixin_36343850/article/details/79217611)
 ```cron
-PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin 
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 * * * * * /application/zjhj_mall_v4/queue.sh
 ```
 

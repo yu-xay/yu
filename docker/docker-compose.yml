@@ -1,9 +1,10 @@
+name: yu-docker
 services:
   #openjdk:
   #  image: openjdk:21
   #  tty: true
   #  stdin_open: true
-  #  container_name: yu-openjdk
+  #  container_name: openjdk
   #  working_dir: /application
   #  volumes:
   #    - ../../:/application
@@ -11,7 +12,7 @@ services:
   #    - "8080:8080"
   #phpmyadmin:
   #  image: phpmyadmin:latest
-  #  container_name: yu-phpmyadmin
+  #  container_name: phpmyadmin
   #  ports:
   #    - "5000:80"
   #  environment:
@@ -22,12 +23,12 @@ services:
   #    - PMA_PASSWORD=123456
   #redisinsight:
   #  image: oblakstudio/redisinsight:latest
-  #  container_name: yu-redisinsight
+  #  container_name: redisinsight
   #  ports:
   #    - "5540:5540"
   #music_tag_web:
   #  image: xhongc/music_tag_web:latest
-  #  container_name: yu-music_tag_web
+  #  container_name: music_tag_web
   #  volumes:
   #    - ./music_tag_web/music:/app/media/
   #    - ./music_tag_web/config:/app/data/
@@ -35,7 +36,7 @@ services:
   #    - "8001:8001"
   #qinglong:
   #  image: whyour/qinglong:latest
-  #  container_name: yu-qinglong
+  #  container_name: qinglong
   #  volumes:
   #    - ./qinglong/data/:/ql/data/
   #  ports:
@@ -44,7 +45,7 @@ services:
   #    - QlPort=5700
   #vaultwarden:
   #  image: vaultwarden/server:latest
-  #  container_name: yu-vaultwarden
+  #  container_name: vaultwarden
   #  volumes:
   #    - ./vw-data/:/data/
   #  restart: unless-stopped
@@ -52,7 +53,7 @@ services:
   #    - "5080:80"
   redis:
     image: redis:alpine
-    container_name: yu-redis
+    container_name: redis
     volumes:
       - ./redis/data/:/data/
       - ./redis/conf/redis.conf:/etc/redis/redis.conf
@@ -61,7 +62,7 @@ services:
       - "6379:6379"
   mysql:
     image: mysql:5.7
-    container_name: yu-mysql
+    container_name: mysql
     volumes:
       - ./mysql/conf.d/:/etc/mysql/conf.d/
       - ./mysql/mysql/:/var/lib/mysql/
@@ -73,7 +74,7 @@ services:
       - "5306:3306"
   nginx:
     image: nginx:latest
-    container_name: yu-nginx
+    container_name: nginx
     working_dir: /application
     volumes:
       - ./nginx/cert/:/etc/nginx/conf.d/cert/
@@ -87,7 +88,7 @@ services:
       - "80:80"
       - "88:88"
   php7.2-fpm:
-    container_name: yu-php7.2-fpm
+    container_name: php7.2-fpm
     build:
       context: php
       args:
@@ -97,10 +98,10 @@ services:
         - REDIS=6.0.2
         #- PHP_VERSION=8.4
         #- SWOOLE=6.0.2 #>=php8.0
-        #- XDEBUG=3.4.2 #>=php8.4
+        #- XDEBUG=3.4.5 #>=php8.4
         #- REDIS=6.2.0 #>=php7.4
         - IMAGICK=3.8.0
-        - COMPOSER=2.8.8
+        - COMPOSER=2.8.11
     working_dir: /application
     privileged: true
     tty: true

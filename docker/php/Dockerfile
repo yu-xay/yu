@@ -19,8 +19,8 @@ RUN if awk 'BEGIN{exit ARGV[2]>=ARGV[1]}' ${PHP_VERSION} 8.2; then \
         sed -i 's|security.debian.org/debian-security|mirrors.ustc.edu.cn/debian-security|g' /etc/apt/sources.list.d/debian.sources; \
      else \
         cp /etc/apt/sources.list /etc/apt/sources.list.bak; \
-        sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list; \
-        sed -i 's|security.debian.org/debian-security|mirrors.ustc.edu.cn/debian-security|g' /etc/apt/sources.list; \
+        sed -i 's/deb.debian.org/archive.debian.org/g' /etc/apt/sources.list; \
+        sed -i 's|security.debian.org/debian-security|archive.debian.org/debian-security|g' /etc/apt/sources.list; \
      fi
 RUN apt-get update
 RUN apt-get -y upgrade
