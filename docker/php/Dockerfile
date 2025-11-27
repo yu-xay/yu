@@ -1,4 +1,4 @@
-ARG PHP_VERSION=7.2
+ARG PHP_VERSION
 FROM php:${PHP_VERSION}-fpm
 
 ARG SWOOLE
@@ -44,13 +44,6 @@ RUN docker-php-ext-install -j$(nproc) gd
 #################### 安装intl扩展 ####################
 RUN apt-get install -y --no-install-recommends libicu-dev
 RUN docker-php-ext-install -j$(nproc) intl
-#################### 安装Redis扩展 ####################
-RUN curl -L -o /tmp/redis.tar.gz https://ghfast.top/https://github.com/phpredis/phpredis/archive/${REDIS}.tar.gz
-## RUN curl -L -o /tmp/redis.tar.gz https://master.dl.sourceforge.net/project/yu-download/extensions/phpredis-${REDIS}.tar.gz?viasf=1
-RUN tar xfz /tmp/redis.tar.gz
-RUN rm -r /tmp/redis.tar.gz
-RUN mv phpredis-${REDIS} /usr/src/php/ext/redis
-RUN docker-php-ext-install -j$(nproc) redis
 #################### 安装imagick扩展 ####################
 RUN apt-get install -y --no-install-recommends libmagickwand-dev libmagickcore-dev
 RUN curl -L -o /tmp/imagick.tar.gz https://ghfast.top/https://github.com/Imagick/imagick/archive/refs/tags/${IMAGICK}.tar.gz
@@ -59,6 +52,13 @@ RUN tar xfz /tmp/imagick.tar.gz
 RUN rm -r /tmp/imagick.tar.gz
 RUN mv imagick-${IMAGICK} /usr/src/php/ext/imagick
 RUN docker-php-ext-install -j$(nproc) imagick
+#################### 安装Redis扩展 ####################
+RUN curl -L -o /tmp/redis.tar.gz https://ghfast.top/https://github.com/phpredis/phpredis/archive/${REDIS}.tar.gz
+## RUN curl -L -o /tmp/redis.tar.gz https://master.dl.sourceforge.net/project/yu-download/extensions/phpredis-${REDIS}.tar.gz?viasf=1
+RUN tar xfz /tmp/redis.tar.gz
+RUN rm -r /tmp/redis.tar.gz
+RUN mv phpredis-${REDIS} /usr/src/php/ext/redis
+RUN docker-php-ext-install -j$(nproc) redis
 #################### 安装Swoole扩展 ####################
 RUN curl -L -o /tmp/swoole-src.tar.gz https://ghfast.top/https://github.com/swoole/swoole-src/archive/v${SWOOLE}.tar.gz
 ## RUN curl -L -o /tmp/swoole-src.tar.gz https://master.dl.sourceforge.net/project/yu-download/extensions/swoole-src-${SWOOLE}.tar.gz?viasf=1
