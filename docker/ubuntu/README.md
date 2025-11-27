@@ -8,9 +8,11 @@ cd /opt \
 && tar -xJf node-v"$version"-linux-x64.tar.xz -C ./ \
 && rm -rf /usr/bin/node \
 && rm -rf /usr/bin/npm \
+&& rm -rf /usr/bin/npx \
 && rm -rf /opt/node-v"$version"-linux-x64.tar.xz \
 && sudo ln -s /opt/node-v"$version"-linux-x64/bin/node /usr/bin/node \
 && sudo ln -s /opt/node-v"$version"-linux-x64/bin/npm /usr/bin/npm \
+&& sudo ln -s /opt/node-v"$version"-linux-x64/bin/npx /usr/bin/npx \
 && echo 'install success'
 ```
 
