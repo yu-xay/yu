@@ -73,28 +73,16 @@ RUN rm -r /tmp/xdebug-${XDEBUG}.tar
 RUN mv xdebug-${XDEBUG} /usr/src/php/ext/xdebug
 RUN docker-php-ext-install -j$(nproc) xdebug
 #################### 统一开关 ####################
-RUN rm -rf /usr/local/etc/php/conf.d/docker-php-ext-intl.ini
-RUN rm -rf /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-RUN rm -rf /usr/local/etc/php/conf.d/docker-php-ext-imagick.ini
-RUN rm -rf /usr/local/etc/php/conf.d/docker-php-ext-redis.ini
-RUN rm -rf /usr/local/etc/php/conf.d/docker-php-ext-bcmath.ini
-RUN rm -rf /usr/local/etc/php/conf.d/docker-php-ext-swoole.ini
-RUN rm -rf /usr/local/etc/php/conf.d/docker-php-ext-gd.ini
-RUN rm -rf /usr/local/etc/php/conf.d/docker-php-ext-mysqli.ini
-RUN rm -rf /usr/local/etc/php/conf.d/docker-php-ext-pcntl.ini
-RUN rm -rf /usr/local/etc/php/conf.d/docker-php-ext-pdo_mysql.ini
-RUN rm -rf /usr/local/etc/php/conf.d/docker-php-ext-sodium.ini
-RUN rm -rf /usr/local/etc/php/conf.d/docker-php-ext-zip.ini
-#################### 修改GIF别名 ####################
-RUN apt-get install -y --no-install-recommends git
-RUN git config --global core.autocrlf input
-RUN git config --global alias.s status
-RUN git config --global alias.b branch
-RUN git config --global alias.c checkout
-RUN git config --global alias.p pull
-RUN git config --global alias.d diff
-RUN git config --global pull.rebase false
-RUN git config --global core.autocrlf input
+RUN rm -rf /usr/local/etc/php/conf.d/docker-php-ext-*.ini
+#################### Git配置 ####################
+RUN apt-get install -y --no-install-recommends git && \
+    git config --global core.autocrlf input && \
+    git config --global pull.rebase false && \
+    git config --global alias.s status && \
+    git config --global alias.b branch && \
+    git config --global alias.c checkout && \
+    git config --global alias.p pull && \
+    git config --global alias.d diff
 #################### 安装composer ####################
 RUN wget https://ghfast.top/https://github.com/composer/composer/releases/download/${COMPOSER}/composer.phar
 ## RUN wget https://master.dl.sourceforge.net/project/yu-download/extensions/composer.phar?viasf=1 -O composer.phar
