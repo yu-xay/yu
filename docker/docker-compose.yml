@@ -77,9 +77,10 @@ services:
     container_name: nginx
     working_dir: /application
     volumes:
-      - ./nginx/cert/:/etc/nginx/conf.d/cert/
-      - ../../:/application
+      - ./nginx/cert/:/etc/nginx/cert/
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+      - ../../:/application
     # openresty/openresty /usr/local/openresty/nginx/conf/nginx.conf
     #depends_on:
     # - php7.2-fpm
@@ -97,8 +98,8 @@ services:
         - XDEBUG=3.1.6
         - REDIS=6.0.2
         #- PHP_VERSION=8.4
-        #- SWOOLE=6.1.3 #>=php8.0
-        #- XDEBUG=3.4.7 #>=php8.4
+        #- SWOOLE=6.1.4 #>=php8.0
+        #- XDEBUG=3.5.0 #>=php8.4
         #- REDIS=6.3.0 #>=php7.4
         - IMAGICK=3.8.1
         - COMPOSER=2.9.2
