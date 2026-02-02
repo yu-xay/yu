@@ -12,3 +12,5 @@
    停止所有进程： supervisorctl stop all
    重启特定进程： supervisorctl restart <进程名>
    重启所有进程： supervisorctl restart all 
+# /etc/supervisor/conf.d/*.conf
+# service supervisor start

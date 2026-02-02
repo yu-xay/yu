@@ -95,6 +95,7 @@ RUN composer config -g repo.packagist composer https://mirrors.cloud.tencent.com
 RUN apt-get clean
 RUN docker-php-source delete
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/* /usr/src/php
+CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf"]
 
 EXPOSE 80/tcp
     ## 手动编译安装

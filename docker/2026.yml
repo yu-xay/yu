@@ -9,20 +9,20 @@ services:
     volumes:
       - ./jmeter/:/application/
     entrypoint: [ "tail", "-f", "/dev/null" ]
-  openresty:
-    image: openresty/openresty:latest
-    container_name: openresty
-    working_dir: /application
-    volumes:
-      - ./nginx/cert/:/etc/nginx/cert/
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./nginx/conf.d/:/etc/nginx/conf.d/
-      - ../../:/application
-    ports:
-      - "443:443"
-      - "80:80"
-      - "88:88"
-      - "8001:8001"
+  #openresty:
+  #  image: openresty/openresty:latest
+  #  container_name: openresty
+  #  working_dir: /application
+  #  volumes:
+  #    - ./nginx/cert/:/etc/nginx/cert/
+  #    - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+  #    - ./nginx/conf.d/:/etc/nginx/conf.d/
+  #    - ../../:/application
+  #  ports:
+  #    - "443:443"
+  #    - "80:80"
+  #    - "88:88"
+  #    - "8001:8001"
   redis:
     image: redis:alpine
     container_name: redis
@@ -44,7 +44,7 @@ services:
       - MYSQL_ROOT_PASSWORD=123456
     ports:
       - "5307:3306"
-  nacos-standalone-derby:
+  nacos:
     image: nacos/nacos-server:latest
     container_name: nacos
     environment:
