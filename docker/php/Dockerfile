@@ -28,8 +28,10 @@ RUN rm -r /bin/sh && ln -s /bin/bash /bin/sh
 #################### 安装系统工具 ####################
 RUN apt-get install -y --no-install-recommends nano vim procps cron zip unzip wget net-tools libzip-dev iputils-ping
 RUN ln -snf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo 'Asia/Shanghai' >> /etc/timezone
+#################### 安装Laravel依赖 ####################
+RUN apt-get install -y supervisor
 #################### 安装PHP扩展 ####################
-RUN docker-php-ext-install mysqli pdo pdo_mysql bcmath pcntl zip
+RUN docker-php-ext-install mysqli pdo pdo_mysql bcmath pcntl zip sockets
 #################### 安装GD扩展 ####################
 RUN apt-get install -y --no-install-recommends libwebp-dev libjpeg-dev libpng-dev libfreetype6-dev
 RUN docker-php-source extract

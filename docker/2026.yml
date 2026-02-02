@@ -1,0 +1,108 @@
+name: yu-docker
+services:
+  jmeter:
+    image: alpine/jmeter:latest
+    container_name: jmeter
+    working_dir: /application
+    privileged: true
+    tty: true
+    volumes:
+      - ./jmeter/:/application/
+    entrypoint: [ "tail", "-f", "/dev/null" ]
+  openresty:
+    image: openresty/openresty:latest
+    container_name: openresty
+    working_dir: /application
+    volumes:
+      - ./nginx/cert/:/etc/nginx/cert/
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+      - ../../:/application
+    ports:
+      - "443:443"
+      - "80:80"
+      - "88:88"
+      - "8001:8001"
+  redis:
+    image: redis:alpine
+    container_name: redis
+    volumes:
+      - ./redis/data/:/data/
+      - ./redis/conf/redis.conf:/etc/redis/redis.conf
+    command: [ "redis-server","/etc/redis/redis.conf" ]
+    ports:
+      - "6379:6379"
+  mysql9:
+    image: mysql:9
+    container_name: mysql9
+    volumes:
+      - ./mysql9/conf.d/:/etc/mysql/conf.d/
+      - ./mysql9/mysql/:/var/lib/mysql/
+      - ./mysql9/mysql-files/:/var/lib/mysql-files/
+    privileged: true
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+    ports:
+      - "5307:3306"
+  nacos-standalone-derby:
+    image: nacos/nacos-server:latest
+    container_name: nacos
+    environment:
+      - MODE=standalone
+      - NACOS_AUTH_TOKEN=CK4gbbl/rzk0hNSIReHGEpr/52B39PNbGiOGuJGnRuU=  # 示例：安全的 Base64 编码密钥（解码后正好 32 字节）
+      - NACOS_AUTH_IDENTITY_KEY=mySecureServerKey2025  # 自定义复杂 key（长度随意，但不易猜）
+      - NACOS_AUTH_IDENTITY_VALUE=mySecureServerValue2025  # 自定义复杂 value（与 key 配对）
+    ports:
+      - "8080:8080"
+      - "8848:8848"
+      - "9848:9848"
+    volumes:
+      - ./nacos/data:/home/nacos/data
+      - ./nacos/logs:/home/nacos/logs
+  php7.2-fpm:
+    container_name: php7.2-fpm
+    build:
+      context: php
+      args:
+        - PHP_VERSION=7.2
+        - SWOOLE=4.8.13
+        - XDEBUG=3.1.6
+        - REDIS=6.0.2
+        #- PHP_VERSION=8.4
+        #- SWOOLE=6.1.6 #>=php8.0
+        #- XDEBUG=3.5.0 #>=php8.4 v
+        #- REDIS=6.3.0 #>=php7.4
+        - IMAGICK=3.8.1
+        - COMPOSER=2.9.5
+    working_dir: /application
+    privileged: true
+    tty: true
+    volumes:
+      - ../../:/application/
+      - ./php/php.ini:/usr/local/etc/php/conf.d/php.ini
+      - ./php/zz-docker.conf:/usr/local/etc/php-fpm.d/zz-docker.conf
+      - ./php/supervisor/:/etc/supervisor/
+    ports:
+      - "7072:80"
+    # - "7084:80"
+  php8.4-fpm:
+    container_name: php8.4-fpm
+    build:
+      context: php
+      args:
+        - PHP_VERSION=8.4
+        - SWOOLE=6.1.6 #>=php8.0
+        - XDEBUG=3.5.0 #>=php8.4 v
+        - REDIS=6.3.0 #>=php7.4
+        - IMAGICK=3.8.1
+        - COMPOSER=2.9.5
+    working_dir: /application
+    privileged: true
+    tty: true
+    volumes:
+      - ../../:/application/
+      - ./php/php.ini:/usr/local/etc/php/conf.d/php.ini
+      - ./php/zz-docker.conf:/usr/local/etc/php-fpm.d/zz-docker.conf
+      - ./php/supervisor/:/etc/supervisor/
+    ports:
+      - "7084:80"
