@@ -83,7 +83,7 @@ services:
       - ../../:/application/
     depends_on:
       - php7.2-fpm
-      - php8.4-fpm
+      - php8.5-fpm
     ports:
       - "443:443"
       - "80:80"
@@ -98,9 +98,9 @@ services:
         - SWOOLE=4.8.13
         - XDEBUG=3.1.6
         - REDIS=6.0.2
-        #- PHP_VERSION=8.4
-        #- SWOOLE=6.1.6 #>=php8.0
-        #- XDEBUG=3.5.0 #>=php8.4 v
+        #- PHP_VERSION=8.5
+        #- SWOOLE=6.2.0 #>=php8.5 v
+        #- XDEBUG=3.5.1 #>=php8.4 v
         #- REDIS=6.3.0 #>=php7.4
         - IMAGICK=3.8.1
         - COMPOSER=2.9.5
@@ -114,16 +114,16 @@ services:
       - ./php/supervisor/:/etc/supervisor/
     ports:
       - "7072:80"
-    # - "7084:80"
-  php8.4-fpm:
-    container_name: php8.4-fpm
+    # - "7085:80"
+  php8.5-fpm:
+    container_name: php8.5-fpm
     build:
       context: php
       args:
-        - PHP_VERSION=8.4
-        - SWOOLE=6.1.6 #>=php8.0
-        - XDEBUG=3.5.0 #>=php8.4 v
-        - REDIS=6.3.0 #>=php7.4
+        - PHP_VERSION=8.5
+        - SWOOLE=6.2.0
+        - XDEBUG=3.5.1
+        - REDIS=6.3.0
         - IMAGICK=3.8.1
         - COMPOSER=2.9.5
     working_dir: /application
@@ -135,4 +135,4 @@ services:
       - ./php/zz-docker.conf:/usr/local/etc/php-fpm.d/zz-docker.conf
       - ./php/supervisor/:/etc/supervisor/
     ports:
-      - "7084:80"
+      - "7085:80"

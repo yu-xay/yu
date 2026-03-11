@@ -61,6 +61,7 @@ RUN rm -r /tmp/redis.tar.gz
 RUN mv phpredis-${REDIS} /usr/src/php/ext/redis
 RUN docker-php-ext-install -j$(nproc) redis
 #################### 安装Swoole扩展 ####################
+RUN apt-get install -y --no-install-recommends libssl-dev
 RUN curl -L -o /tmp/swoole-src.tar.gz https://ghfast.top/https://github.com/swoole/swoole-src/archive/v${SWOOLE}.tar.gz
 ## RUN curl -L -o /tmp/swoole-src.tar.gz https://master.dl.sourceforge.net/project/yu-download/extensions/swoole-src-${SWOOLE}.tar.gz?viasf=1
 RUN tar xfz /tmp/swoole-src.tar.gz
